@@ -2,20 +2,21 @@
 
 namespace App\Http\Controllers;
 
-namespace App\Http\Controllers;
+//namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests;
 use Illuminate\Routing\Controller;
-use Illuminate\Support\Facades\Validator;
 use App\Faculty;
+use Illuminate\Support\Facades\Validator;
+
 
 class FacultyController extends Controller
 {
     //
     public function index(){
-    	//$faculties=Faculty::all();
-         $students=App\Faculty::find(1)->students()->where('id',=,'1')->first();
+    	$faculties=Faculty::all();
+         
        	return view('faculties.index',compact('faculties'));
     }
 
@@ -47,6 +48,19 @@ class FacultyController extends Controller
     }
     public function student(){
         
+        $students=App\Faculty::find(1)->students()->where('id','1')->first();
        
+    }
+    public function show($id){
+
+    }
+    public function edit($id){
+
+    } 
+    public function update($id){
+
+    }
+    public function destroy($id){
+
     }
 }

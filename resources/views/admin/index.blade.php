@@ -13,7 +13,7 @@
         </div>
 
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#"><div>Create a student</div></a></li>
+                <li><a href="students/create"><div>Create a student</div></a></li>
             </ul>
 
     </div>
@@ -33,7 +33,7 @@
                 <a href="#"><i class="fa fa-fw fa-home"></i> Home</a>
             </li>
             <li>
-                <a href="prof"><i class="fa fa-fw fa-folder"></i> Personal Info</a>
+                <a href="students"><i class="fa fa-fw fa-folder"></i> Personal Info</a>
             </li>
             <li>
                 <a href="#"><i class="fa fa-fw fa-file-o"></i> School Fees</a>

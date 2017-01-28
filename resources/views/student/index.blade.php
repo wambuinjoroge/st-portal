@@ -9,7 +9,7 @@
 			<td>Admission Number</td>
 			<td>Email</td>
 			<td>Date of Birth</td>
-			<td>Phone number</td>
+			<td>National ID</td>
 		</tr>
 	  </thead>
 	  <tbody>
@@ -19,7 +19,7 @@
 			<td>{{$value->admission_number}}</td>
 			<td>{{$value->email}}</td>
 			<td>{{$value->date_of_birth}}</td>
-			<td>{{$value->phone_number}}</td>
+			<td>{{$value->national_id}}</td>
 		</tr>
 		@endforeach
 	  </tbody>

@@ -2,20 +2,25 @@
 
 namespace App\Http\Controllers;
 
+
+//namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 use App\Student;
 use App\Http\Requests;
+use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Validator;
 
 class StudentsController extends Controller
 {
     //index
     public function index(){
-       // $student=App\Faculty::find(1);
+     
       $students=Student::all();
-      return view('students.index',compact('students'));
+      return view('student.index',compact('students'));
     }
     public function create(){
-       return view('students.create');
+       return view('student.create');
     }
 
     public function store(Request $request){
@@ -39,16 +44,25 @@ class StudentsController extends Controller
     	$student->admission_number=$request->get('admission_number');
     	$student->email=$request->get('email');
     	$student->date_of_birth=$request->get('date_of_birth');
-    	$student->phone_number=$request->get('phone_number');
+    	$student->national_id=$request->get('national_id');
 
     	$student->save();
       
       
-      return redirect('prof');
+      return redirect('students');
 
     }
     public function show($id){
-    	$student=App\Faculty::find(1);
-    	echo $comment->faculty->id;
+     // $student=App\Faculty::find(1);
+    	//echo $comment->faculty->id;
+    }
+    public function edit($id){
+
+    }
+    public function update($id){
+
+    }
+    public function destroy($id){
+
     }
 }
