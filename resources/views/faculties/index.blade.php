@@ -12,7 +12,8 @@
 	 <thead>
 		<tr>
 			<td>Name</td>
-			<td>Head</td>	
+			<td>Head</td>
+			<td>Show Faculty</td>	
 		</tr>
 	 </thead>	
 	  <tbody>
@@ -21,6 +22,9 @@
             <tr>
            	 <td>{{ $value -> name }}</td>
            	 <td>{{ $value -> head }}</td>
+           	 <td>
+           	 	<a href="{{url('faculties/' .$value->id)}}">Show</a>
+           	 </td>
            	</tr> 
          @endforeach
 		

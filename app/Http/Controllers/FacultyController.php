@@ -14,8 +14,8 @@ class FacultyController extends Controller
 {
     //
     public function index(){
-    	//$faculties=Faculty::all();
-         $students=App\Faculty::find(1)->students()->where('id',=,'1')->first();
+    	$faculties=Faculty::all();
+         // $students=App\Faculty::find(1)->students()->where('id',=,'1')->first();
        	return view('faculties.index',compact('faculties'));
     }
 
@@ -45,8 +45,9 @@ class FacultyController extends Controller
     	return redirect('faculties');
 
     }
-    public function student(){
-        
+    public function show($id){
+        $faculty=Faculty::find($id);
+        return view('faculties.show',compact('faculty'));        
        
     }
 }

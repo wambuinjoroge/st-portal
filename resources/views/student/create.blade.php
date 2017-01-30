@@ -24,7 +24,7 @@
         <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRqyEjssB7kTB45JBx-8apvfdbCiIGxQ-NaGmZYtVcD8sbGQiwI4piJw2yf">   
     </main>
       <div class="form-group">
-       <form method="post" action="{{url('/details/create')}}">
+       <form method="post" action="{{url('/students/create')}}">
                
            <label>Name</label>
              <div>
