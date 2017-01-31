@@ -13,7 +13,7 @@
             @endif
 
 <div class="col-md-4"></div>
-
+<div class="pull-right">Create a faculty</div>
 <div class="col-md-4">
 	<form method="post" action="{{url('/faculties')}}" >
     <div class="form-group">

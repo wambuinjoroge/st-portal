@@ -12,7 +12,10 @@
 			<td>Email</td>
 			<td>Date of Birth</td>
 			<td>National ID</td>
+<<<<<<< HEAD
 			<td>Show student</td>
+=======
+>>>>>>> origin/master
 		</tr>
 	  </thead>
 	  <tbody>
@@ -23,12 +26,15 @@
 			<td>{{$value->email}}</td>
 			<td>{{$value->date_of_birth}}</td>
 			<td>{{$value->national_id}}</td>
+<<<<<<< HEAD
 			<td>
 				<a href="{{url('student/'.$value->id)}}">Show student</a>
 				</br>
 				<a href="{{url('/students/'.$value->id.'/edit')}}">Edit</a>
 				<a href="{{url('student/'.$value->id)}}">Delete</a>
 			</td>
+=======
+>>>>>>> origin/master
 		</tr>
 		@endforeach
 	  </tbody>

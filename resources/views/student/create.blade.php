@@ -24,7 +24,11 @@
         <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRqyEjssB7kTB45JBx-8apvfdbCiIGxQ-NaGmZYtVcD8sbGQiwI4piJw2yf">   
     </main>
       <div class="form-group">
+<<<<<<< HEAD
        <form method="post" action="{{url('/students/create')}}" class="form-horizontal">
+=======
+       <form method="post" action="{{url('students')}}">
+>>>>>>> origin/master
                
            <label>Name</label>
              <div>

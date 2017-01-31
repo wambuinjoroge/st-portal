@@ -13,7 +13,7 @@
         </div>
 
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#"><div>Create a student</div></a></li>
+                <li><a href="students/create"><div>Create a student</div></a></li>
             </ul>
 
     </div>

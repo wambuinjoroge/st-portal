@@ -56,6 +56,7 @@ Route::get('/exams/{id}','ExamController@destroy');
 
 //FacultyController
 Route::get('/faculties','FacultyController@index');
+<<<<<<< HEAD
 Route::get('faculties/create','FacultyController@create');
 Route::post('/faculties','FacultyController@store');
 Route::get('faculty/{id}','FacultyController@show');
@@ -71,3 +72,20 @@ Route::get('student/{id}','StudentsController@show');
 Route::get('/students/{id}/edit','StudentsController@edit');
 Route::get('/students/{id}','StudentsController@update');
 Route::get('student/{id}','StudentsController@destroy');
+=======
+Route::get('/faculties/create','FacultyController@create');
+Route::post('/faculties','FacultyController@store');
+Route::get('/faculties/{id}','FacultyController@show');
+Route::get('/faculties/{id}/edit','FacultyController@edit');
+Route::post('/faculties/{id}','FacultyController@update');
+Route::get('/faculties/{id}','FacultyController@destroy');
+
+//studentscontroller
+Route::get('/students','StudentsController@index');
+Route::get('/students/create','StudentsController@create');
+Route::post('/students','StudentsController@store');
+Route::get('/students/{id}','StudentsController@show');
+Route::get('/students/{id}/edit','StudentsController@edit');
+Route::post('/students/{id}','StudentsController@update');
+Route::get('/students/{id}','StudentsController@destroy');
+>>>>>>> origin/master
