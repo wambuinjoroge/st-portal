@@ -39,7 +39,7 @@ class FacultyController extends Controller
 
     	$faculty=new Faculty();
 
-      $faculty->name=$request->get('name');
+        $faculty->name=$request->get('name');
     	$faculty->head=$request->get('head');
 
     	$faculty->save();
@@ -53,6 +53,7 @@ class FacultyController extends Controller
         $faculty=Faculty::find($id);
         // get all students that have similar id of that faculty.
         $students=Student::where('faculty_id',$faculty->id)->get();
+
         return view('faculties.show',compact('faculty','students'));        
        
    }

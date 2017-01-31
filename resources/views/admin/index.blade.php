@@ -42,16 +42,16 @@
                 <a href="{{url('Hostels')}}"><i class="fa fa-fw fa-cog"></i> Hostel Booking</a>
             </li>
             <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-fw fa-plus"></i> Units Registration <span class="caret"></span></a>
-                <ul class="dropdown-menu" role="menu">
-                    <!--<li class="dropdown-header">Dropdown heading</li>-->
-                    <li><a href="{{url('Units')}}">First Year</a></li>
-                    <li><a href="{{url('Units')}}">Second Year</a></li>
-                    <li><a href="{{url('Units')}}">Third Year</a></li>
-                    <li><a href="{{url('Units')}}">Fourth Year</a></li>
-                    <li><a href="{{url('Units')}}"></a></li>
+                <a href="{{url('units/create')}}" ><i class="fa fa-fw fa-plus"></i> Units Registration </a>
+                <!-- <ul class="dropdown-menu" role="menu">
+                class="dropdown-toggle" data-toggle="dropdown"
+                    <li><a href="{{url('units')}}">First Year</a></li>
+                    <li><a href="{{url('units')}}">Second Year</a></li>
+                    <li><a href="{{url('units')}}">Third Year</a></li>
+                    <li><a href="{{url('units')}}">Fourth Year</a></li>
+                    <li><a href="{{url('nits')}}"></a></li>
 
-                </ul>
+                </ul> -->
             </li>
             <li>
                 <a href="{{url('faculties')}}"><i class="fa fa-fw fa-bank"></i> Exam Results</a>
