@@ -23,7 +23,10 @@
            	 <td>{{ $value -> name }}</td>
            	 <td>{{ $value -> head }}</td>
            	 <td>
-           	 	<a href="{{url('faculties/' .$value->id)}}">Show</a>
+           	    <a class="btn btn-danger" href="{{url('faculty/',$value->id)}}">Delete</a>
+           	 	<a href="{{url('faculty/'.$value->id)}}">Show</a>
+           	 	</br>
+           	 	<a href="{{url('faculties/'.$value->id.'/edit')}}">Edit</a>
            	 </td>
            	</tr> 
          @endforeach

@@ -24,7 +24,7 @@
         <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRqyEjssB7kTB45JBx-8apvfdbCiIGxQ-NaGmZYtVcD8sbGQiwI4piJw2yf">   
     </main>
       <div class="form-group">
-       <form method="post" action="{{url('/students/create')}}">
+       <form method="post" action="{{url('/students/create')}}" class="form-horizontal">
                
            <label>Name</label>
              <div>
@@ -46,6 +46,17 @@
              <div>
                <input type="text" name="national_id" placeholder="national_id">
              </div>
+            
+            
+            <div class="form-group">
+            <label for="faculty">FACULTY</label>
+             <select name="faculty_id" id="faculty" class="form-control">
+              @foreach($faculties as $faculty => $value)
+                   <option value="{{$value->id}}">{{$value->name}}</option>
+              @endforeach
+            </select> 
+            </div>
+
              
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
            

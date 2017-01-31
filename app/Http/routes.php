@@ -58,16 +58,16 @@ Route::get('/exams/{id}','ExamController@destroy');
 Route::get('/faculties','FacultyController@index');
 Route::get('faculties/create','FacultyController@create');
 Route::post('/faculties','FacultyController@store');
-Route::get('/faculties/{id}','FacultyController@show');
-// Route::get('/faculties/{id}/edit','FacultyController@edit');
-// Route::get('/faculties/{id}','FacultyController@update');
-// Route::get('/faculties/{id}','FacultyController@destroy');
+Route::get('faculty/{id}','FacultyController@show');
+Route::get('/faculties/{id}/edit','FacultyController@edit');
+Route::get('/faculties/{id}','FacultyController@update');
+Route::get('faculty/{id}','FacultyController@destroy');
 
 //StudentsController
 Route::get('/students','StudentsController@index');
 Route::post('/students/create','StudentsController@store');
 Route::get('students/create','StudentsController@create');
-Route::get('/students/{id}','StudentsController@show');
-// Route::get('/students/{id}/edit','StudentsController@edit');
-// Route::get('/students/{id}','StudentsController@update');
-// Route::get('/students/{id}','StudentsController@destroy');
+Route::get('student/{id}','StudentsController@show');
+Route::get('/students/{id}/edit','StudentsController@edit');
+Route::get('/students/{id}','StudentsController@update');
+Route::get('student/{id}','StudentsController@destroy');

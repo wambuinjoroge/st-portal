@@ -8,6 +8,6 @@ class Faculty extends Model
 {
     //faculty to students
     public function student(){
-        return $this->hasMany('App\Student');
+    return $this->hasMany('App\Student');
     }
 }

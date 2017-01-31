@@ -2,8 +2,8 @@
 @section('content')
 
 <div class="container">
- <a href="students/create"><div class="pull-right">Create a student</div></a>
-  <a href="students/{id}"><div class="pull-right"></div></a>
+ 	<a href="students/create"><div class="pull-right">Create a student</div></a>
+  	<!-- <a href="students/{id}"><div class="pull-right"></div></a> -->
 	<table class="table table-striped">
 	  <thead>
 		<tr>
@@ -24,7 +24,10 @@
 			<td>{{$value->date_of_birth}}</td>
 			<td>{{$value->national_id}}</td>
 			<td>
-				<a href="{{url('students/'.$value->id)}}">Show student</a>
+				<a href="{{url('student/'.$value->id)}}">Show student</a>
+				</br>
+				<a href="{{url('/students/'.$value->id.'/edit')}}">Edit</a>
+				<a href="{{url('student/'.$value->id)}}">Delete</a>
 			</td>
 		</tr>
 		@endforeach
