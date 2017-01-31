@@ -10,13 +10,10 @@ use App\Student;
 use App\Faculty;
 use App\Http\Requests;
 use Illuminate\Routing\Controller;
-<<<<<<< HEAD
+
 // use App\Http\Controllers\Session;
 use Illuminate\Support\Facades\Validator;
-=======
-use Illuminate\Support\Facades\Validator;
 
->>>>>>> origin/master
 class StudentsController extends Controller
 {
     //index
@@ -26,12 +23,10 @@ class StudentsController extends Controller
       return view('student.index',compact('students'));
     }
     public function create(){
-<<<<<<< HEAD
+
        $faculties=Faculty::all(); 
        return view('student.create',compact('faculties'));
-=======
-       return view('student.create');
->>>>>>> origin/master
+
     }
 
     public function store(Request $request){
@@ -57,40 +52,23 @@ class StudentsController extends Controller
     	$student->email=$request->get('email');
     	$student->date_of_birth=$request->get('date_of_birth');
     	$student->national_id=$request->get('national_id');
-<<<<<<< HEAD
+
         $student->faculty_id=$request->get('faculty_id');
 
     	$student->save();
       
       //Session::flash('message', 'Successfully created student!');
-=======
 
-    	$student->save();
-      
-      
->>>>>>> origin/master
       return redirect('students');
 
     }
     public function show($id){
-<<<<<<< HEAD
+
     	// $student=App\Faculty::find(1);
     	// echo $comment->faculty->id;
     	$student=Student::find($id);
     	return view('student.show',compact('student'));
-=======
-     // $student=App\Faculty::find(1);
-    	//echo $comment->faculty->id;
-    }
-    public function edit($id){
 
-    }
-    public function update($id){
-
-    }
-    public function destroy($id){
-
->>>>>>> origin/master
     }
     public function edit($id){
     	$student=Student::find($id);
