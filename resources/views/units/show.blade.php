@@ -3,7 +3,7 @@
 
 <div class="container">
 
-<p>{{$unit->name}}</p>
-<p>{{$unit->faculty_id}}</p>
+<textarea class="form-control" rows="1">NAME:{{$unit->name}}</textarea>
 
 </div>
+@stop

@@ -13,21 +13,23 @@
 @endif
 
 <div class="col-md-4"></div>
-
 <div class="col-md-4">
   <h3>Create Unit</h3>
 	<form method="post" action="{{url('/units')}}" >
     <div class="form-group">
        <label for="ExampleInputEmail1">NAME</label>
     	<input type="text" name="name" class="form-control" placeholder="name">
-    </div>   
-    
+    </div> 
+  
+     <select class="form-control" name="faculty_id" value="id"> 
+        @foreach($faculties as $faculty => $value)
+            <option>{{$value->name}}</option>  
+        @endforeach
+     </select>
     <input type="hidden" name="_token" value="{{ csrf_token() }}">  	
-    <button class="btn btn-default" type="submit">SUBMIT</button>
-	  
+    <button class="btn btn-default" type="submit">SUBMIT</button>	  
 </form>
 </div>
-
 <div class="col-md-4"></div>
 
 @stop

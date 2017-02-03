@@ -59,13 +59,11 @@ class StudentsController extends Controller
       
       //Session::flash('message', 'Successfully created student!');
 
-      return redirect('students');
+      return redirect('/students');
 
     }
     public function show($id){
-
-    	// $student=App\Faculty::find(1);
-    	// echo $comment->faculty->id;
+        
     	$student=Student::find($id);
     	return view('student.show',compact('student'));
 
@@ -96,12 +94,17 @@ class StudentsController extends Controller
         $student->date_of_birth=$request->get('date_of_birth');
         $student->national_id=$request->get('national_id');
 
+        $student->faculty_id=$request->get('faculty_id');
+
         $student->save();
 
         return redirect('/students');
 
     } 
-    public function join(){
+    public function destroy($id){
 
+        $student=Student::find($id);
+        $student->delete();
+        return redirect('students');
     } 
 }

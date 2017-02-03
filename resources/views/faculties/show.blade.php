@@ -1,11 +1,11 @@
 @extends('layouts.app')
 @section('content')
 <div class="container">
-
+<!-- work on how to include units on this view  -->
 	<p><u>{{$faculty->name}}</u></p>
   <p><u>{{$faculty->head}}</u></p>
     
-    <table class="table">
+    <table class="table table-bordered">
      <thead>
        <tr>
          <td>Name</td>

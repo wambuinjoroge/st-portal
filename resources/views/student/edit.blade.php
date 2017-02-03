@@ -3,7 +3,7 @@
 
 
 <div class="container">
-	<form  method="put" action="{{url('/students/' .$student->id)}}">
+	<form  method="post" action="{{url('/students/' .$student->id)}}">
 
 	  <div class="form-group">
 	    <label for="ExampleInputEmail1">NAME</label>
@@ -28,6 +28,7 @@
 
 	  <input type="hidden"  name="_token" value="{{ csrf_token() }}">
 	  <input type="hidden" name="id" value="{{ $student->id }}">
+	  <input type="hidden" name="_method" value="put">
 	  <button class="btn btn-default">Submit</button>
 	    
 		

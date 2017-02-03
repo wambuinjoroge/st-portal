@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Faculty;
 use App\Student;
+use App\Unit;
 use App\Http\Requests;
 use Illuminate\Routing\Controller;
 
@@ -56,6 +57,14 @@ class FacultyController extends Controller
 
         return view('faculties.show',compact('faculty','students'));        
        
+   }
+   public function show2($id){
+      //get faculty details
+      $faculty=Faculty::find($id);
+      //get all the units in that faculty
+      $units=Unit::where('faculty_id',$faculty->id)->get();
+
+      return view('faculties.show2',compact('faculty','units'));
    }
     public function edit($id){
        $faculty=Faculty::find($id);

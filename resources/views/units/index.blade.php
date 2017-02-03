@@ -16,10 +16,9 @@
 			<td>{{$value->name}}</td>
 			
 			<td>
-				<a href="{{url('unit/'.$value->id)}}">Show student</a>
-				</br>
-				<a href="{{url('unit/'.$value->id.'/edit')}}">Edit</a>
-				<a href="{{url('unit/'.$value->id)}}">Delete</a>
+				<a href="{{url('unit/'.$value->id)}}" class="btn btn-primary "><span class="glyphicon glyphicon-book">Show</span></a>
+				<a href="{{url('/unit/'.$value->id.'/edit')}}" class="btn btn-warning"><span class="glyphicon glyphicon-pencil">Edit</span></a>
+				<a href="{{url('unit/'.$value->id)}}" class="btn btn-danger"><span class="glyphicon glyphicon-trash">Delete</span></a>
 			</td>
 		</tr>
 		@endforeach
@@ -29,4 +28,4 @@
 </div>
 
 @stop
-
+ 

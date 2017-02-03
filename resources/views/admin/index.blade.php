@@ -83,7 +83,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2">
-                    <h1 class="page-header">Awesome Bootstrap 3 Sidebar Navigation</h1>
+                    <h1 class="page-header">Strive forward</h1>
                     
                 </div>
             </div>

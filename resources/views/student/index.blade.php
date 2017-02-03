@@ -4,7 +4,7 @@
 <div class="container">
  	<a href="students/create"><div class="pull-right">Create a student</div></a>
   	<!-- <a href="students/{id}"><div class="pull-right"></div></a> -->
-	<table class="table table-striped">
+	<table class="table table-striped table-bordered bg-faded" >
 	  <thead>
 		<tr>
 			<td>Name</td>
@@ -24,10 +24,9 @@
 			<td>{{$value->date_of_birth}}</td>
 			<td>{{$value->national_id}}</td>
 			<td>
-				<a href="{{url('student/'.$value->id)}}">Show student</a>
-				</br>
-				<a href="{{url('/students/'.$value->id.'/edit')}}">Edit</a>
-				<a href="{{url('student/'.$value->id)}}">Delete</a>
+				<a href="{{url('student/'.$value->id)}}" class="btn btn-primary"><span class="glyphicon glyphicon-person">Show student</span></a>
+				<a href="{{url('/students/'.$value->id.'/edit')}}" class="btn btn-success"><span class="glyphicon glyphicon-pencil">Edit</span></a>
+				<a href="{{url('students/'.$value->id)}}" class="btn btn-danger"><span class="glyphicon glyphicon-trash">Delete</span></a>
 			</td>
 		</tr>
 		@endforeach
