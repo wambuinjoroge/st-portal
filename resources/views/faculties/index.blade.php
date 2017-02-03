@@ -4,9 +4,12 @@
 
 <div class="container">
 
-<div class="pull-right">
- <a href="{{url('faculties/create')}}">Create a faculty</a>
-</div>
+	<ol class="breadcrumb">
+		<li><a href="{{url('/admin')}}">Admin Home</a></li>
+		<li><a href="{{url('faculties/create')}}">Create a faculty</a></li>
+		<li class="active">Faculties</li>
+	</ol>
+
  
 	<table class="table">
 	 <thead>
@@ -24,9 +27,8 @@
            	 <td>{{ $value -> head }}</td>
            	 <td>
            	 	<a href="{{url('faculty/'.$value->id)}}" class="btn btn-primary"><span class="glyphicon glyphicon-home">Show </span></a>
-           	 	<a href="{{url('faculty/units'.$value->id)}}" class="btn btn-primary"><span class="glyphicon glyphicon-home">Show Units</span></a>
            	 	<a href="{{url('faculties/'.$value->id.'/edit')}}" class="btn btn-primary"><span class="glyphicon glyphicon-pencil">Edit</span></a>
-           	 	<a class="btn btn-danger" href="{{url('faculty/',$value->id)}}" class="btn btn-primary"><span class="glyphicon glyphicon-trash">Delete</span></a>
+           	 	<a class="btn btn-danger" href="{{url('faculties/'.$value->id)}}" class="btn btn-primary"><span class="glyphicon glyphicon-trash">Delete</span></a>
            	 </td>
            	</tr> 
          @endforeach

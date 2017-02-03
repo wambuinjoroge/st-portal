@@ -2,7 +2,7 @@
 @section('content')
 
 <div class="container">
-	<form method="put" action="{{url('faculties/' .$faculty->id)}}">
+	<form method="post" action="{{url('faculties/' .$faculty->id)}}">
 		<div class="form-group">
 			<label for='ExampleInputEmail1'>NAME</label>
 			<input type="text" class="form-control" name="name" value="{{$faculty->name}}" placeholder="Name">

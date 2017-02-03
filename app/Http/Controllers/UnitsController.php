@@ -73,6 +73,9 @@ class UnitsController extends Controller
 
     }
     public function destroy($id){
-    	
+    	$unit=Unit::find($id);
+    	$unit->delete();
+
+    	return redirect('units');
     }
 }

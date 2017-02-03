@@ -28,7 +28,7 @@
 
 	  <input type="hidden"  name="_token" value="{{ csrf_token() }}">
 	  <input type="hidden" name="id" value="{{ $student->id }}">
-	  <input type="hidden" name="_method" value="put">
+	  {{--<input type="hidden" name="_method" value="put">--}}
 	  <button class="btn btn-default">Submit</button>
 	    
 		

@@ -2,7 +2,13 @@
 @section('content')
 
 <div class="container">
- 	<a href="students/create"><div class="pull-right">Create a unit</div></a>
+
+	<ol class="breadcrumb">
+		<li><a href="{{url('/admin')}}">Admin Home</a></li>
+		<li><a href="{{url('units/create')}}">Create a unit</a></li>
+		<li class="active">Units</li>
+	</ol>
+
 	<table class="table table-striped">
 	  <thead>
 		<tr>
@@ -18,7 +24,7 @@
 			<td>
 				<a href="{{url('unit/'.$value->id)}}" class="btn btn-primary "><span class="glyphicon glyphicon-book">Show</span></a>
 				<a href="{{url('/unit/'.$value->id.'/edit')}}" class="btn btn-warning"><span class="glyphicon glyphicon-pencil">Edit</span></a>
-				<a href="{{url('unit/'.$value->id)}}" class="btn btn-danger"><span class="glyphicon glyphicon-trash">Delete</span></a>
+				<a href="{{url('units/'.$value->id)}}" class="btn btn-danger"><span class="glyphicon glyphicon-trash">Delete</span></a>
 			</td>
 		</tr>
 		@endforeach

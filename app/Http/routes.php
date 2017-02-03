@@ -33,15 +33,7 @@ Route::get('Hostels','AdminController@hostels');
 //devfest
 //Route::get('/dev', 'HomeController@display');
 
-//DetailController
-//Route::get('auth/info','DetailsController@editor');
-// Route::get('index','DetailsController@index');
-// Route::post('/details/create','DetailsController@store');
-// Route::get('details/create','DetailsController@create');
-// Route::get('/details/{id}','DetailsController@show');
-// Route::get('/details/{id}/edit','DetailsController@edit');
-// Route::get('/details/{id}','DetailsController@update');
-// Route::get('/details/{id}','DetailsController@destroy');
+
 
 //ExamController
 Route::get('/exams','ExamController@index');
@@ -60,10 +52,8 @@ Route::get('faculties/create','FacultyController@create');
 Route::post('/faculties','FacultyController@store');
 Route::get('faculty/{id}','FacultyController@show');
 Route::get('/faculties/{id}/edit','FacultyController@edit');
-Route::get('/faculties/{id}','FacultyController@update');
-Route::get('/faculty/units/{id}','FacultyController@show2');
-
-//Route::get('faculty/{id}','FacultyController@destroy');
+Route::post('/faculties/{id}','FacultyController@update');
+Route::get('faculties/{id}','FacultyController@destroy');
 
 //StudentsController
 Route::get('/students','StudentsController@index');
@@ -71,15 +61,15 @@ Route::post('/students/create','StudentsController@store');
 Route::get('students/create','StudentsController@create');
 Route::get('student/{id}','StudentsController@show');
 Route::get('/students/{id}/edit','StudentsController@edit');
-Route::get('/students/{id}','StudentsController@update');
+Route::post('/students/{id}','StudentsController@update');
 Route::get('students/{id}','StudentsController@destroy');
 
-//Unitscontroller
+//UnitsController
 Route::get('units','UnitsController@index');
 Route::get('units/create','UnitsController@create');
 Route::post('units','UnitsController@store');
 Route::get('unit/{id}','UnitsController@show');
 Route::get('/unit/{id}/edit','UnitsController@edit');
-Route::get('/units/{id}','UnitsController@update');
-//Route::get('units/{id}','UnitsController@destroy');
+Route::post('/units/{id}','UnitsController@update');
+Route::get('units/{id}','UnitsController@destroy');
 

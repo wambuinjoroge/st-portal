@@ -3,7 +3,7 @@
 
 <div class="container">
    
-   <form method="put" action="{{url('/units/'.$unit->id)}}">
+   <form method="post" action="{{url('/units/'.$unit->id)}}">
 
         <div class="form-group">
         	<label for="ExampleInput1">NAME</label>
