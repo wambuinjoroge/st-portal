@@ -14,6 +14,15 @@
 // Route::get('/', function () {
 //     return view('welcome');
 // });
+//Response from objects
+//Route::get('home', function () {
+    //return response('Hello World', 200)
+                  //->header('Content-Type', 'text/plain');
+//});
+//devfest
+//Route::get('/dev', 'HomeController@display');
+
+
 Route::get('/','HomeController@checkUser');
 
 
@@ -25,15 +34,6 @@ Route::get('admin','AdminController@index');
 Route::get('prof','AdminController@profile');
 Route::get('Units','AdminController@units');
 Route::get('Hostels','AdminController@hostels');
-//Response from objects
-//Route::get('home', function () {
-    //return response('Hello World', 200)
-                  //->header('Content-Type', 'text/plain');
-//});
-//devfest
-//Route::get('/dev', 'HomeController@display');
-
-
 
 //ExamController
 Route::get('/exams','ExamController@index');
@@ -43,8 +43,6 @@ Route::get('/exams/{id}','ExamController@show');
 Route::get('/exams/{id}/edit','ExamController@edit');
 Route::get('/exams/{id}','ExamController@update');
 Route::get('/exams/{id}','ExamController@destroy');
-
-
 
 //FacultyController
 Route::get('/faculties','FacultyController@index');
@@ -72,4 +70,13 @@ Route::get('unit/{id}','UnitsController@show');
 Route::get('/unit/{id}/edit','UnitsController@edit');
 Route::post('/units/{id}','UnitsController@update');
 Route::get('units/{id}','UnitsController@destroy');
+
+//HostelsController
+Route::get('hostels','HostelsController@index');
+Route::get('hostels/create','HostelsController@create');
+Route::post('hostels','HostelsController@store');
+Route::get('hostel/{id}','HostelsController@show');
+Route::get('hostels/edit/{id}','HostelsController@edit');
+Route::post('hostels/{id}','HostelsController@update');
+Route::get('hostels/{id}','HostelsController@destroy');
 

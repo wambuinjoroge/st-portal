@@ -4,9 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Faculty;
-use App\Student;
 use App\Unit;
-use App\Http\Requests;
 use Illuminate\Routing\Controller;
 
 use Illuminate\Support\Facades\Validator;
@@ -16,9 +14,8 @@ class FacultyController extends Controller
 {
     //
     public function index(){
-    	    // $students=App\Faculty::find(1)->students()->where('id',=,'1')->first();
-        $faculties=Faculty::all();
 
+        $faculties=Faculty::all();
        	return view('faculties.index',compact('faculties'));
     }
 
@@ -50,26 +47,21 @@ class FacultyController extends Controller
     }
 
     public function show($id){
-        //get faculty details
-        $faculty=Faculty::find($id);
-        // get all students that have similar id of that faculty.
-        $students=Student::where('faculty_id',$faculty->id)->get();
 
-        return view('faculties.show',compact('faculty','students'));        
+//        $faculty=Faculty::find($id)->with(['units'])->first();
+
+        $faculty=Faculty::find($id);
+        $units=Unit::where('faculty_id',$faculty->id)->get();
+        //print_r($faculty);exit();
+        return view('faculties.show',compact('faculty','units'));
        
    }
-   public function show2($id){
-      //get faculty details
-      $faculty=Faculty::find($id);
-      //get all the units in that faculty
-      $units=Unit::where('faculty_id',$faculty->id)->get();
 
-      return view('faculties.show2',compact('faculty','units'));
-   }
     public function edit($id){
        $faculty=Faculty::find($id);
        return view('faculties.edit',compact('faculty'));
     }
+
     public function update(Request $request ,$id){
        $validator=Validator::make($request->all(),[
            "name"=>"required",
@@ -91,6 +83,7 @@ class FacultyController extends Controller
 
          return redirect('/faculties');        
     }
+
     public function destroy($id){
          $faculty=Faculty::find($id);
          $faculty->delete();
@@ -98,12 +91,5 @@ class FacultyController extends Controller
          return redirect('faculties');
     }
 
-    // public function students(){
-    //   $faculties=DB::table('faculties')
-    //        ->join('students','faculties.id','=','students.faculties_id')
-    //        ->select('faculties.*','students.name')
-    //        ->get();
-    //   return view ('faculties.show',compact('faculties'));
-    // }
 
 }

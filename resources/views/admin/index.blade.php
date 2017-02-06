@@ -39,7 +39,7 @@
                 <a href="#"><i class="fa fa-fw fa-file-o"></i> School Fees</a>
             </li>
             <li>
-                <a href="{{url('Hostels')}}"><i class="fa fa-fw fa-cog"></i> Hostel Booking</a>
+                <a href="{{url('hostels/create')}}"><i class="fa fa-fw fa-cog"></i> Hostel Booking</a>
             </li>
             <li class="dropdown">
                 <a href="{{url('units/create')}}" ><i class="fa fa-fw fa-plus"></i> Units Registration </a>

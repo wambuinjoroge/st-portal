@@ -2,8 +2,13 @@
 @section('content')
 
 <div class="container">
- 	<a href="students/create"><div class="pull-right">Create a student</div></a>
-  	<!-- <a href="students/{id}"><div class="pull-right"></div></a> -->
+
+	<ol class="breadcrumb">
+		<li><a href="{{url('/admin')}}">Admin Home</a></li>
+		<li><a href="{{url('students/create')}}">Create a student</a></li>
+		<li class="active">Students</li>
+	</ol>
+
 	<table class="table table-striped table-bordered bg-faded" >
 	  <thead>
 		<tr>
