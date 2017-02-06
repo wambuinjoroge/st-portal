@@ -80,3 +80,21 @@ Route::get('hostels/edit/{id}','HostelsController@edit');
 Route::post('hostels/{id}','HostelsController@update');
 Route::get('hostels/{id}','HostelsController@destroy');
 
+//FeesController
+Route::get('fees','FeesController@index');
+Route::get('fees/create','FeesController@create');
+Route::post('fees','FeesController@store');
+Route::get('fees/{id}','FeesController@show');
+Route::get('fees/edit/{id}','FeesController@edit');
+Route::post('fees/{id}','FeesController@update');
+Route::get('fees/{id}','FeesController@destroy');
+
+
+//TransactionsController
+Route::get('transactions','TransactionsController@index');
+Route::get('transactions/create','TransactionsController@create');
+Route::post('transactions','TransactionsController@store');
+Route::get('transactions/{id}','TransactionsController@show');
+Route::get('transactions/edit/{id}','TransactionsController@edit');
+Route::post('transactions/{id}','TransactionsController@update');
+Route::get('transactions/{id}','TransactionsController@destroy');
