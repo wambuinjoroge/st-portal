@@ -18,4 +18,8 @@ class Student extends Model
     return $this->belongsTo('App\Faculty');
     }
 
+    public function fees(){
+        return $this->hasMany('App\Fees');
+    }
+
 }

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
@@ -12,7 +12,7 @@
                 </div>
               
                <div>
-                   <a href="{{url('details/create')}}"><p>Enter your personal information here</p></a>
+                   <a href="{{url('students/create')}}"><p>Enter your personal information here</p></a>
                </div> 
 
                 <script type="text/javascript">
@@ -25,5 +25,4 @@
             </div>
         </div>
     </div>
-</div>
 @endsection

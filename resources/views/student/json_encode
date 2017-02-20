@@ -1,0 +1,10 @@
+//json_encode
+return response()->json([
+   'name'=>'Abigail',
+   'state'=>'CA'
+]); 
+
+public function receiver(Request $request){
+        $name_array=$request->json()->all();
+        dd($name_array);
+    }

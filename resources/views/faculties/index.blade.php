@@ -5,7 +5,6 @@
 <div class="container">
 
 	<ol class="breadcrumb">
-		<li><a href="{{url('/admin')}}">Admin Home</a></li>
 		<li><a href="{{url('faculties/create')}}">Create a faculty</a></li>
 		<li class="active">Faculties</li>
 	</ol>

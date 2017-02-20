@@ -3,7 +3,6 @@
 
 <div class="container">
     <ol class="breadcrumb">
-        <li><a href="{{url('/admin')}}">Admin Home</a></li>
         <li><a href="{{url('hostels/create')}}">Create a hostel</a></li>
         <li class="active">Hostels</li>
     </ol>

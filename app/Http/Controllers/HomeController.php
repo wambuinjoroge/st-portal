@@ -36,7 +36,10 @@ class HomeController extends Controller
         $user=Auth::user();
         if($user->role_id==1){
             return redirect('admin');
-        }else{
+        } elseif ($user->role_id==2) {
+            return redirect('students/'.$user->id);
+        }
+        else{
             return redirect('home');
         }
     }

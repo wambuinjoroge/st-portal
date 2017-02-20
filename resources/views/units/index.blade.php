@@ -4,7 +4,6 @@
 <div class="container">
 
 	<ol class="breadcrumb">
-		<li><a href="{{url('/admin')}}">Admin Home</a></li>
 		<li><a href="{{url('units/create')}}">Create a unit</a></li>
 		<li class="active">Units</li>
 	</ol>

@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
-
-//namespace App\Http\Controllers;
-
+use App\Fees;
+use App\User;
 use Illuminate\Http\Request;
 use App\Student;
 use App\Faculty;
@@ -12,6 +11,7 @@ use App\Http\Requests;
 use Illuminate\Routing\Controller;
 
 // use App\Http\Controllers\Session;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
 class StudentsController extends Controller
@@ -24,7 +24,7 @@ class StudentsController extends Controller
     }
     public function create(){
 
-       $faculties=Faculty::all(); 
+       $faculties=Faculty::all();
        return view('student.create',compact('faculties'));
 
     }
@@ -37,7 +37,7 @@ class StudentsController extends Controller
            "admission_number"=>"required",
            "email"=>"required",
            "date_of_birth"=>"required",
-           
+
        	]);
     	if ($validator->fails()) {
     		# code...
@@ -45,27 +45,57 @@ class StudentsController extends Controller
     		->withErrors($validator->errors())
     		->withInput();
     	}
-        //create an object for eloquent Detail 
-    	$student=new Student();
-    	$student->name=$request->get('name');
-    	$student->admission_number=$request->get('admission_number');
-    	$student->email=$request->get('email');
-    	$student->date_of_birth=$request->get('date_of_birth');
-    	$student->national_id=$request->get('national_id');
 
-        $student->faculty_id=$request->get('faculty_id');
+        if (Auth::user()->role_id == 1)
+        {
+            // create student in users table
+            $user=new User();
+            $user->name=$request->get('name');
+            $user->email=$request->get('email');
+            $user->password=bcrypt($request->get('national_id'));
+            $user->role_id=2;
+            $user->save();
 
-    	$student->save();
-      
+            //create an object for eloquent Detail
+            $student=new Student();
+            $student->name=$request->get('name');
+            $student->admission_number=$request->get('admission_number');
+            $student->email=$request->get('email');
+            $student->date_of_birth=$request->get('date_of_birth');
+            $student->national_id=$request->get('national_id');
+
+            $student->faculty_id=$request->get('faculty_id');
+            $student->user_id=$user->id;
+            $student->save();
+            return redirect('/students');
+        } else {
+
+            //create an object for eloquent Detail
+            $student=new Student();
+            $student->name=$request->get('name');
+            $student->admission_number=$request->get('admission_number');
+            $student->email=$request->get('email');
+            $student->date_of_birth=$request->get('date_of_birth');
+            $student->national_id=$request->get('national_id');
+
+            $student->faculty_id=$request->get('faculty_id');
+            $student->user_id=Auth::user()->id;
+            $student->save();
+            return redirect('student/'.$student->id);
+        }
+
+
+
       //Session::flash('message', 'Successfully created student!');
 
-      return redirect('/students');
+
 
     }
     public function show($id){
         
     	$student=Student::find($id);
-    	return view('student.show',compact('student'));
+    	$fees=Fees::where('student_id',$student->id)->get();
+    	return view('student.show',compact('student','fees'));
 
     }
     public function edit($id){
