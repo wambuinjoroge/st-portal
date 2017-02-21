@@ -26,15 +26,15 @@
     <form method="post" action="{{url('hostels')}}">
         <div class="form-group">
             <label class="ExampleInputEmail1">Hostel Name</label>
-            <input class="form-control" type="text" name="hostel_name" placeholder="hostel_name" value="hostel_name">
+            <input class="form-control" type="text" name="hostel_name" placeholder="hostel_name" >
         </div>
         <div class="form-group">
             <label class="ExampleInputEmail1">Hostel Head</label>
-            <input class="form-control" type="text" name="hostel_head" placeholder="hostel_head" value="hostel_head">
+            <input class="form-control" type="text" name="hostel_head" placeholder="hostel_head" >
         </div>
         <div class="form-group">
             <label class="ExampleInputEmail1">Rooms Number</label>
-            <input class="form-control" type="text" name="rooms_number" placeholder="rooms_number" value="rooms_number">
+            <input class="form-control" type="text" name="rooms_number" placeholder="rooms_number" >
         </div>
 
         <input type="hidden" name="_token" value="{{ csrf_token()  }}">

@@ -23,9 +23,14 @@ class StudentsController extends Controller
       return view('student.index',compact('students'));
     }
     public function create(){
-
+        $user = Auth::user();
        $faculties=Faculty::all();
-       return view('student.create',compact('faculties'));
+       $student = Student::where('user_id', $user->id)->first();
+       if($student == null) {
+           return view('student.create',compact('faculties'));
+       } else {
+           return view('student.edit', compact('student'));
+       }
 
     }
 
@@ -83,16 +88,9 @@ class StudentsController extends Controller
             $student->save();
             return redirect('student/'.$student->id);
         }
-
-
-
-      //Session::flash('message', 'Successfully created student!');
-
-
-
     }
     public function show($id){
-        
+
     	$student=Student::find($id);
     	$fees=Fees::where('student_id',$student->id)->get();
     	return view('student.show',compact('student','fees'));
@@ -135,6 +133,6 @@ class StudentsController extends Controller
 
         $student=Student::find($id);
         $student->delete();
-        return redirect('students');
-    } 
+        return redirect('students')->with(['message'=>('Successfully deleted student')]);
+    }
 }

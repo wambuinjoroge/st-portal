@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests;
+use App\Student;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -34,13 +35,11 @@ class HomeController extends Controller
     public function checkUser(){
         //
         $user=Auth::user();
-        if($user->role_id==1){
-            return redirect('admin');
-        } elseif ($user->role_id==2) {
-            return redirect('students/'.$user->id);
+        if($user) {
+            return redirect('home');
         }
         else{
-            return redirect('home');
+            return redirect('/login');
         }
     }
         

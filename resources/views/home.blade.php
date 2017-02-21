@@ -10,17 +10,14 @@
                 <div class="panel-body">
                     You are logged in!
                 </div>
-              
-               <div>
-                   <a href="{{url('students/create')}}"><p>Enter your personal information here</p></a>
-               </div> 
+              @if(Auth::user()->role_id==2)
+                    <div>
+                        <a href="{{url('students/create')}}"><p>Edit your personal information here</p></a>
+                    </div>
+                @endif
 
                 <script type="text/javascript">
-                    if(status=0){
-                 <div class="panel-body">Fill in your details</div>
-                }else{
-                <div class="panel-body">Edit your details</div>
-                }
+
                 </script>                  
             </div>
         </div>

@@ -1,7 +1,6 @@
 @extends ('layouts.app')
 @section('content')
 
-<div class="container">
 
 	<ol class="breadcrumb">
 		<li><a href="{{url('students/create')}}">Create a student</a></li>
@@ -37,7 +36,7 @@
 	  </tbody>
 		
 	</table>
-</div>
+
 
 @stop
 

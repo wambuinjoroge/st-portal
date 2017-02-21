@@ -90,10 +90,10 @@
                                     <a href="#"><i class="fa fa-fw fa-home"></i> Home</a>
                                 </li>
                                 <li>
-                                    <a href="students"><i class="fa fa-fw fa-folder"></i> Personal Info</a>
+                                    <a href="{{url('students')}}"><i class="fa fa-fw fa-folder"></i> Students</a>
                                 </li>
                                 <li>
-                                    <a href="{{url('hostels/create')}}"><i class="fa fa-fw fa-cog"></i> Hostel Booking</a>
+                                    <a href="{{url('hostels/create')}}"><i class="fa fa-fw fa-cog"></i> Hostels</a>
                                 </li>
                                 <li>
                                     <a href="{{url('units/create')}}" ><i class="fa fa-fw fa-plus"></i> Units Registration </a>
@@ -120,16 +120,19 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#"><i class="fa fa-fw fa-home"></i> Home</a>
+                                    <a href=""><i class="fa fa-fw fa-home"></i> Home</a>
                                 </li>
                                 <li>
-                                    <a href="{{url('students/create')}}"><i class="fa fa-fw fa-folder"></i> Personal Info</a>
+                                    <a href="{{url('students/create')}}"><i class="fa fa-fw fa-folder"></i> Personal Info Editor</a>
                                 </li>
                                 <li>
-                                    <a href="{{url('hostels')}}"><i class="fa fa-fw fa-cog"></i> Hostel Booking</a>
+                                    <a href="{{url('student/'.\App\Student::where('user_id',Auth::user()->id)->first()->id)}}"><i class="fa fa-fw fa-folder"></i> Personal Info</a>
                                 </li>
                                 <li>
-                                    <a href="{{url('faculties')}}" ><i class="fa fa-fw fa-plus"></i> Units Registration </a>
+                                    <a href="{{url('student-hostels')}}"><i class="fa fa-fw fa-cog"></i> Hostel Booking</a>
+                                </li>
+                                <li>
+                                    <a href="{{url('faculty/'.\App\Student::where('user_id', Auth::user()->id)->first()->faculty_id)}}" ><i class="fa fa-fw fa-plus"></i> Units Registration </a>
                                 </li>
                                 <li>
                                     <a href="{{url('')}}"><i class="fa fa-fw fa-bank"></i> Exam Results</a>

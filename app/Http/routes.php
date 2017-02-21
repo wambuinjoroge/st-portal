@@ -41,7 +41,7 @@ Route::get('exams/create','ExamController@create');
 Route::post('/exams','ExamController@store');
 Route::get('/exams/{id}','ExamController@show');
 Route::get('/exams/{id}/edit','ExamController@edit');
-Route::get('/exams/{id}','ExamController@update');
+Route::post('/exams/{id}','ExamController@update');
 Route::get('/exams/{id}','ExamController@destroy');
 
 //FacultyController
@@ -73,6 +73,7 @@ Route::get('units/{id}','UnitsController@destroy');
 
 //HostelsController
 Route::get('hostels','HostelsController@index');
+Route::get('student-hostels','HostelsController@hostels');
 Route::get('hostels/create','HostelsController@create');
 Route::post('hostels','HostelsController@store');
 Route::get('hostel/{id}','HostelsController@show');
@@ -100,3 +101,7 @@ Route::post('transactions/{id}','TransactionsController@update');
 Route::get('transactions/{id}','TransactionsController@destroy');
 
 Route::post('name/post','TransactionsController@receiver');
+
+Route::get('dashboard', function () {
+     return view('auth.dashboard');
+ });
