@@ -93,7 +93,7 @@
                                     <a href="{{url('students')}}"><i class="fa fa-fw fa-folder"></i> Students</a>
                                 </li>
                                 <li>
-                                    <a href="{{url('hostels/create')}}"><i class="fa fa-fw fa-cog"></i> Hostels</a>
+                                    <a href="{{url('hostels')}}"><i class="fa fa-fw fa-cog"></i> Hostels</a>
                                 </li>
                                 <li>
                                     <a href="{{url('units/create')}}" ><i class="fa fa-fw fa-plus"></i> Units Registration </a>
@@ -120,7 +120,7 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href=""><i class="fa fa-fw fa-home"></i> Home</a>
+                                    <a href="{{url('home')}}"><i class="fa fa-fw fa-home"></i> Home</a>
                                 </li>
                                 <li>
                                     <a href="{{url('students/create')}}"><i class="fa fa-fw fa-folder"></i> Personal Info Editor</a>
@@ -135,7 +135,7 @@
                                     <a href="{{url('faculty/'.\App\Student::where('user_id', Auth::user()->id)->first()->faculty_id)}}" ><i class="fa fa-fw fa-plus"></i> Units Registration </a>
                                 </li>
                                 <li>
-                                    <a href="{{url('')}}"><i class="fa fa-fw fa-bank"></i> Exam Results</a>
+                                    <a href="{{url('exams/create')}}"><i class="fa fa-fw fa-bank"></i> Exam Results</a>
                                 </li>
                                 <li>
                                     <a href="#"><i class="fa fa-fw fa-dropbox"></i>Somu Voting</a>
