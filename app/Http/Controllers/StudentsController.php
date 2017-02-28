@@ -27,10 +27,15 @@ class StudentsController extends Controller
        $user = Auth::user();
        $faculties=Faculty::all();
        $student = Student::where('user_id', $user->id)->first();
-       if($student == null) {
+       if($user->role_id == 2){
+           if($student == null) {
+               return view('student.create',compact('faculties'));
+           } else {
+               return view('student.edit', compact('student'));
+       }
+
+       }else{
            return view('student.create',compact('faculties'));
-       } else {
-           return view('student.edit', compact('student'));
        }
 
     }

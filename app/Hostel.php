@@ -10,5 +10,8 @@ class Hostel extends Model
     public function student(){
         return $this->belongsTo('App\Student');
     }
+    public function room(){
+        return $this->hasMany('App\Room');
+    }
 
 }

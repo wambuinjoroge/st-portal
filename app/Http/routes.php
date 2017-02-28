@@ -58,8 +58,8 @@ Route::get('faculties/{id}','FacultyController@destroy');
 
 //StudentsController
 Route::get('/students','StudentsController@index');
-Route::post('/students/create','StudentsController@store');
 Route::get('students/create','StudentsController@create');
+Route::post('/students/create','StudentsController@store');
 Route::get('student/{id}','StudentsController@show');
 Route::get('/students/{id}/edit','StudentsController@edit');
 Route::post('/students/{id}','StudentsController@update');
@@ -85,7 +85,7 @@ Route::post('hostels/{id}','HostelsController@update');
 Route::get('hostels/{id}','HostelsController@destroy');
 Route::post('hostel','HostelsController@hostel');
 Route::post('myHostel','HostelsController@myHostels');
-//Route::get('myHostel','HostelsController@myHostels');
+Route::get('myHostel','HostelsController@myHostels');
 
 
 //FeesController

@@ -48,8 +48,8 @@
              <div>
                <input type="text" name="national_id" placeholder="national_id" class="form-control">
              </div>
-            
-            
+
+
             <div >
             <label for="faculty">FACULTY</label>
              <select name="faculty_id" id="faculty" class="form-control">

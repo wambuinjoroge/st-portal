@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Hostel;
 use App\Student;
+use App\Room;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
@@ -20,6 +21,7 @@ class HostelsController extends Controller
     public function hostels()
     {
         $hostels = Hostel::all();
+//        print_r($hostels);exit();
         return view('hostels.st-hostels', compact('hostels'));
     }
     public function myHostels(Request $request)
@@ -32,7 +34,9 @@ class HostelsController extends Controller
         $hostel_id=$request->get('hostel_id');
 //        $hostel=Hostel::where('id',$hostel_id)->first();
         $hostel=Hostel::find($hostel_id);
-        return view('hostels.myHostels',compact('hostel'));
+        //rooms
+        $rooms=Room::where('hostel_id',$hostel->id)->get();
+        return view('hostels.myHostels',compact('hostel','rooms'));
     }
 
     public function create(){

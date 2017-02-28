@@ -13,6 +13,8 @@ class Student extends Model
         'faculty_id',
         'national_id',
         'user_id',
+        'hostel_id',
+        'room_id',
         'gender'
     ];
     //one to many
@@ -26,6 +28,9 @@ class Student extends Model
     //one to one
     public function hostel(){
         return $this->hasOne('App\Hostel');
+    }
+    public function room(){
+        return $this->hasOne('App\Room');
     }
 
 }
