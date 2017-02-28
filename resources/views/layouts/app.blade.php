@@ -96,7 +96,7 @@
                                     <a href="{{url('units/create')}}" ><i class="fa fa-fw fa-plus"></i> Units Registration </a>
                                 </li>
                                 <li>
-                                    <a href="{{url('faculties')}}"><i class="fa fa-fw fa-bank"></i> Exam Results</a>
+                                    <a href="{{url('exams')}}"><i class="fa fa-fw fa-bank"></i> Exam Results</a>
                                 </li>
                                 <li>
                                 <li>
@@ -149,7 +149,7 @@
                                     " ><i class="fa fa-fw fa-plus"></i> Units Registration </a>
                                 </li>
                                 <li>
-                                    <a href="{{url('exams/create')}}"><i class="fa fa-fw fa-bank"></i> Exam Results</a>
+                                    <a href="{{url('exams')}}"><i class="fa fa-fw fa-bank"></i> Exam Results</a>
                                 </li>
                                 <li>
                                 <li>

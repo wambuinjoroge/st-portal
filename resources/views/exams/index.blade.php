@@ -13,15 +13,17 @@
 	</thead>
 
 	  <tbody>
-	    
+
 	     @foreach($exams as $exam => $value)
 	     <tr>
             <td>{{$value -> year}}</td>
 	  		<td>{{$value -> semester}}</td>
 	  	    <td>{{$value -> setter}}</td>
-	  	 </tr> 
-	  	 @endforeach   
-	      
+	  	 </tr>
+	  	 @endforeach
+	     @if(empty($exams))
+			 <p>No exams yet!</p>
+			 @endif
 	  </tbody>
 </table>
 </div>

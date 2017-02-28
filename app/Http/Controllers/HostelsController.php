@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Hostel;
+use App\Student;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 
@@ -22,14 +24,15 @@ class HostelsController extends Controller
     }
     public function myHostels(Request $request)
     {
-//        $hostel = "";
-//        switch ($request->input('hostel_id')){
-//            case 1:
-//                $hostel = "Kilimanajaro":
-//                break;
-//            case 2:
-//        }
-        return $request->input('hostel_id');
+        $user=Auth::user();
+//        print_r($id);exit();
+        $student=Student::where('user_id',$user->id)->first();
+        $student->hostel_id=$request->get('hostel_id');
+        $student->save();
+        $hostel_id=$request->get('hostel_id');
+//        $hostel=Hostel::where('id',$hostel_id)->first();
+        $hostel=Hostel::find($hostel_id);
+        return view('hostels.myHostels',compact('hostel'));
     }
 
     public function create(){

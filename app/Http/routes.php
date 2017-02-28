@@ -85,7 +85,7 @@ Route::post('hostels/{id}','HostelsController@update');
 Route::get('hostels/{id}','HostelsController@destroy');
 Route::post('hostel','HostelsController@hostel');
 Route::post('myHostel','HostelsController@myHostels');
-Route::get('myHostel','HostelsController@myHostels');
+//Route::get('myHostel','HostelsController@myHostels');
 
 
 //FeesController

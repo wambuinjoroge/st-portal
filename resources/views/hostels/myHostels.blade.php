@@ -8,7 +8,7 @@
 
     <textarea class="form-control">Name:{{$hostel->hostel_name}}</textarea>
     <textarea class="form-control">Head{{$hostel->hostel_head}}</textarea>
-    <textarea class="form-control">RoomsNumber:{{$hostel->rooms_number}}</textarea>
+
 </div>
 
 @stop
