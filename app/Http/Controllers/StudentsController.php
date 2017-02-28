@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Fees;
+use App\Hostel;
 use App\User;
 use Illuminate\Http\Request;
 use App\Student;
@@ -23,7 +24,7 @@ class StudentsController extends Controller
       return view('student.index',compact('students'));
     }
     public function create(){
-        $user = Auth::user();
+       $user = Auth::user();
        $faculties=Faculty::all();
        $student = Student::where('user_id', $user->id)->first();
        if($student == null) {
@@ -70,9 +71,22 @@ class StudentsController extends Controller
             $student->national_id=$request->get('national_id');
 
             $student->faculty_id=$request->get('faculty_id');
+            $student->hostel_id=$request->get('hostel_id');
+
+//            $id = Auth::user()->id;
             $student->user_id=$user->id;
+            //trying to get the gender of the specified student
+            $student->gender(0,1);
+            if ($student->gender=0){
+                $student->gender=$request->get('female');
+            }
+            elseif($student->gender=1)  {
+                $student->gender=$request->get('male');
+            }
             $student->save();
+
             return redirect('/students');
+//                ->with('user_id',$id);
         } else {
 
             //create an object for eloquent Detail
@@ -84,16 +98,23 @@ class StudentsController extends Controller
             $student->national_id=$request->get('national_id');
 
             $student->faculty_id=$request->get('faculty_id');
+            $student->hostel_id=$request->get('hostel_id');
+            $student->gender=$request->get('gender');
             $student->user_id=Auth::user()->id;
+//            $id = Auth::user()->id;
             $student->save();
+
             return redirect('student/'.$student->id);
         }
     }
     public function show($id){
 
     	$student=Student::find($id);
+
     	$fees=Fees::where('student_id',$student->id)->get();
-    	return view('student.show',compact('student','fees'));
+        $user_id = Auth::user()->id;
+       // where('hostel_id',$hostel_id)->
+    	return view('student.show',compact('student','fees'))->with('user_id',$user_id);
 
     }
     public function edit($id){
@@ -123,10 +144,15 @@ class StudentsController extends Controller
         $student->national_id=$request->get('national_id');
 
         $student->faculty_id=$request->get('faculty_id');
-
+        $student->hostel_id=$request->get('hostel_id');
+        $student->gender=$request->get('gender');
+        $student->user_id=Auth::user()->id;
+//        $id = Auth::user()->id;
         $student->save();
 
-        return redirect('/students');
+
+
+        return redirect('student/'.$student->id);
 
     } 
     public function destroy($id){

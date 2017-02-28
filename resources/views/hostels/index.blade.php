@@ -3,7 +3,9 @@
 
 <div class="container">
     <ol class="breadcrumb">
+        @if(\Illuminate\Support\Facades\Auth::user()->role_id==1)
         <li><a href="{{url('hostels/create')}}">Create a hostel</a></li>
+        @endif
         <li class="active">Hostels</li>
     </ol>
 

@@ -1,11 +1,8 @@
 @extends('layouts.app')
 @section('content')
 
-
 <div class="container">
     <ol class="breadcrumb">
-        {{--<li><a href="{{url('/admin')}}">Admin Home</a></li>--}}
-        <li><a href="{{url('hostels')}}">Hostels</a></li>
         <li class="active">{{$hostel->hostel_name}}</li>
     </ol>
 

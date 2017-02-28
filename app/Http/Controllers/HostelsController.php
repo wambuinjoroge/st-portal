@@ -15,9 +15,21 @@ class HostelsController extends Controller
         $hostels=Hostel::all();
         return view('hostels.index',compact('hostels'));
     }
-    public function hostels(){
-        $hostels=Hostel::all();
-        return view('hostels.st-hostels',compact('hostels'));
+    public function hostels()
+    {
+        $hostels = Hostel::all();
+        return view('hostels.st-hostels', compact('hostels'));
+    }
+    public function myHostels(Request $request)
+    {
+//        $hostel = "";
+//        switch ($request->input('hostel_id')){
+//            case 1:
+//                $hostel = "Kilimanajaro":
+//                break;
+//            case 2:
+//        }
+        return $request->input('hostel_id');
     }
 
     public function create(){

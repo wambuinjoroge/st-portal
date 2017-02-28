@@ -27,7 +27,7 @@ Route::get('/','HomeController@checkUser');
 
 
 Route::auth();
-Route::get('/home', 'HomeController@index');
+Route::get('home', 'HomeController@index');
 //admin
 Route::post('admin/reports/bookings/butchers', 'Admin\AdminBookingsController@genButchersReport');
 Route::get('admin','AdminController@index');
@@ -46,12 +46,15 @@ Route::get('/exams/{id}','ExamController@destroy');
 
 //FacultyController
 Route::get('/faculties','FacultyController@index');
-Route::get('faculties/create','FacultyController@create');
+Route::get('faculties/create/{id}','FacultyController@create');
 Route::post('/faculties','FacultyController@store');
 Route::get('faculty/{id}','FacultyController@show');
 Route::get('/faculties/{id}/edit','FacultyController@edit');
 Route::post('/faculties/{id}','FacultyController@update');
+//Route::get('faculties/register','FacultyController@register');
 Route::get('faculties/{id}','FacultyController@destroy');
+
+
 
 //StudentsController
 Route::get('/students','StudentsController@index');
@@ -80,6 +83,10 @@ Route::get('hostel/{id}','HostelsController@show');
 Route::get('hostels/edit/{id}','HostelsController@edit');
 Route::post('hostels/{id}','HostelsController@update');
 Route::get('hostels/{id}','HostelsController@destroy');
+Route::post('hostel','HostelsController@hostel');
+Route::post('myHostel','HostelsController@myHostels');
+Route::get('myHostel','HostelsController@myHostels');
+
 
 //FeesController
 Route::get('fees','FeesController@index');

@@ -26,8 +26,19 @@
 	      <input type="text" class="form-control" name="national_id" value="{{$student->national_id}}" placeholder="National_id">
 	  </div>
 
+		<label for="gender">GENDER</label>
+		</br>
+		<label class="radio-inline">
+			<input type="radio" name="gender" id="female" value="0"> Female
+		</label>
+		<label class="radio-inline">
+			<input type="radio" name="gender" id="male" value="1"> Male
+		</label>
+		</br>
+
 	  <input type="hidden"  name="_token" value="{{ csrf_token() }}">
 	  <input type="hidden" name="id" value="{{ $student->id }}">
+		</br>
 	  <button class="btn btn-default">Submit</button>
 	    
 		

@@ -46,7 +46,7 @@
                     <div class="form-group">
                         <input type="text" class="form-control" placeholder="Search">
                     </div>
-                    <button type="submit" class="btn btn-default">Submit</button>
+                    <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search" aria-hidden="true">Search</span></button>
                 </form>
                 <ul class="nav navbar-nav navbar-right">
 
@@ -87,19 +87,20 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="#"><i class="fa fa-fw fa-home"></i> Home</a>
+                                    <a href="{{url('home')}}"><i class="fa fa-fw fa-home"></i> Home</a>
                                 </li>
                                 <li>
                                     <a href="{{url('students')}}"><i class="fa fa-fw fa-folder"></i> Students</a>
-                                </li>
-                                <li>
-                                    <a href="{{url('hostels')}}"><i class="fa fa-fw fa-cog"></i> Hostels</a>
                                 </li>
                                 <li>
                                     <a href="{{url('units/create')}}" ><i class="fa fa-fw fa-plus"></i> Units Registration </a>
                                 </li>
                                 <li>
                                     <a href="{{url('faculties')}}"><i class="fa fa-fw fa-bank"></i> Exam Results</a>
+                                </li>
+                                <li>
+                                <li>
+                                    <a href="{{url('hostels')}}"><i class="fa fa-fw fa-cog"></i> Hostels</a>
                                 </li>
                                 <li>
                                     <a href="#"><i class="fa fa-fw fa-dropbox"></i>Somu Voting</a>
@@ -123,19 +124,36 @@
                                     <a href="{{url('home')}}"><i class="fa fa-fw fa-home"></i> Home</a>
                                 </li>
                                 <li>
+                                    <a href="
+                                        @if (!empty(\App\Student::where('user_id', Auth::user()->id)->first()->id))
+                                    {{ url('student/'.\App\Student::where('user_id', Auth::user()->id)->first()->id) }}
+                                    @else
+                                    {{ url('#') }}
+                                    @endif
+                                            " ><i class="fa fa-fw fa-plus"></i> Personal Info </a>
+                                </li>
+                                <li>
                                     <a href="{{url('students/create')}}"><i class="fa fa-fw fa-folder"></i> Personal Info Editor</a>
                                 </li>
+                                {{--<li>--}}
+                                    {{--<a href="{{ url('faculties/register') }}"><i class="fa fa-fw fa-folder"></i> Units Registration</a>--}}
+                                {{--</li>--}}
+                              {{--FACULTY AND UNITS--}}
                                 <li>
-                                    <a href="{{url('student/'.\App\Student::where('user_id',Auth::user()->id)->first()->id)}}"><i class="fa fa-fw fa-folder"></i> Personal Info</a>
-                                </li>
-                                <li>
-                                    <a href="{{url('student-hostels')}}"><i class="fa fa-fw fa-cog"></i> Hostel Booking</a>
-                                </li>
-                                <li>
-                                    <a href="{{url('faculty/'.\App\Student::where('user_id', Auth::user()->id)->first()->faculty_id)}}" ><i class="fa fa-fw fa-plus"></i> Units Registration </a>
+                                    <a href="
+                                        @if (!empty(\App\Student::where('user_id', Auth::user()->id)->first()->faculty_id))
+                                            {{ url('faculty/'.\App\Student::where('user_id', Auth::user()->id)->first()->faculty_id) }}
+                                        @else
+                                           {{ url('#') }}
+                                        @endif
+                                    " ><i class="fa fa-fw fa-plus"></i> Units Registration </a>
                                 </li>
                                 <li>
                                     <a href="{{url('exams/create')}}"><i class="fa fa-fw fa-bank"></i> Exam Results</a>
+                                </li>
+                                <li>
+                                <li>
+                                    <a href="{{url('student-hostels')}}"><i class="fa fa-fw fa-cog"></i> Hostel Booking</a>
                                 </li>
                                 <li>
                                     <a href="#"><i class="fa fa-fw fa-dropbox"></i>Somu Voting</a>

@@ -20,8 +20,14 @@ class FacultyController extends Controller
     }
 
     public function create(){
+
         return view('faculties.create');
     }
+
+//    public function register(){
+//        $faculties=Faculty::all();
+//        return view('faculties.register',compact('faculties'));
+//    }
 
     public function store(Request $request){
     	$validator=Validator::make($request->all(),[
