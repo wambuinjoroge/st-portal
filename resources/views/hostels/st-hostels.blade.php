@@ -15,14 +15,14 @@
             {{--</ul>--}}
     {{--@endforeach--}}
 
-    <label for="hostel">HOSTEL</label>
+    <label for="hostel">HOSTELS</label>
             <select name="hostel_id" id="hostel" class="form-control">
                 @foreach($hostels as $hostel)
                     <option value="{{$hostel->id}}">{{$hostel->hostel_name}}</option>
                 @endforeach
             </select>
       </br>
-    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+        <input type="hidden" name="_token" value="{{ csrf_token() }}">
         <button class="btn btn-primary">Submit</button>
     {{--</div>--}}
 </form>

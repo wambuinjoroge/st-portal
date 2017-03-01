@@ -21,24 +21,67 @@ class HostelsController extends Controller
     public function hostels()
     {
         $hostels = Hostel::all();
-//        print_r($hostels);exit();
+
+//      print_r($hostels);exit();
+
         return view('hostels.st-hostels', compact('hostels'));
     }
-    public function myHostels(Request $request)
+
+    public function myHostels(Request $request )
     {
+
+        //logic to find the authenticated logged in user
         $user=Auth::user();
 //        print_r($id);exit();
+        //find the student using the user_id
         $student=Student::where('user_id',$user->id)->first();
+        //get their hostel_id from the view to the db
         $student->hostel_id=$request->get('hostel_id');
+        //save the student's hostel
         $student->save();
+
+        //define the variable hostel_id
         $hostel_id=$request->get('hostel_id');
 //        $hostel=Hostel::where('id',$hostel_id)->first();
+        //get the particular hostel in question from the model hostel using hostel-id
         $hostel=Hostel::find($hostel_id);
-        //rooms
-        $rooms=Room::where('hostel_id',$hostel->id)->get();
-        return view('hostels.myHostels',compact('hostel','rooms'));
-    }
+        //get the rooms relating to the hostel using hostel_id
+        if(!empty($hostel)) {
+            $rooms=Room::where('hostel_id',$hostel->id)->get();
+            return view('hostels.myHostels',compact('hostel','rooms'));
+        } else {
+            return redirect('student-hostels');
 
+        }
+
+//            print_r($rooms);exit();
+        }
+
+    public function myRoom (Request $request){
+//        $room=Room::where('id',$id);
+        $user=Auth::user();
+        $student=Student::where('user_id',$user->id)->first();
+        $student->room_id=$request->get('room_id');
+        $student->save();
+
+        $room_id=$request->get('room_id');
+        $room=Room::find($room_id);
+        if ($room){
+            $room->status = 1;
+            $room->save();
+        }
+
+        //$status=Room::where('status',$room->status == 1) ? true : false;
+
+        if ($room->status == true){
+            return view('hostels.myRoom',compact('room'));
+        }else{
+            return redirect('myHostel');
+        }
+
+
+
+    }
     public function create(){
        return view('hostels.create');
     }

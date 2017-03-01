@@ -152,12 +152,22 @@
                                     <a href="{{url('exams')}}"><i class="fa fa-fw fa-bank"></i> Exam Results</a>
                                 </li>
                                 <li>
+
                                 <li>
-                                    <a href="{{url('student-hostels')}}"><i class="fa fa-fw fa-cog"></i> Hostel Booking</a>
+                                    <a href="
+                                        @if(!empty(\App\Student::where('user_id', Auth::user()->id)->first()->hostel_id))
+                                           {{url('myHostel')}}
+                                        @else
+                                            {{url('student-hostels')}}
+                                        @endif
+                                            "><i class="fa fa-fw fa-cog"></i>My Hostel</a>
                                 </li>
                                 <li>
-                                    <a href="#"><i class="fa fa-fw fa-dropbox"></i>Somu Voting</a>
-                                </li>
+                                    {{--<a href="{{url('student-hostels')}}"><i class="fa fa-fw fa-cog"></i>Hostel Booking</a>--}}
+                                {{--</li>--}}
+                                {{--<li>--}}
+                                    {{--<a href="#"><i class="fa fa-fw fa-dropbox"></i>Voting</a>--}}
+                                {{--</li>--}}
                                 <li>
                                     <a href="#"><i class="fa fa-fw fa-twitter"></i>Lecturers' Evaluation</a>
                                 </li>

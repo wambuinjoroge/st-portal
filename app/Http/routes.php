@@ -87,6 +87,8 @@ Route::post('hostel','HostelsController@hostel');
 Route::post('myHostel','HostelsController@myHostels');
 Route::get('myHostel','HostelsController@myHostels');
 
+Route::post('myRoom','HostelsController@myRoom');
+Route::get('myRoom','HostelsController@myRoom');
 
 //FeesController
 Route::get('fees','FeesController@index');
