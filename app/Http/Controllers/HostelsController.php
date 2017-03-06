@@ -124,6 +124,14 @@ class HostelsController extends Controller
         return view('hostels.show',compact('hostel','rooms','student'));
     }
 
+    public function show2($id){
+
+        $hostel = Hostel::find($id);
+        $students = Student::where('hostel_id', $hostel->id)->get();
+
+        return view('hostels.show2',compact('hostel','students'));
+    }
+
     public function edit($id){
         $hostel=Hostel::find($id);
         return view('hostels.edit',compact('hostel'));

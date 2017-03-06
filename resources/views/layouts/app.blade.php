@@ -93,26 +93,21 @@
                                     {{--<a href="{{url('students')}}"><i class="fa fa-fw fa-folder"></i> Students</a>--}}
                                 {{--</li>--}}
                                 <li>
-                                    <a href="{{url('faculties')}}" ><i class="fa fa-fw fa-plus"></i>  Faculties </a>
+                                    <a href="{{url('faculties')}}" ><i class="fa fa-fw fa-book"></i>  Faculties </a>
                                 </li>
-                                <li>
-                                    <a href="{{url('exams')}}"><i class="fa fa-fw fa-bank"></i> Exam Results</a>
-                                </li>
-                                <li>
+
+
                                 <li>
                                     <a href="{{url('hostels')}}"><i class="fa fa-fw fa-cog"></i> Hostels</a>
                                 </li>
-                                {{--<li>--}}
-                                    {{--<a href="#"><i class="fa fa-fw fa-dropbox"></i>Somu Voting</a>--}}
-                                {{--</li>--}}
                                 <li>
-                                    <a href="#"><i class="fa fa-fw fa-twitter"></i>Lecturers' Evaluation</a>
+                                    <a href="#"><i class="fa fa-fw fa-twitter"></i>Lecturers</a>
                                 </li>
                                 <li>
-                                    <a href="#">Graduation Application</a>
+                                    <a href="#"><i class="fa fa-fw fa-file"></i>Graduation Applicants</a>
                                 </li>
                                 <li>
-                                    <a href="#">Comments</a>
+                                    <a href="#"><i class="fa fa-fw fa-plus"></i>Comments</a>
                                 </li>
                             @elseif(Auth::user()->role_id==2)
                                 <li class="sidebar-brand">
@@ -148,11 +143,7 @@
                                         @endif
                                     " ><i class="fa fa-fw fa-plus"></i> Units Registration </a>
                                 </li>
-                                {{--<li>--}}
-                                    {{--<a href="{{url('faculty/'.\App\Student::where('user_id', Auth::user()->id)->first()->faculty_id)}}"><i class="fa fa-fw fa-bank"></i>Units Registration </a>--}}
-                                {{--</li>--}}
 
-                                <li>
 
                                 <li>
                                     <a href="
@@ -164,11 +155,7 @@
                                             "><i class="fa fa-fw fa-cog"></i>Hostels</a>
                                 </li>
                                 <li>
-                                    {{--<a href="{{url('student-hostels')}}"><i class="fa fa-fw fa-cog"></i>Hostel Booking</a>--}}
-                                {{--</li>--}}
-                                {{--<li>--}}
-                                    {{--<a href="#"><i class="fa fa-fw fa-dropbox"></i>Voting</a>--}}
-                                {{--</li>--}}
+
                                 <li>
                                     <a href="#"><i class="fa fa-fw fa-twitter"></i>Lecturers' Evaluation</a>
                                 </li>

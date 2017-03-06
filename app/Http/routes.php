@@ -72,6 +72,7 @@ Route::get('hostels/create','HostelsController@create');
 Route::post('hostels','HostelsController@store');
 
 Route::get('hostel/{id}','HostelsController@show');
+Route::get('hostel/{id}/students','HostelsController@show2');
 
 Route::get('hostels/edit/{id}','HostelsController@edit');
 Route::post('hostels/{id}','HostelsController@update');
