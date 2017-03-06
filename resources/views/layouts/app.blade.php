@@ -52,7 +52,7 @@
 
                     @if (Auth::guest())
                         <li><a href="{{ url('/login') }}">Login</a></li>
-                        <li><a href="{{ url('/register') }}">Register</a></li>
+                        {{--<li><a href="{{ url('/register') }}">Register</a></li>--}}
                     @else
 
                         <li class="dropdown">
@@ -89,11 +89,11 @@
                                 <li>
                                     <a href="{{url('home')}}"><i class="fa fa-fw fa-home"></i> Home</a>
                                 </li>
+                                {{--<li>--}}
+                                    {{--<a href="{{url('students')}}"><i class="fa fa-fw fa-folder"></i> Students</a>--}}
+                                {{--</li>--}}
                                 <li>
-                                    <a href="{{url('students')}}"><i class="fa fa-fw fa-folder"></i> Students</a>
-                                </li>
-                                <li>
-                                    <a href="{{url('units/create')}}" ><i class="fa fa-fw fa-plus"></i> Units Registration </a>
+                                    <a href="{{url('faculties')}}" ><i class="fa fa-fw fa-plus"></i>  Faculties </a>
                                 </li>
                                 <li>
                                     <a href="{{url('exams')}}"><i class="fa fa-fw fa-bank"></i> Exam Results</a>
@@ -102,9 +102,9 @@
                                 <li>
                                     <a href="{{url('hostels')}}"><i class="fa fa-fw fa-cog"></i> Hostels</a>
                                 </li>
-                                <li>
-                                    <a href="#"><i class="fa fa-fw fa-dropbox"></i>Somu Voting</a>
-                                </li>
+                                {{--<li>--}}
+                                    {{--<a href="#"><i class="fa fa-fw fa-dropbox"></i>Somu Voting</a>--}}
+                                {{--</li>--}}
                                 <li>
                                     <a href="#"><i class="fa fa-fw fa-twitter"></i>Lecturers' Evaluation</a>
                                 </li>
@@ -148,19 +148,20 @@
                                         @endif
                                     " ><i class="fa fa-fw fa-plus"></i> Units Registration </a>
                                 </li>
-                                <li>
-                                    <a href="{{url('exams')}}"><i class="fa fa-fw fa-bank"></i> Exam Results</a>
-                                </li>
+                                {{--<li>--}}
+                                    {{--<a href="{{url('faculty/'.\App\Student::where('user_id', Auth::user()->id)->first()->faculty_id)}}"><i class="fa fa-fw fa-bank"></i>Units Registration </a>--}}
+                                {{--</li>--}}
+
                                 <li>
 
                                 <li>
                                     <a href="
                                         @if(!empty(\App\Student::where('user_id', Auth::user()->id)->first()->hostel_id))
-                                           {{url('myHostel')}}
+                                           {{url('myHostels')}}
                                         @else
                                             {{url('student-hostels')}}
                                         @endif
-                                            "><i class="fa fa-fw fa-cog"></i>My Hostel</a>
+                                            "><i class="fa fa-fw fa-cog"></i>Hostels</a>
                                 </li>
                                 <li>
                                     {{--<a href="{{url('student-hostels')}}"><i class="fa fa-fw fa-cog"></i>Hostel Booking</a>--}}

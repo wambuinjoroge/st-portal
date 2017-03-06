@@ -2,11 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Student;
+use App\Student_Unit;
+use App\StudentUnit;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Faculty;
 use App\Unit;
 use Illuminate\Routing\Controller;
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
 
@@ -24,10 +30,41 @@ class FacultyController extends Controller
         return view('faculties.create');
     }
 
-//    public function register(){
-//        $faculties=Faculty::all();
-//        return view('faculties.register',compact('faculties'));
-//    }
+    public function stUnits(){
+        $user=Auth::user();
+        $student_unit=StudentUnit::join('students','student_units.student_id','=','students.id')
+            ->join('units','student_units.unit_id','=','units.id')
+            ->select([
+                'units.name','student_units.created_at','units.id'
+            ])
+            ->where('user_id',$user->id)->get();
+
+        return view('faculties.student_unit',compact('student_unit'));
+
+    }
+
+    public function myUnits(Request $request)
+    {
+        $user=Auth::user();
+        $student=Student::where('user_id',$user->id)->first();
+
+        //get the unit_ids from the register units view since they come as an array
+        $units=$request->get('unit_id');
+//        print_r($units);exit();
+       if (is_array($units)){
+           foreach ($units as $unit){
+               $data = [
+                   'unit_id' => $unit,
+                   'student_id' => $student->id,
+                   'created_at' => Carbon::now(),
+                   'updated_at' => Carbon::now()
+               ];
+               DB::table('student_units')->insert($data);
+           }
+        }
+
+        return redirect('student-units');
+    }
 
     public function store(Request $request){
     	$validator=Validator::make($request->all(),[
@@ -52,16 +89,28 @@ class FacultyController extends Controller
 
     }
 
-    public function show($id){
-
-//        $faculty=Faculty::find($id)->with(['units'])->first();
-
-        $faculty=Faculty::find($id);
-        $units=Unit::where('faculty_id',$faculty->id)->get();
-        //print_r($faculty);exit();
-        return view('faculties.show',compact('faculty','units'));
-       
+    public function show($id)
+    {
+        $user=Auth::user();
+        $student=Student::where('user_id',$user->id)->first();
+        $student_unit=StudentUnit::where('student_id',$student->id)->first();
+//        print_r($student_unit);exit();
+        if ($student_unit == []){
+            $faculty=Faculty::find($id);
+            $units=Unit::where('faculty_id',$faculty->id)->get();
+            //print_r($faculty);exit();
+            return view('faculties.show',compact('faculty','units','student'));
+        }else{
+            return redirect('student-units');
+        }
    }
+
+
+    public function show2($id){
+        $faculty=Faculty::find($id);
+        $students=Student::where('faculty_id',$faculty->id)->get();
+        return view('faculties.show2',compact('faculty','students'));
+    }
 
     public function edit($id){
        $faculty=Faculty::find($id);

@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Student extends Model
 {
+
 	 protected $fillable = [
         'name',
         'admission_number',
@@ -32,5 +33,16 @@ class Student extends Model
     public function room(){
         return $this->hasOne('App\Room');
     }
+    public function units()
+    {
+        return $this->belongsToMany('App\Unit')
+            ->withTimestamps();
+
+    }
+//$student=App\Student::find(1);
+//
+//foreach($student->units as $unit){
+//echo $unit->pivot;
+//}
 
 }

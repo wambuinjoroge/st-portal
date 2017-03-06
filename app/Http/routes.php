@@ -44,23 +44,13 @@ Route::get('/exams/{id}/edit','ExamController@edit');
 Route::post('/exams/{id}','ExamController@update');
 Route::get('/exams/{id}','ExamController@destroy');
 
-//FacultyController
-Route::get('/faculties','FacultyController@index');
-Route::get('faculties/create/{id}','FacultyController@create');
-Route::post('/faculties','FacultyController@store');
-Route::get('faculty/{id}','FacultyController@show');
-Route::get('/faculties/{id}/edit','FacultyController@edit');
-Route::post('/faculties/{id}','FacultyController@update');
-//Route::get('faculties/register','FacultyController@register');
-Route::get('faculties/{id}','FacultyController@destroy');
-
-
 
 //StudentsController
 Route::get('/students','StudentsController@index');
 Route::get('students/create','StudentsController@create');
 Route::post('/students/create','StudentsController@store');
 Route::get('student/{id}','StudentsController@show');
+
 Route::get('/students/{id}/edit','StudentsController@edit');
 Route::post('/students/{id}','StudentsController@update');
 Route::get('students/{id}','StudentsController@destroy');
@@ -69,6 +59,7 @@ Route::get('students/{id}','StudentsController@destroy');
 Route::get('units','UnitsController@index');
 Route::get('units/create','UnitsController@create');
 Route::post('units','UnitsController@store');
+
 Route::get('unit/{id}','UnitsController@show');
 Route::get('/unit/{id}/edit','UnitsController@edit');
 Route::post('/units/{id}','UnitsController@update');
@@ -79,16 +70,33 @@ Route::get('hostels','HostelsController@index');
 Route::get('student-hostels','HostelsController@hostels');
 Route::get('hostels/create','HostelsController@create');
 Route::post('hostels','HostelsController@store');
+
 Route::get('hostel/{id}','HostelsController@show');
+
 Route::get('hostels/edit/{id}','HostelsController@edit');
 Route::post('hostels/{id}','HostelsController@update');
 Route::get('hostels/{id}','HostelsController@destroy');
-Route::post('hostel','HostelsController@hostel');
+
+Route::get('myHostels','HostelsController@stHostels');
 Route::post('myHostel','HostelsController@myHostels');
-Route::get('myHostel','HostelsController@myHostels');
+
 
 Route::post('myRoom','HostelsController@myRoom');
 Route::get('myRoom','HostelsController@myRoom');
+
+//FacultyController
+Route::get('/faculties','FacultyController@index');
+Route::get('faculties/create/{id}','FacultyController@create');
+Route::post('/faculties','FacultyController@store');
+
+Route::get('student-units','FacultyController@stUnits');
+Route::post('myUnits','FacultyController@myUnits');
+Route::get('students/{id}/faculty','FacultyController@show2');
+Route::get('faculty/{id}','FacultyController@show');
+Route::get('/faculties/{id}/edit','FacultyController@edit');
+Route::post('/faculties/{id}','FacultyController@update');
+
+Route::get('faculties/{id}','FacultyController@destroy');
 
 //FeesController
 Route::get('fees','FeesController@index');

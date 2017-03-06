@@ -25,7 +25,8 @@
            	 <td>{{ $value -> name }}</td>
            	 <td>{{ $value -> head }}</td>
            	 <td>
-           	 	<a href="{{url('faculty/'.$value->id)}}" class="btn btn-primary"><span class="glyphicon glyphicon-home">Show </span></a>
+				<a href="{{url('students/'.$value->id.'/faculty')}}" class="btn btn-primary"><span class="glyphicon glyphicon-user">Students</a>
+           	 	<a href="{{url('faculty/'.$value->id)}}" class="btn btn-primary"><span class="glyphicon glyphicon-book">Units</span></a>
            	 	<a href="{{url('faculties/'.$value->id.'/edit')}}" class="btn btn-primary"><span class="glyphicon glyphicon-pencil">Edit</span></a>
            	 	<a class="btn btn-danger" href="{{url('faculties/'.$value->id)}}" class="btn btn-primary"><span class="glyphicon glyphicon-trash">Delete</span></a>
            	 </td>
