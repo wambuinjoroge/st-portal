@@ -6,7 +6,7 @@
         <li class="active">Units</li>
     </ol>
 
-    <table class="table table-striped">
+    <table class="table table-bordered bg-faded">
         <thead>
         <tr>
             <td>Name</td>
@@ -14,7 +14,8 @@
         </tr>
         </thead>
         <tbody>
-        @foreach($units as $unit => $value)
+        @if($student_unit)
+        @foreach($student_unit as $unit => $value)
             <tr>
                 <td>{{$value->name}}</td>
 
@@ -25,6 +26,7 @@
                 </td>
             </tr>
         @endforeach
+        @endif
         </tbody>
 
     </table>

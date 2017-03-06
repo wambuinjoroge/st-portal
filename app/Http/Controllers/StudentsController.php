@@ -14,6 +14,7 @@ use Illuminate\Routing\Controller;
 
 // use App\Http\Controllers\Session;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
 class StudentsController extends Controller
@@ -127,15 +128,23 @@ class StudentsController extends Controller
 
         $student=Student::find($id);
 
-        $units=StudentUnit::where('student_id',$student->id);
+        //join from child to parent
+        $student_unit = DB::table('student_units')->join('units','student_units.unit_id','=','units.id')
+            ->join('students','student_units.student_id','=','students.id')
+            ->select(['units.id','units.name'])
+            ->where('student_id',$student->id)
+            ->get();
 
-        return view('student.show2',compact('student','units'));
+//        print_r($student_unit);exit();
+        return view('student.show2',compact('student','student_unit'));
 
     }
+
     public function edit($id){
     	$student=Student::find($id);
     	return view('student.edit',compact('student'));
     }
+
     public function update( Request $request ,$id){
         $validator=Validator::make($request->all(),[
         	'name' =>'required',
