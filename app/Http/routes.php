@@ -50,6 +50,7 @@ Route::get('/students','StudentsController@index');
 Route::get('students/create','StudentsController@create');
 Route::post('/students/create','StudentsController@store');
 Route::get('student/{id}','StudentsController@show');
+Route::get('student/{id}/units','StudentsController@show2');
 
 Route::get('/students/{id}/edit','StudentsController@edit');
 Route::post('/students/{id}','StudentsController@update');

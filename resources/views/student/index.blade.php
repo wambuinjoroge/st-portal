@@ -29,6 +29,7 @@
 			<td>{{$value->national_id}}</td>
 			<td>{{$value->gender == 0 ? 'Female' : 'Male'}}</td>
 			<td>
+				<a href="{{url('student/'.$value->id.'/units')}}" class="btn btn-primary"><span class="glyphicon glyphicon-person">Show Units</span></a>
 				<a href="{{url('student/'.$value->id)}}" class="btn btn-primary"><span class="glyphicon glyphicon-person">Show student</span></a>
 				<a href="{{url('/students/'.$value->id.'/edit')}}" class="btn btn-success"><span class="glyphicon glyphicon-pencil">Edit</span></a>
 				<a href="{{url('students/'.$value->id)}}" class="btn btn-danger"><span class="glyphicon glyphicon-trash">Delete</span></a>

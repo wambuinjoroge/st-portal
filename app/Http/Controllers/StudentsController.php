@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Fees;
 use App\Hostel;
+use App\StudentUnit;
 use App\User;
 use Illuminate\Http\Request;
 use App\Student;
@@ -120,6 +121,15 @@ class StudentsController extends Controller
         $user_id = Auth::user()->id;
        // where('hostel_id',$hostel_id)->
     	return view('student.show',compact('student','fees'))->with('user_id',$user_id);
+
+    }
+    public function show2($id){
+
+        $student=Student::find($id);
+
+        $units=StudentUnit::where('student_id',$student->id);
+
+        return view('student.show2',compact('student','units'));
 
     }
     public function edit($id){
