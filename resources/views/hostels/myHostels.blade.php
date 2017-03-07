@@ -2,13 +2,12 @@
 @section('content')
 
 
-    {{--<ol class="breadcrumb">--}}
-        {{--<li class="active"><h3><b>{{$hostel->hostel_name}}</b></h3></li>--}}
-    {{--</ol>--}}
+    <ol class="breadcrumb">
+        <li> <a><span class="glyphicon glyphicon-user" aria-hidden="true"></span>Head:{{$hostel->hostel_head}}</a></li>
+        <li class="active"><h3><b>{{$hostel->hostel_name}}</b></h3></li>
+    </ol>
 
-   {{--<button type="button" class="btn btn-default btn-lg">--}}
-       {{--<a><span class="glyphicon glyphicon-user" aria-hidden="true"></span>Head:{{$hostel->hostel_head}}</a>--}}
-   {{--</button>--}}
+
 
     {{--create a radio button for rooms in this particular hostel--}}
 

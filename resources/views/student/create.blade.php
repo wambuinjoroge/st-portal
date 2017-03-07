@@ -42,7 +42,7 @@
              </div>
            <label>Date of Birth</label>
              <div>
-               <input type="text" name="date_of_birth" placeholder="date_of_birth" class="form-control">
+               <input type="date" name="date_of_birth" placeholder="date_of_birth" class="form-control">
              </div>
            <label>National ID</label>
              <div>

@@ -33,15 +33,25 @@ class HostelsController extends Controller
 
         $user = Auth::user();
 
-        $hostel = DB::table('hostels')->join('students','hostels.id','=','students.hostel_id')
-            ->join('rooms','hostels.id','=','rooms.hostel_id')
-            ->select(['rooms.random_no'])
-            ->where('user_id','=',$user->id)
+        $student = Student::where('user_id',$user->id)->first();
+
+//          WRONG
+//        $hostel = DB::table('hostels')->join('rooms','hostels.id','=','rooms.hostel_id')
+//            ->select(['rooms.id','rooms.random_no','hostels.hostel_name','hostels.hostel_head','hostels.id'])
+//            ->where('hostels.id',$student->hostel_id)
+//            ->get();
+
+        $hostel=DB::table('hostels')->select(['hostels.id','hostels.hostel_name','hostels.hostel_head'])
+            ->where('hostels.id',$student->hostel_id)
+            ->first();
+
+        //$rooms = Room::where('hostel_id',$hostel->id);
+        $rooms = DB::table('rooms')->select(['rooms.id','rooms.random_no'])
+            ->where('rooms.hostel_id',$hostel->id)
             ->get();
+//       print_r($hostel);exit();
 
-//        print_r($hostel);exit();
-
-       return view('hostels.show',compact('hostel'));
+       return view('hostels.show',compact('hostel','student','rooms'));
 
     }
 
@@ -55,31 +65,58 @@ class HostelsController extends Controller
 
         $student->save();
 
-        $hostel = $request->get('hostel_id');
+        $hostel_id = $request->get('hostel_id');
+
+        $hostel=Hostel::find($hostel_id);
 
 
         return redirect('myHostels');
     }
 
+    public function stRoom(){
+       $user = Auth::user();
+
+       $student = Student::where('user_id',$user->id)->first();
+
+       $hostel = DB::table('hostels')->select('hostels.id','hostels.hostel_name')
+           ->where('hostels.id',$student -> hostel_id)
+           ->first();
+
+
+       $room = DB::table('rooms')->select('rooms.id','rooms.random_no','rooms.status')
+           ->where('rooms.id',$student -> room_id)
+           ->first();
+
+//       print_r($room);exit();
+//        if ($room){
+//            $room->status = 1;
+//            $room->save();
+//        }
+//
+//        if ($room->status == true){
+//            return view('hostels.myRoom',compact('room'));
+//        }else{
+//            return redirect('myHostel');
+//        }
+        return view('hostels.myRoom',compact('room','hostel'));
+    }
+
     public function myRoom (Request $request){
 
         $user=Auth::user();
+
         $student=Student::where('user_id',$user->id)->first();
+
+        //getting the value from the form
         $student->room_id=$request->get('room_id');
+
         $student->save();
 
         $room_id=$request->get('room_id');
-        $room=Room::find($room_id);
-        if ($room){
-            $room->status = 1;
-            $room->save();
-        }
 
-        if ($room->status == true){
-            return view('hostels.myRoom',compact('room'));
-        }else{
-            return redirect('myHostel');
-        }
+        $room=Room::find($room_id);
+
+        return redirect('myRoom');
 
     }
     public function create(){
@@ -116,7 +153,7 @@ class HostelsController extends Controller
     public function show($id){
 
         $user=Auth::user();
-        $student=Student::where('user_id',$user->id);
+        $student=Student::where('user_id',$user->id)->get();
 
         $hostel = Hostel::find($id);
         $rooms = Room::where('hostel_id', $hostel->id)->get();

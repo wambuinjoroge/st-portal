@@ -107,7 +107,7 @@
                                     <a href="#"><i class="fa fa-fw fa-file"></i>Graduation Applicants</a>
                                 </li>
                                 <li>
-                                    <a href="#"><i class="fa fa-fw fa-plus"></i>Comments</a>
+                                    <a href="#">Comments</a>
                                 </li>
                             @elseif(Auth::user()->role_id==2)
                                 <li class="sidebar-brand">
@@ -160,10 +160,10 @@
                                     <a href="#"><i class="fa fa-fw fa-twitter"></i>Lecturers' Evaluation</a>
                                 </li>
                                 <li>
-                                    <a href="#">Graduation Application</a>
+                                    <a href="#"><i class="fa fa-fw fa-file"></i>Graduation Application</a>
                                 </li>
                                 <li>
-                                    <a href="#">Comments</a>
+                                    <a href="#"><i class="fa fa-fw fa-plus"></i>Comments</a>
                                 </li>
                             @endif
                         </ul>

@@ -14,14 +14,18 @@
 
 <h3><u>Select the room of choice</u></h3></br>
 
-    <form method="post" action="{{url('myRoom')}}">
+    <form method="post" action="{{url('room')}}">
+
+        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
             @foreach($rooms as $room)
                 <label class="radio-inline">
                     <input type="radio" name="room_id" id="room" value="{{ $room->id }}"> {{ $room->random_no }}
                 </label>
             @endforeach
-    <input type="hidden" name="_token" value="{{ csrf_token() }}">
-    <br></br><button class="btn btn-primary">Submit</button>
+
+        <br></br><button class="btn btn-primary">Submit</button>
+
     </form>
 
 @stop

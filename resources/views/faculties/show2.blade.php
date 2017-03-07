@@ -8,9 +8,9 @@
 		<li class="active">{{$faculty->name}}</li>
 	</ol>
 
-	@if(Auth::user()->role_id==1)
-		<div class="pull-right"><a href="{{url('students/create')}}"><h4><span class=" label label-primary">Add Student</span></h4></a></div>
-	@endif
+	{{--@if(Auth::user()->role_id==1)--}}
+		{{--<div class="pull-right"><a href="{{url('students/create')}}"><h4><span class=" label label-primary">Add Student</span></h4></a></div>--}}
+	{{--@endif--}}
 
 
 	<ol class="breadcrumb">

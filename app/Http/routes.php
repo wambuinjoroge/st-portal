@@ -82,9 +82,9 @@ Route::get('hostels/{id}','HostelsController@destroy');
 Route::get('myHostels','HostelsController@stHostels');
 Route::post('myHostel','HostelsController@myHostels');
 
+Route::get('myRoom','HostelsController@stRoom');
+Route::post('room','HostelsController@myRoom');
 
-Route::post('myRoom','HostelsController@myRoom');
-Route::get('myRoom','HostelsController@myRoom');
 
 //FacultyController
 Route::get('/faculties','FacultyController@index');

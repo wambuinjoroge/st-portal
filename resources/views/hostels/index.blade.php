@@ -14,7 +14,7 @@
                <tr>
                    <td>Hostel Name</td>
                    <td>Hostel Head</td>
-                   <td>Rooms Number</td>
+                   <td> Number of Rooms </td>
                    <td>Actions</td>
                </tr>
             </thead>
