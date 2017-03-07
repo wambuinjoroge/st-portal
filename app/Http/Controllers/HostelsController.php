@@ -78,7 +78,7 @@ class HostelsController extends Controller
 
        $student = Student::where('user_id',$user->id)->first();
 
-       $hostel = DB::table('hostels')->select('hostels.id','hostels.hostel_name')
+       $hostel = DB::table('hostels')->select('hostels.id','hostels.hostel_name','hostels.hostel_head')
            ->where('hostels.id',$student -> hostel_id)
            ->first();
 
@@ -88,17 +88,24 @@ class HostelsController extends Controller
            ->first();
 
 //       print_r($room);exit();
+        if($room->status = 1){
+            return view('hostels.myRoom',compact('room','hostel'));
+        }else{
+            return redirect('myHostels');
+        }
+
+
+
 //        if ($room){
 //            $room->status = 1;
-//            $room->save();
 //        }
 //
 //        if ($room->status == true){
-//            return view('hostels.myRoom',compact('room'));
+//            return view('hostels.myRoom',compact('room','hostel'));
 //        }else{
 //            return redirect('myHostel');
 //        }
-        return view('hostels.myRoom',compact('room','hostel'));
+//        return view('hostels.myRoom',compact('room','hostel'));
     }
 
     public function myRoom (Request $request){

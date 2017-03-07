@@ -148,11 +148,11 @@
                                 <li>
                                     <a href="
                                         @if(!empty(\App\Student::where('user_id', Auth::user()->id)->first()->hostel_id))
-                                           {{url('myHostels')}}
+                                           {{url('myRoom')}}
                                         @else
                                             {{url('student-hostels')}}
                                         @endif
-                                            "><i class="fa fa-fw fa-cog"></i>Hostels</a>
+                                            "><i class="fa fa-fw fa-cog"></i>Hostel Booking</a>
                                 </li>
                                 <li>
 
