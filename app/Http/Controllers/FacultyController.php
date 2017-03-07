@@ -32,6 +32,12 @@ class FacultyController extends Controller
 
     public function stUnits(){
         $user=Auth::user();
+
+        $faculty = DB::table('faculties')->join('students','faculties.id','=','students.faculty_id')
+            ->select(['students.id','faculties.id','faculties.name'])
+            ->where('user_id',$user->id)
+            ->first();
+
         $student_unit=StudentUnit::join('students','student_units.student_id','=','students.id')
             ->join('units','student_units.unit_id','=','units.id')
             ->select([
@@ -39,7 +45,7 @@ class FacultyController extends Controller
             ])
             ->where('user_id',$user->id)->get();
 
-        return view('faculties.student_unit',compact('student_unit'));
+        return view('faculties.student_unit',compact('student_unit','faculty'));
 
     }
 

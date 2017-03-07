@@ -52,6 +52,9 @@ Route::post('/students/create','StudentsController@store');
 Route::get('student/{id}','StudentsController@show');
 Route::get('student/{id}/units','StudentsController@show2');
 
+Route::get('graduation','StudentsController@stGraduation');
+Route::post('st-graduation','StudentsController@graduation');
+
 Route::get('/students/{id}/edit','StudentsController@edit');
 Route::post('/students/{id}','StudentsController@update');
 Route::get('students/{id}','StudentsController@destroy');

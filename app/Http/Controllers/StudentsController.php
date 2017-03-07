@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Fees;
+use App\Graduation;
 use App\Hostel;
 use App\StudentUnit;
 use App\User;
@@ -25,6 +26,49 @@ class StudentsController extends Controller
       $students=Student::all();
       return view('student.index',compact('students'));
     }
+
+    public function stGraduation(){
+
+        return view('student.graduate');
+
+    }
+
+    public function graduation(Request $request){
+
+        $validator = Validator::make($request->all(),[
+
+            "surname" => "required",
+            "first_name" => "required",
+            "other_names" => "required",
+            "graduation_year" => "required",
+            "education_level" => "required",
+            "admission_no" => "required",
+            "faculty_name" => "required",
+            "national_id" => "required"
+
+            ]);
+        if ($validator->fails()){
+            return redirect()->back()
+                ->withErrors($validator->errors())
+                ->withInput();
+        }
+        $graduation = new Graduation();
+
+        $graduation->surname=$request->get('surname');
+        $graduation->first_name=$request->get('first_name');
+        $graduation->other_names=$request->get('other_names');
+        $graduation->graduation_year=$request->get('graduation_year');
+        $graduation->education_level=$request->get('education_level');
+        $graduation->admission_no=$request->get('admission_no');
+        $graduation->faculty_name=$request->get('faculty_name');
+        $graduation->national_id=$request->get('national_id');
+
+        $graduation->save();
+
+        return redirect('graduations');
+
+    }
+
     public function create(){
        $user = Auth::user();
        $faculties=Faculty::all();

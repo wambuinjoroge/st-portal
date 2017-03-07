@@ -149,6 +149,7 @@
                                     <a href="
                                         @if(!empty(\App\Student::where('user_id', Auth::user()->id)->first()->hostel_id))
                                            {{url('myRoom')}}
+
                                         @else
                                             {{url('student-hostels')}}
                                         @endif

@@ -1,8 +1,11 @@
 @extends('layouts.app')
 @section('content')
 
+    <ol class="breadcrumb">
+        <li> <a><span class="glyphicon glyphicon-home" aria-hidden="true"></span>{{$faculty->name}}</a></li></br>
+    </ol>
 
-<h3>Units</h3>
+<h3><u>Units</u></h3>
 <table class="table table-striped task-table">
     <thead>
     <tr>

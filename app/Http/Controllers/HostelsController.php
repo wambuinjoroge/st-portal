@@ -35,21 +35,17 @@ class HostelsController extends Controller
 
         $student = Student::where('user_id',$user->id)->first();
 
-//          WRONG
-//        $hostel = DB::table('hostels')->join('rooms','hostels.id','=','rooms.hostel_id')
-//            ->select(['rooms.id','rooms.random_no','hostels.hostel_name','hostels.hostel_head','hostels.id'])
-//            ->where('hostels.id',$student->hostel_id)
-//            ->get();
 
         $hostel=DB::table('hostels')->select(['hostels.id','hostels.hostel_name','hostels.hostel_head'])
             ->where('hostels.id',$student->hostel_id)
             ->first();
 
+//       print_r($hostel);exit();
+
         //$rooms = Room::where('hostel_id',$hostel->id);
         $rooms = DB::table('rooms')->select(['rooms.id','rooms.random_no'])
             ->where('rooms.hostel_id',$hostel->id)
             ->get();
-//       print_r($hostel);exit();
 
        return view('hostels.show',compact('hostel','student','rooms'));
 
@@ -61,6 +57,7 @@ class HostelsController extends Controller
 
         $student = Student::where('user_id', $user->id)->first();
 
+//        print_r($request->input('hostel_id'));exit;
         $student->hostel_id = $request->get('hostel_id');
 
         $student->save();
@@ -88,24 +85,8 @@ class HostelsController extends Controller
            ->first();
 
 //       print_r($room);exit();
-        if($room->status = 1){
+
             return view('hostels.myRoom',compact('room','hostel'));
-        }else{
-            return redirect('myHostels');
-        }
-
-
-
-//        if ($room){
-//            $room->status = 1;
-//        }
-//
-//        if ($room->status == true){
-//            return view('hostels.myRoom',compact('room','hostel'));
-//        }else{
-//            return redirect('myHostel');
-//        }
-//        return view('hostels.myRoom',compact('room','hostel'));
     }
 
     public function myRoom (Request $request){
@@ -163,6 +144,7 @@ class HostelsController extends Controller
         $student=Student::where('user_id',$user->id)->get();
 
         $hostel = Hostel::find($id);
+
         $rooms = Room::where('hostel_id', $hostel->id)->get();
 
         return view('hostels.show',compact('hostel','rooms','student'));
