@@ -21,11 +21,5 @@
 
           <br></br><button class="btn btn-primary">Submit</button>
       </form>
-
-{{--@if(!empty(\App\Student::where('user_id', Auth::user()->id)->first()->room_id))--}}
-    {{--<p>Successfully booked the room below</p>--}}
-    {{--<button type="button" class="btn btn-default btn-lg">--}}
-        {{--<a><span class="glyphicon glyphicon-bed" aria-hidden="true"></span>Room Number:{{$room->random_no}}</a>--}}
-    {{--</button>--}}
-{{--@endif--}}
+    
 @stop
