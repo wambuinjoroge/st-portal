@@ -161,7 +161,7 @@
                                     <a href="#"><i class="fa fa-fw fa-twitter"></i>Lecturers' Evaluation</a>
                                 </li>
                                 <li>
-                                    <a href="#"><i class="fa fa-fw fa-file"></i>Graduation Application</a>
+                                    <a href="{{ url('graduation') }}"><i class="fa fa-fw fa-file"></i>Graduation Application</a>
                                 </li>
                                 <li>
                                     <a href="#"><i class="fa fa-fw fa-plus"></i>Comments</a>

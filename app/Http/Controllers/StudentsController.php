@@ -29,7 +29,19 @@ class StudentsController extends Controller
 
     public function stGraduation(){
 
-        return view('student.graduate');
+        $user = Auth::user();
+
+        $student = DB::table('students')->select(['students.id','students.admission_number','students.faculty_id','students.national_id'])
+            ->where('user_id',$user->id)
+            ->first();
+
+//        print_r($student);exit();
+        $faculty = DB::table('faculties')->select(['faculties.id','faculties.name'])
+            ->where('faculties.id',$student->faculty_id)
+            ->first();
+
+//        print_r($faculty);exit();
+        return view('student.graduate',compact('student','faculty'));
 
     }
 
