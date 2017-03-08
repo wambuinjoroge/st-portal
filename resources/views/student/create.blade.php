@@ -70,13 +70,7 @@
                <input class="field" type="radio"  checked="checked" name="gender" id="male" value="1"> Male
            </label>
            </br>
-           {{--<select class="form-control">--}}
-               {{--<option>Female</option>--}}
-               {{--<option>Male</option>--}}
-           {{--</select>--}}
 
-           {{--<input type="hidden" name="hostel_id" value="{{$value->id}}">--}}
-             
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
        </br>
            

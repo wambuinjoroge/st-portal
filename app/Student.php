@@ -16,6 +16,7 @@ class Student extends Model
         'user_id',
         'hostel_id',
         'room_id',
+        'graduation_id',
         'gender'
     ];
     //one to many

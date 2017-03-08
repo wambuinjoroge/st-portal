@@ -27,6 +27,13 @@ class StudentsController extends Controller
       return view('student.index',compact('students'));
     }
 
+    public function graduands(){
+
+        $graduations = Graduation::all();
+        return view('student.stGraduate',compact('graduations'));
+
+    }
+
     public function stGraduation(){
 
         $user = Auth::user();
@@ -72,12 +79,28 @@ class StudentsController extends Controller
         $graduation->graduation_year=$request->get('graduation_year');
         $graduation->education_level=$request->get('education_level');
         $graduation->admission_no=$request->get('admission_no');
+//        print_r($request->get('faculty_name'));exit();
         $graduation->faculty_name=$request->get('faculty_name');
         $graduation->national_id=$request->get('national_id');
 
         $graduation->save();
 
-        return redirect('graduations');
+        $user = Auth::user();
+
+        //updating a table's column
+        DB::table('students')
+            ->where('user_id',$user->id)
+            ->update(['graduation_id' =>  $graduation->id ]);
+
+        return redirect('graduand/'.$graduation->id);
+
+    }
+
+    public function showGrad($id){
+
+        $graduation = Graduation::find($id);
+
+        return view('student.showGrad',compact('graduation'));
 
     }
 

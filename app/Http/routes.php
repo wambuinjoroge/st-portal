@@ -47,6 +47,7 @@ Route::get('/exams/{id}','ExamController@destroy');
 
 //StudentsController
 Route::get('/students','StudentsController@index');
+Route::get('graduands','StudentsController@graduands');
 Route::get('students/create','StudentsController@create');
 Route::post('/students/create','StudentsController@store');
 Route::get('student/{id}','StudentsController@show');
@@ -54,6 +55,7 @@ Route::get('student/{id}/units','StudentsController@show2');
 
 Route::get('graduation','StudentsController@stGraduation');
 Route::post('st-graduation','StudentsController@graduation');
+Route::get('graduand/{id}','StudentsController@showGrad');
 
 Route::get('/students/{id}/edit','StudentsController@edit');
 Route::post('/students/{id}','StudentsController@update');

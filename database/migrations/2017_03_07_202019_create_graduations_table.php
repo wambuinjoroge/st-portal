@@ -17,10 +17,10 @@ class CreateGraduationsTable extends Migration
             $table->text('surname');
             $table->text('first_name');
             $table->text('other_names');
-            $table->date('graduation_year');
+            $table->text('graduation_year');
             $table->text('education_level');
             $table->text('admission_no');
-            $table->integer('faculty_name');
+            $table->text('faculty_name');
             $table->integer('national_id');
             $table->timestamps();
         });

@@ -104,7 +104,7 @@
                                     <a href="#"><i class="fa fa-fw fa-twitter"></i>Lecturers</a>
                                 </li>
                                 <li>
-                                    <a href="#"><i class="fa fa-fw fa-file"></i>Graduation Applicants</a>
+                                    <a href="{{ url('graduands') }}"><i class="fa fa-fw fa-file"></i>Graduation Applicants</a>
                                 </li>
                                 <li>
                                     <a href="#">Comments</a>
@@ -161,7 +161,13 @@
                                     <a href="#"><i class="fa fa-fw fa-twitter"></i>Lecturers' Evaluation</a>
                                 </li>
                                 <li>
-                                    <a href="{{ url('graduation') }}"><i class="fa fa-fw fa-file"></i>Graduation Application</a>
+                                    <a href="
+                                       @if(!empty(\App\Student::where('user_id', Auth::user()->id)->first()->graduation_id))
+                                            {{ url('graduand/'.\App\Student::where('user_id', Auth::user()->id)->first()->graduation_id) }}
+                                        @else
+                                            {{ url('graduation') }}
+                                        @endif
+                                            "><i class="fa fa-fw fa-file"></i>Graduation Application</a>
                                 </li>
                                 <li>
                                     <a href="#"><i class="fa fa-fw fa-plus"></i>Comments</a>

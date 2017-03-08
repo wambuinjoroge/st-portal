@@ -32,9 +32,9 @@
     </div>
     <div class="form-group">
         <label>Graduation Year</label>
-        <select class="form-control">
-            <option> 2015 Graduation </option>
-            <option> 2016 Graduation </option>
+        <select name="graduation_year" id="graduation" class="form-control">
+            <option value="2015 Graduation"> 2015 Graduation </option>
+            <option value="2016 Graduation"> 2016 Graduation </option>
         </select>
     </div>
     <div class="form-group">
@@ -46,16 +46,15 @@
         <input type="text" class="form-control" name="national_id" placeholder="National ID" value="{{ $student->national_id }}" readonly>
     </div>
     <div class="form-group">
-        <label>Admission Number</label>
-        <input type="text" class="form-control" name="admission_no" placeholder="Admission Number" value="{{ $student->admission_number }}" readonly>
-    </div>
-    <div class="form-group">
         <label>Faculty</label>
         <input type="text" class="form-control" name="faculty_name" placeholder="Faculty" value="{{ $faculty->name }}" readonly>
     </div>
+    <div class="form-group">
+        <label>Admission Number</label>
+        <input type="text" class="form-control" name="admission_no" placeholder="Admission Number" value="{{ $student->admission_number }}" readonly>
+    </div>
 
-
-<button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary">Submit</button>
 
 </form>
 
