@@ -129,3 +129,7 @@ Route::post('name/post','TransactionsController@receiver');
 Route::get('dashboard', function () {
      return view('auth.dashboard');
  });
+
+Route::get('evaluation', function () {
+    return view('student.evaluation');
+});
