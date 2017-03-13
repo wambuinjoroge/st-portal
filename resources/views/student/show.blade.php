@@ -14,7 +14,7 @@
 		<textarea class="form-control" rows="2">EMAIL:{{$student->email}}</textarea>
 		<textarea class="form-control" rows="2">DATE OF BIRTH:{{$student->date_of_birth}}</textarea>
 		<textarea class="form-control" rows="2">NATIONAL ID:{{$student->national_id}}</textarea>
-		<textarea class="form-control" rows="2">GENDER:{{ ($student->gender == 0) ? 'Female' : 'Male' }}</textarea>
+		<textarea class="form-control" rows="2">GENDER:{{ ($student->gender == 1) ? 'Female' : 'Male' }}</textarea>
 
 
 @stop

@@ -24,7 +24,6 @@
                       <label>
                           <input type="checkbox" name="unit_id[]" value="{{ $unit->id }}">
                           </br>{{ $unit->name }}
-
                       </label>
                   </div>
 

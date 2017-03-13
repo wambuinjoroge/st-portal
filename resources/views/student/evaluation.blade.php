@@ -2,22 +2,31 @@
 
 @section('content')
 
-<h3><b>STUDENTS EVALUATION OF INSTRUCTOR</b></h3>
+<h3><b><u>STUDENT'S EVALUATION OF INSTRUCTOR</u></b></h3>
     <br>
 
-    <h4>FACULTY :{{ $faculty->name }}</h4>
-
-    <h4>Year of Study : </h4>
-    <h5>Student's Gender : {{ $student->gender }}</h5><br>
+    <h4>{{ $faculty->name }}&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Student's Gender : {{ $student->gender == 1 ? 'Female' : 'Male' }}</h4 >
+    {{--<h4>Year of Study : </h4>form--}}
 
 
+<form action="{{ url('evaluation') }}" method="post">
 
-    <h4>Instructor's Name : <br>Gender : </h4>
-    <br>
-    <h5>Date : </h5>
-    <br>
+    <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-<textarea class="form-control" rows="7">
+
+    <label for="lecturer">Lecturer's Name</label>
+    <select name="lecturer_name" id="lecturer" class="form-control">
+        @foreach($lecturers as $lecturer => $value)
+            <option value="{{$value->id}}">{{$value->lecturer_name}}</option>
+        @endforeach
+    </select>
+    </br>
+    <label>Date</label>
+    <input type="date" name="created_at">
+
+    <br></br>
+<textarea class="form-control" rows="9" readonly>
+  This Rating Scale is designed to evaluate the efficiency and effectiveness of your instructor in the semester you have just completed. Your response to the items in this scale is confidential. Please read carefully the instructions typed below before you complete this scale.
     1. Your student number will not be captured after submitting this form.
     2. Evaluate the effectiveness of your instructor, by rating each of the items in this scale i.e. Poor, Fair, Good, Very Good or Excellent.
     3. Respond by selecting an option for each item on this scale, that you believe best evaluates the effectiveness of your lecturer.
@@ -26,10 +35,155 @@
     6. Only forms completed will be accepted i.e. If a question has not been responded to, then the whole form will be rejected.
     7. You cannot evaluate a lecturer more than once.
 </textarea>
-
-
 <br>
 
+<div class="radio">
 
+<table class="table table-striped">
+
+    <tbody>
+    <p>1.The instructor's preparation for class was:</p>
+       <tr>
+           <td>
+                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" >
+                Poor
+           </td>
+           <td>
+               <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" >
+               Fair
+           </td>
+           <td>
+               <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" >
+               Good
+           </td>
+           <td>
+               <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" >
+               Very Good
+           </td>
+           <td>
+               <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" >
+               Excellent
+           </td>
+       </tr>
+    </tbody>
+</table>
+
+<table class="table table-striped">
+
+        <tbody>
+        <p>2.How do you evaluate the instructor's punctuality to class?</p>
+        <tr>
+            <td>
+                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" >
+                Poor
+            </td>
+            <td>
+                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" >
+                Fair
+            </td>
+            <td>
+                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" >
+                Good
+            </td>
+            <td>
+                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" >
+                Very Good
+            </td>
+            <td>
+                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" >
+                Excellent
+            </td>
+        </tr>
+        </tbody>
+</table>
+    <table class="table table-striped ">
+
+        <tbody>
+        <p>3.How do you assess the instructor's ability to explain the course content?</p>
+        <tr>
+            <td>
+                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" >
+                Poor
+            </td>
+            <td>
+                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" >
+                Fair
+            </td>
+            <td>
+                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" >
+                Good
+            </td>
+            <td>
+                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" >
+                Very Good
+            </td>
+            <td>
+                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" >
+                Excellent
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <table class="table table-striped">
+
+        <tbody>
+        <p>4.The instructor was concerned about the student's learning:</p>
+        <tr>
+            <td>
+                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" >
+                Poor
+            </td>
+            <td>
+                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" >
+                Fair
+            </td>
+            <td>
+                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" >
+                Good
+            </td>
+            <td>
+                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" >
+                Very Good
+            </td>
+            <td>
+                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" >
+                Excellent
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <table class="table table-striped">
+
+        <tbody>
+        <p>5.The instructor was willing to help students outside class?</p>
+        <tr>
+            <td>
+                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" >
+                Poor
+            </td>
+            <td>
+                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" >
+                Fair
+            </td>
+            <td>
+                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" >
+                Good
+            </td>
+            <td>
+                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" >
+                Very Good
+            </td>
+            <td>
+                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" >
+                Excellent
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<button type="submit" class="btn btn-primary" >Submit</button>
+
+</form>
 
 @stop

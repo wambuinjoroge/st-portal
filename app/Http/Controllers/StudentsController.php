@@ -44,50 +44,24 @@ class StudentsController extends Controller
 
         $student= Student::where('user_id',$user->id)->first();
 
-        print_r($student);exit();
+//        print_r($student);exit();
         $faculty = DB::table('faculties')
             ->select('faculties.id','faculties.name')
             ->where('faculties.id',$student->faculty_id)
             ->first();
 
-//        $lecturers = Lecturer::where('faculty_id',$faculty->id);
-//
+//        print_r($faculty);exit();
+        $lecturers = Lecturer::all();
+//        print_r($lecturers);exit();
 //        $courses = Course::where('faculty_id',$faculty->id);
 
-        return view('student.evaluation',compact('faculty','student'));
+        return view('student.evaluation',compact('faculty','student','lecturers'));
     }
 
     public function store_eval(Request $request){
 
-        $validator = Validator::make($request->all(),[
-            "faculty_name" => "required",
-            "course_name" => "required",
-            "year" => "required",
-            "st_gender" => "required",
-            "lecturer_name" => "required",
-            "lec_gender" => "required",
-            "created_at" => "required"
-        ]);
 
-        if ($validator->fails()){
-            return redirect()->back()
-                ->withErrors($validator->errors())
-                ->withInput();
-        }
 
-        $evaluation = new Evaluation();
-
-        $evaluation->faculty_name=$request->get('faculty_name');
-        $evaluation->course_name=$request->get('course_name');
-        $evaluation->year=$request->get('year');
-        $evaluation->st_gender=$request->get('st_gender');
-        $evaluation->lecturer_name=$request->get('lecturer_name');
-        $evaluation->lec_gender=$request->get('lec_gender');
-        $evaluation->created_at=$request->get('created_at');
-
-        $evaluation->save();
-
-        return redirect()->back();
     }
 
     public function graduands(){
