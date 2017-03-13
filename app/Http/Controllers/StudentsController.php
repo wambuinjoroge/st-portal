@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Course;
+use App\Evaluation;
 use App\Fees;
 use App\Graduation;
 use App\Hostel;
+use App\Lecturer;
 use App\StudentUnit;
 use App\User;
 use Illuminate\Http\Request;
@@ -25,6 +28,65 @@ class StudentsController extends Controller
      
       $students=Student::all();
       return view('student.index',compact('students'));
+
+    }
+
+    public function evaluations(){
+
+        $evaluations = Evaluation::all();
+        return view('student.evaluations',compact('evaluations'));
+
+    }
+
+    public function create_evaluation(){
+
+        $user = Auth::user();
+
+        $student= Student::where('user_id',$user->id);
+
+        $faculty = DB::table('faculties')
+            ->select('faculties.id','faculties.name')
+            ->where('faculties.id',$student->faculty_id)
+            ->first();
+
+        $lecturers = Lecturer::where('faculty_id',$faculty->id);
+
+        $courses = Course::where('faculty_id',$faculty->id);
+
+        return view('student.cr_eval',compact('faculty','lecturers','courses'));
+    }
+
+    public function store_eval(Request $request){
+
+        $validator = Validator::make($request->all(),[
+            "faculty_name" => "required",
+            "course_name" => "required",
+            "year" => "required",
+            "st_gender" => "required",
+            "lecturer_name" => "required",
+            "lec_gender" => "required",
+            "created_at" => "required"
+        ]);
+
+        if ($validator->fails()){
+            return redirect()->back()
+                ->withErrors($validator->errors())
+                ->withInput();
+        }
+
+        $evaluation = new Evaluation();
+
+        $evaluation->faculty_name=$request->get('faculty_name');
+        $evaluation->course_name=$request->get('course_name');
+        $evaluation->year=$request->get('year');
+        $evaluation->st_gender=$request->get('st_gender');
+        $evaluation->lecturer_name=$request->get('lecturer_name');
+        $evaluation->lec_gender=$request->get('lec_gender');
+        $evaluation->created_at=$request->get('created_at');
+
+        $evaluation->save();
+
+        return redirect()->back();
     }
 
     public function graduands(){

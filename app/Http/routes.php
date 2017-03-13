@@ -53,6 +53,10 @@ Route::post('/students/create','StudentsController@store');
 Route::get('student/{id}','StudentsController@show');
 Route::get('student/{id}/units','StudentsController@show2');
 
+Route::get('create','StudentsController@create_evaluation');
+Route::post('evaluation','StudentsController@store_eval');
+Route::get('evaluations','StudentsController@evaluations');
+
 Route::get('graduation','StudentsController@stGraduation');
 Route::post('st-graduation','StudentsController@graduation');
 Route::get('graduand/{id}','StudentsController@showGrad');
