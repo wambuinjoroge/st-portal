@@ -5,16 +5,17 @@
 <h3><b>STUDENTS EVALUATION OF INSTRUCTOR</b></h3>
     <br>
 
-    <h4>FACULTY :</h4>
-    <h4>Course : </h4>
-    <h4>Year of Study : </h4>
-    <h5>Student's Gender : </h5>
+    <h4>FACULTY :{{ $faculty->name }}</h4>
 
-    </br>
+    <h4>Year of Study : </h4>
+    <h5>Student's Gender : {{ $student->gender }}</h5><br>
+
+
+
     <h4>Instructor's Name : <br>Gender : </h4>
     <br>
     <h5>Date : </h5>
-    </br>
+    <br>
 
 <textarea class="form-control" rows="7">
     1. Your student number will not be captured after submitting this form.

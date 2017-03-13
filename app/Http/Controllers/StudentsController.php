@@ -42,18 +42,19 @@ class StudentsController extends Controller
 
         $user = Auth::user();
 
-        $student= Student::where('user_id',$user->id);
+        $student= Student::where('user_id',$user->id)->first();
 
+        print_r($student);exit();
         $faculty = DB::table('faculties')
             ->select('faculties.id','faculties.name')
             ->where('faculties.id',$student->faculty_id)
             ->first();
 
-        $lecturers = Lecturer::where('faculty_id',$faculty->id);
+//        $lecturers = Lecturer::where('faculty_id',$faculty->id);
+//
+//        $courses = Course::where('faculty_id',$faculty->id);
 
-        $courses = Course::where('faculty_id',$faculty->id);
-
-        return view('student.cr_eval',compact('faculty','lecturers','courses'));
+        return view('student.evaluation',compact('faculty','student'));
     }
 
     public function store_eval(Request $request){
