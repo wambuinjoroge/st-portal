@@ -37,150 +37,54 @@
 </textarea>
 <br>
 
-<div class="radio">
+<div class="questionBox">
 
-<table class="table table-striped">
-
-    <tbody>
     <p>1.The instructor's preparation for class was:</p>
-       <tr>
-           <td>
-                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" >
-                Poor
-           </td>
-           <td>
-               <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" >
-               Fair
-           </td>
-           <td>
-               <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" >
-               Good
-           </td>
-           <td>
-               <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" >
-               Very Good
-           </td>
-           <td>
-               <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" >
-               Excellent
-           </td>
-       </tr>
-    </tbody>
-</table>
 
-<table class="table table-striped">
-
-        <tbody>
-        <p>2.How do you evaluate the instructor's punctuality to class?</p>
-        <tr>
-            <td>
-                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" >
-                Poor
-            </td>
-            <td>
-                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" >
-                Fair
-            </td>
-            <td>
-                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" >
-                Good
-            </td>
-            <td>
-                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" >
-                Very Good
-            </td>
-            <td>
-                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" >
-                Excellent
-            </td>
-        </tr>
-        </tbody>
-</table>
-    <table class="table table-striped ">
-
-        <tbody>
-        <p>3.How do you assess the instructor's ability to explain the course content?</p>
-        <tr>
-            <td>
-                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" >
-                Poor
-            </td>
-            <td>
-                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" >
-                Fair
-            </td>
-            <td>
-                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" >
-                Good
-            </td>
-            <td>
-                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" >
-                Very Good
-            </td>
-            <td>
-                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" >
-                Excellent
-            </td>
-        </tr>
-        </tbody>
-    </table>
-    <table class="table table-striped">
-
-        <tbody>
-        <p>4.The instructor was concerned about the student's learning:</p>
-        <tr>
-            <td>
-                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" >
-                Poor
-            </td>
-            <td>
-                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" >
-                Fair
-            </td>
-            <td>
-                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" >
-                Good
-            </td>
-            <td>
-                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" >
-                Very Good
-            </td>
-            <td>
-                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" >
-                Excellent
-            </td>
-        </tr>
-        </tbody>
-    </table>
-    <table class="table table-striped">
-
-        <tbody>
-        <p>5.The instructor was willing to help students outside class?</p>
-        <tr>
-            <td>
-                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" >
-                Poor
-            </td>
-            <td>
-                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" >
-                Fair
-            </td>
-            <td>
-                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" >
-                Good
-            </td>
-            <td>
-                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" >
-                Very Good
-            </td>
-            <td>
-                <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" >
-                Excellent
-            </td>
-        </tr>
-        </tbody>
-    </table>
+        <input type="radio" name="opinion"  value="1" >
+        Poor
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+       <input type="radio" name="opinion"  value="2" >
+       Fair
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+       <input type="radio" name="opinion"  value="3" >
+       Good
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+       <input type="radio" name="opinion" value="4" >
+       Very Good
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+       <input type="radio" name="opinion"  value="5" >
+       Excellent
 </div>
+<br>
+<div class="questionBox">
+
+    <p>2.How do you evaluate the instructor's punctuality to class?</p>
+
+    <input type="radio" name="opinion"  value="1" >
+    Poor
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="radio" name="opinion"  value="2" >
+    Fair
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="radio" name="opinion"  value="3" >
+    Good
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="radio" name="opinion" value="4" >
+    Very Good
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="radio" name="opinion"  value="5" >
+    Excellent
+</div>
+
 
 <button type="submit" class="btn btn-primary" >Submit</button>
 
