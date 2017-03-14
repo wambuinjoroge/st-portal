@@ -2,20 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Lecturer;
+use App\Student;
 use Illuminate\Http\Request;
-
-use App\Http\Requests;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class QuestionController extends Controller
 {
-    //
-    public function evaluations(){
-
-        $evaluations = Evaluation::all();
-        return view('student.evaluations',compact('evaluations'));
-
-    }
-
     public function create_evaluation(){
 
         $user = Auth::user();
@@ -28,7 +22,7 @@ class QuestionController extends Controller
             ->where('faculties.id',$student->faculty_id)
             ->first();
 
-//        print_r($faculty);exit();
+//       print_r($faculty);exit();
         $lecturers = Lecturer::all();
 //        print_r($lecturers);exit();
 //        $courses = Course::where('faculty_id',$faculty->id);
