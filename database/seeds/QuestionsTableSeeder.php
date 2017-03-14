@@ -14,13 +14,13 @@ class QuestionsTableSeeder extends Seeder
         //
         DB::table('questions')->insert([
            [
-             'question' => 'The instructor\'s preparation for class was:',
+             'question' => '1. The instructor\'s preparation for class was:',
            ],
            [
-             'question' => 'How do you evaluate the instructor\'s punctuality to class?',
+             'question' => '2. How do you evaluate the instructor\'s punctuality to class?',
            ],
            [
-             'question' => 'How do you assess the instructor\'s ability to explain the course content?',
+             'question' => '3. How do you assess the instructor\'s ability to explain the course content?',
            ],
         ]);
     }

@@ -141,6 +141,7 @@ class HostelsController extends Controller
     public function show($id){
 
         $user=Auth::user();
+
         $student=Student::where('user_id',$user->id)->get();
 
         $hostel = Hostel::find($id);

@@ -46,8 +46,10 @@ Route::get('/exams/{id}','ExamController@destroy');
 
 //QuestionController
 Route::get('create','QuestionController@create_evaluation');
-Route::post('evaluation','QuestionController@store_eval');
-Route::get('evaluations','QuestionController@evaluations');
+Route::post('evaluation','QuestionController@store');
+//Route::get('evaluations','QuestionController@evaluations');
+Route::get('evaluate','QuestionController@evaluate');
+//Route::get('evaluate/{id}','QuestionController@one');
 
 
 //StudentsController
