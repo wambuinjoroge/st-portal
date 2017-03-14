@@ -65,23 +65,23 @@
 
     <p>2.How do you evaluate the instructor's punctuality to class?</p>
 
-    <input type="radio" name="opinion"  value="1" >
+    <input type="radio" name="opinion2"  value="1" >
     Poor
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <input type="radio" name="opinion"  value="2" >
+    <input type="radio" name="opinion2"  value="2" >
     Fair
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <input type="radio" name="opinion"  value="3" >
+    <input type="radio" name="opinion2"  value="3" >
     Good
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <input type="radio" name="opinion" value="4" >
+    <input type="radio" name="opinion2" value="4" >
     Very Good
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <input type="radio" name="opinion"  value="5" >
+    <input type="radio" name="opinion2"  value="5" >
     Excellent
 </div>
 

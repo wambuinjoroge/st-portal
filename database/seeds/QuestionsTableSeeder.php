@@ -14,14 +14,14 @@ class QuestionsTableSeeder extends Seeder
         //
         DB::table('questions')->insert([
            [
-             'question' => '1',
+             'question' => 'The instructor\'s preparation for class was:',
            ],
            [
-             'question' => '2',
+             'question' => 'How do you evaluate the instructor\'s punctuality to class?',
            ],
            [
-             'question' => '3',
-           ]
+             'question' => 'How do you assess the instructor\'s ability to explain the course content?',
+           ],
         ]);
     }
 }
