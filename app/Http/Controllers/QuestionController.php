@@ -51,11 +51,32 @@ class QuestionController extends Controller
 
     public function store(Request $request)
     {
-//        print_r($request->all());
+        print_r($request->all());
 
-        print_r(array_chunk($request->all(),2,true));exit();
+        print_r(array_chunk($request->all(),2,true));
 
-       $evaluations->save();
+        print_r($first_array = ["lecturer_id" => 1]);
+
+        $second_array = [1 => 1,2 => 6];
+
+        $third_array = [3 => 12];
+
+        print_r($results = array_merge($second_array,$third_array));
+
+        $answer = $request->get($question -> id);
+
+
+        if(is_array($results)){
+
+            foreach ($results as $result){
+                $data = [
+                  'question' => $question -> question,
+                  'answers' => $answer->answer
+                ];
+                DB::table('lecturer_evaluations')->insert($data);
+            }
+        }
+
 
 
 

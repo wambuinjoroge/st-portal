@@ -4,6 +4,7 @@
 
 <form method="post" action="{{ url('evaluation') }}">
 
+    <input type="hidden" name="_token" value="{{ csrf_token() }}">
     <label for="lecturer">Lecturer's Name</label>
     <select name="lecturer_id" id="lecturer_id" class="form-control">
         @foreach($lecturers as $lecturer )
@@ -19,13 +20,14 @@
       <p>{{ $question->question }}</p>
 
             @foreach( $question->answers as $answer)
-            <label class="radio-inline">
 
-            <input type="radio" name="{{ $question -> id}}"  value="{{ $answer -> id}}" ></br>
+              <label class="radio-inline">
 
-            {{ $answer->answer }}
+                <input type="radio" name="{{ $question -> id}}"  value="{{ $answer -> id}}" ></br>
 
-            </label>
+                   {{ $answer->answer }}
+
+              </label>
 
         @endforeach
         <br>
@@ -33,8 +35,6 @@
 
 </div>
     </br>
-
-    <input type="hidden" name="_token" value="{{ csrf_token() }}">
     <button class=" btn btn-primary">Submit</button>
 </form>
 @stop
