@@ -158,7 +158,7 @@
                                 <li>
 
                                 <li>
-                                    <a href="{{ url('create') }}"><i class="fa fa-fw fa-twitter"></i>Lecturers' Evaluation</a>
+                                    <a href="{{ url('evaluate') }}"><i class="fa fa-fw fa-twitter"></i>Lecturers' Evaluation</a>
                                 </li>
                                 <li>
                                     <a href="

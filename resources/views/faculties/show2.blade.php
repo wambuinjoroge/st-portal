@@ -40,8 +40,9 @@
 				<td>{{$value->national_id}}</td>
 				<td>{{$value->gender == 0 ? 'Female' : 'Male'}}</td>
 				<td>
-					<a href="{{url('student/'.$value->id.'/units')}}" class="btn btn-primary"><span class="glyphicon glyphicon-person">Units</span></a>
-					<a href="{{url('student/'.$value->id)}}" class="btn btn-primary"><span class="glyphicon glyphicon-person">Student</span></a>
+					<a href="{{url('student/'.$value->id)}}" class="btn btn-primary"><span class="glyphicon glyphicon-user">Student</span></a>
+					<a href="{{url('fees/create/'.$value->id)}}" class="btn btn-primary"><span class="glyphicon glyphicon-credit-card">Fees</span></a>
+					<a href="{{url('student/'.$value->id.'/units')}}" class="btn btn-primary"><span class="glyphicon glyphicon-book">Units</span></a>
 					<a href="{{url('/students/'.$value->id.'/edit')}}" class="btn btn-success"><span class="glyphicon glyphicon-pencil">Edit</span></a>
 					<a href="{{url('students/'.$value->id)}}" class="btn btn-danger"><span class="glyphicon glyphicon-trash">Delete</span></a>
 				</td>

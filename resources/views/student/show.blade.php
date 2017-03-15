@@ -3,9 +3,9 @@
 
 
 	<!-- work on how to include fees on this view  -->
-	<ol class="pull-right">
+	<ol class="breadcrumb">
 		<ul>
-			<h3><a href="{{url('fees/create/'.$student->id)}}"><span class="label label-primary">FEES</span></a></h3>
+			<h4><a class="active"><span class="glyphicon glyphicon-user">Student's Profile</span></a></h4>
 		</ul>
 	</ol>
 

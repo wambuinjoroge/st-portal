@@ -40,44 +40,52 @@ class QuestionController extends Controller
         $user=Auth::user();
 
         $student = Student::where('user_id',$user->id)->first();
+        $faculty = DB::table('faculties')
+            ->select('faculties.id','faculties.name')
+            ->where('faculties.id',$student->faculty_id)
+            ->first();
 
 //        print_r($student);exit();
         $lecturers = Lecturer::all();
 
         $questions =Question::with('answers')->get();
 
-        return view('question.evaluate',compact('student','questions','lecturers'));
+        return view('question.evaluate',compact('student','questions','lecturers','faculty'));
     }
 
     public function store(Request $request)
     {
-        print_r($request->all());
+//      print_r($request->all());
 
-        print_r(array_chunk($request->all(),2,true));
+      $array_chunk= array_chunk($request->all(),2,true);
 
-        print_r($first_array = ["lecturer_id" => 1]);
+//      print_r($array_chunk);exit();
 
-        $second_array = [1 => 1,2 => 6];
+      $lecturer_id = $request->get('lecturer_id');
 
-        $third_array = [3 => 12];
+      $second_array = $array_chunk[1];
 
-        print_r($results = array_merge($second_array,$third_array));
+//      print_r($second_array);exit;
 
-        $answer = $request->get($question -> id);
+      $third_array = $array_chunk[2];
 
+//      print_r($third_array);exit();
 
-        if(is_array($results)){
+      $question_answers = ($second_array + $third_array);
 
-            foreach ($results as $result){
+        if (is_array($question_answers)) {
+            foreach ($question_answers as $question => $answer) {
+
                 $data = [
-                  'question' => $question -> question,
-                  'answers' => $answer->answer
+                    'question_id' => $question ,
+                    'answer_id' => $answer,
+                    'lecturer_id' => $lecturer_id
                 ];
+//                print_r($data);exit();
                 DB::table('lecturer_evaluations')->insert($data);
             }
+
         }
-
-
 
 
        return redirect('evaluate');

@@ -2,14 +2,17 @@
 
 @section('content')
 
-    <form method="post" action="{{ url('') }}">
-        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+   <table>
+       <thead>
+            <tr>
+                <td>Name of lecturer</td>
+                <td>Question</td>
+                <td>Answer</td>
+            </tr>
+       </thead>
+       <tbody>
 
-        <input type="date" name="created_at" >
-
-        <input type="text" >
-
-        <input type="radio" name="opinion"  value="1" >
-    </form>
+       </tbody>
+   </table>
 
 @stop

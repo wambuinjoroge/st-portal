@@ -65,6 +65,7 @@ class FacultyController extends Controller
                    'created_at' => Carbon::now(),
                    'updated_at' => Carbon::now()
                ];
+//               print_r($data);exit();
                DB::table('student_units')->insert($data);
            }
         }
