@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Answer;
 use App\Lecturer;
+use App\LecturerEvaluation;
 use App\Question;
 use App\Student;
 use Carbon\Carbon;
@@ -87,7 +88,6 @@ class QuestionController extends Controller
 
         }
 
-
        return redirect('evaluate');
 
     }
@@ -99,5 +99,11 @@ class QuestionController extends Controller
         $answers = Answer::where('question_id',$question->id)->get();
 
         return view('question.evaluate',compact('answers','question'));
+    }
+
+    public function question_answer(){
+
+        $question_answers = LecturerEvaluation::all();
+        return view('question.create',compact('question_answers'));
     }
 }
