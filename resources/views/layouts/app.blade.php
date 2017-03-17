@@ -42,12 +42,14 @@
                     @endif
 
                 </ul>
+
                 <form class="navbar-form navbar-left">
                     <div class="form-group">
                         <input type="text" class="form-control" placeholder="Search">
                     </div>
                     <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search" aria-hidden="true">Search</span></button>
                 </form>
+
                 <ul class="nav navbar-nav navbar-right">
 
                     @if (Auth::guest())
@@ -101,13 +103,13 @@
                                     <a href="{{url('hostels')}}"><i class="fa fa-fw fa-cog"></i> Hostels</a>
                                 </li>
                                 <li>
-                                    <a href="#"><i class="fa fa-fw fa-twitter"></i>Lecturers</a>
+                                    <a href="#"><i class="fa fa-fw fa-user"></i>Lecturers</a>
                                 </li>
                                 <li>
                                     <a href="{{ url('graduands') }}"><i class="fa fa-fw fa-file"></i>Graduation Applicants</a>
                                 </li>
                                 <li>
-                                    <a href="{{ url('comments') }}">Comments</a>
+                                    <a href="{{ url('comments') }}"><i class="fa fa-fw fa-twitter"></i>Students' Comments</a>
                                 </li>
                             @elseif(Auth::user()->role_id==2)
                                 <li class="sidebar-brand">
@@ -158,7 +160,7 @@
                                 <li>
 
                                 <li>
-                                    <a href="{{ url('evaluate') }}"><i class="fa fa-fw fa-twitter"></i>Lecturers' Evaluation</a>
+                                    <a href="{{ url('evaluate') }}"><i class="fa fa-fw fa-user"></i>Lecturers' Evaluation</a>
                                 </li>
                                 <li>
                                     <a href="
@@ -170,7 +172,7 @@
                                             "><i class="fa fa-fw fa-file"></i>Graduation Application</a>
                                 </li>
                                 <li>
-                                    <a href="{{ url('create/comment') }}"><i class="fa fa-fw fa-plus"></i>Comments</a>
+                                    <a href="{{ url('create/comment') }}"><i class="fa fa-fw fa-twitter"></i>Comments</a>
                                 </li>
                             @endif
                         </ul>

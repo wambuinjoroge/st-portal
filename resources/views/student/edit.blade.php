@@ -7,16 +7,17 @@
 
 	  <div class="form-group">
 	    <label for="ExampleInputEmail1">NAME</label>
-	      <input type="text" class="form-control" name="name" value="{{$student->name}}" placeholder="Name">
+	      <input type="text" class="form-control" name="name" value="{{$student->name}}" placeholder="Name" disabled>
 	  </div>
+		<div class="form-group">
+			<label for="ExampleInputEmail1">EMAIL</label>
+			<input type="text" class="form-control" name="email" value="{{$student->email}}" placeholder="Email" disabled>
+		</div>
 	  <div class="form-group">
 	    <label for="ExampleInputEmail1">ADMISSION NUMBER</label>
-	      <input type="text" class="form-control" name="admission_number" value="{{$student->admission_number}}" placeholder="Admission Number">
+	      <input type="text" class="form-control" name="admission_number" value="{{$student->admission_number}}" placeholder="Admission Number" disabled>
 	  </div>
-	  <div class="form-group">
-	    <label for="ExampleInputEmail1">EMAIL</label>
-	      <input type="text" class="form-control" name="email" value="{{$student->email}}" placeholder="Email">
-	  </div>
+
 	  <div class="form-group">
 	    <label for="ExampleInputEmail1">DATE OF BIRTH</label>
 	      <input type="text" class="form-control" name="date_of_birth" value="{{$student->date_of_birth}}" placeholder="Date of Birth">

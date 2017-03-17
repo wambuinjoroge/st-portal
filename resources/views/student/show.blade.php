@@ -9,12 +9,12 @@
 		</ul>
 	</ol>
 
-		<textarea class="form-control " rows="2">NAME:{{$student->name}}</textarea>
-		<textarea class="form-control " rows="2">ADMISSION NUMBER:{{$student->admission_number}}</textarea>
-		<textarea class="form-control" rows="2">EMAIL:{{$student->email}}</textarea>
-		<textarea class="form-control" rows="2">DATE OF BIRTH:{{$student->date_of_birth}}</textarea>
-		<textarea class="form-control" rows="2">NATIONAL ID:{{$student->national_id}}</textarea>
-		<textarea class="form-control" rows="2">GENDER:{{ ($student->gender == 1) ? 'Female' : 'Male' }}</textarea>
+		<textarea class="form-control " rows="2"  disabled>NAME:{{$student->name}} </textarea>
+		<textarea class="form-control " rows="2" disabled>ADMISSION NUMBER:{{$student->admission_number}}</textarea>
+		<textarea class="form-control" rows="2" disabled>EMAIL:{{$student->email}}</textarea>
+		<textarea class="form-control" rows="2" disabled>DATE OF BIRTH:{{$student->date_of_birth}}</textarea>
+		<textarea class="form-control" rows="2" disabled>NATIONAL ID:{{$student->national_id}}</textarea>
+		<textarea class="form-control" rows="2" disabled>GENDER:{{ ($student->gender == 1) ? 'Female' : 'Male' }}</textarea>
 
 
 @stop
