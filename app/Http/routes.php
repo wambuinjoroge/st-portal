@@ -44,6 +44,11 @@ Route::get('/exams/{id}/edit','ExamController@edit');
 Route::post('/exams/{id}','ExamController@update');
 Route::get('/exams/{id}','ExamController@destroy');
 
+//CommentsController
+Route::get('comments','CommentsController@index');
+Route::get('create/comment','CommentsController@create');
+Route::post('comment','CommentsController@store');
+
 //QuestionController
 Route::get('create','QuestionController@create_evaluation');
 Route::post('evaluation','QuestionController@store');

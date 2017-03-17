@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Comment;
 use Illuminate\Http\Request;
-use App\Exam;
+
 use App\Http\Requests;
 use Illuminate\Support\Facades\Validator;
-class ExamController extends Controller
+
+class CommentsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +18,8 @@ class ExamController extends Controller
     public function index()
     {
         //
-        $exams=Exam::all();
-        return view('exams.index',compact('exams'));
+        $comments = Comment::all();
+        return view('comments.index',compact('comments'));
     }
 
     /**
@@ -28,7 +30,7 @@ class ExamController extends Controller
     public function create()
     {
         //
-        return view('exams.create');
+        return view('comments.create');
     }
 
     /**
@@ -40,27 +42,27 @@ class ExamController extends Controller
     public function store(Request $request)
     {
         //
-        $validator=Validator::make($request->all(),[
-            'year'=>'required',
-            'semester'=>'required',
-            'setter'=>'required',    
-         ]);
+        $validator = Validator::make($request->all(),[
+
+            "category" => "required",
+            "comment" => "required"
+
+        ]);
+
         if ($validator->fails()) {
+            # code...
             return redirect()->back()
                 ->withErrors($validator)
                 ->withInput();
-
         }
-        $exam=new Exam();
+        $comment = new Comment();
 
-        $exam->year=$request->get('year');
-        $exam->semester=$request->get('semester');
-        $exam->setter=$request->get('setter');
+        $comment->category=$request->get('category');
+        $comment->comment=$request->get('comment');
 
-        $exam->save();
+        $comment->save();
 
-        return redirect('/exams');
-
+        return redirect('create/comment');
     }
 
     /**

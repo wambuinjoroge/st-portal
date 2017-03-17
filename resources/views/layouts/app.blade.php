@@ -107,7 +107,7 @@
                                     <a href="{{ url('graduands') }}"><i class="fa fa-fw fa-file"></i>Graduation Applicants</a>
                                 </li>
                                 <li>
-                                    <a href="#">Comments</a>
+                                    <a href="{{ url('comments') }}">Comments</a>
                                 </li>
                             @elseif(Auth::user()->role_id==2)
                                 <li class="sidebar-brand">
@@ -170,7 +170,7 @@
                                             "><i class="fa fa-fw fa-file"></i>Graduation Application</a>
                                 </li>
                                 <li>
-                                    <a href="#"><i class="fa fa-fw fa-plus"></i>Comments</a>
+                                    <a href="{{ url('create/comment') }}"><i class="fa fa-fw fa-plus"></i>Comments</a>
                                 </li>
                             @endif
                         </ul>
