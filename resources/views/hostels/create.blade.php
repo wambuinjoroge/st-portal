@@ -4,7 +4,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
-<div class="container">
+
     <ol class="breadcrumb">
         <li><a href="{{url('/admin')}}">Admin Home</a></li>
         <li><a href="{{url('hostels')}}">Hostels</a></li>
@@ -41,6 +41,5 @@
         <button class="btn btn-default">Submit</button>
     </form>
 
-</div>
 
 @stop

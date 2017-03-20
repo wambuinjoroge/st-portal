@@ -214,6 +214,7 @@ class StudentsController extends Controller
     	$student=Student::find($id);
 
     	$fee=Fees::where('student_id',$student->id)->get();
+//    	print_r($fee);exit();
         $user_id = Auth::user()->id;
 
     	return view('student.show',compact('student','fee'))->with('user_id',$user_id);

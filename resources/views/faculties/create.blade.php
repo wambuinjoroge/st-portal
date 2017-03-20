@@ -12,10 +12,13 @@
                 </div>
             @endif
 
-<div class="col-md-4"></div>
-<div class="pull-right">Create a faculty</div>
-<div class="col-md-4">
-	<form method="post" action="{{url('/faculties')}}" >
+<ol class="breadcrumb">
+  <li><a href="{{url('/admin')}}">Admin Home</a></li>
+  <li><a href="{{url('faculties')}}">Faculties</a></li>
+  <li class="active"> Create </li>
+</ol>
+
+	<form method="post" class="form-group" action="{{url('/faculties')}}" >
     <div class="form-group">
        <label for="ExampleInputEmail1">NAME</label>
     	<input type="text" name="name" class="form-control" placeholder="name">

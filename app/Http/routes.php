@@ -105,7 +105,7 @@ Route::post('room','HostelsController@myRoom');
 
 //FacultyController
 Route::get('/faculties','FacultyController@index');
-Route::get('faculties/create/{id}','FacultyController@create');
+Route::get('faculties/create','FacultyController@create');
 Route::post('/faculties','FacultyController@store');
 
 Route::get('student-units','FacultyController@stUnits');
@@ -115,7 +115,7 @@ Route::get('faculty/{id}','FacultyController@show');
 Route::get('/faculties/{id}/edit','FacultyController@edit');
 Route::post('/faculties/{id}','FacultyController@update');
 
-Route::get('faculties/{id}','FacultyController@destroy');
+Route::get('faculties/delete/{id}','FacultyController@destroy');
 
 //FeesController
 Route::get('fees','FeesController@index');
