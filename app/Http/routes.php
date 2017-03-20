@@ -125,7 +125,7 @@ Route::post('fees/store','FeesController@store');
 //Route::get('fees/{student_id}','FeesController@show');
 Route::get('fees/{id}','FeesController@show');
 Route::get('fees/edit/{id}','FeesController@edit');
-Route::post('fees/{id}','FeesController@update');
+Route::post('fees/update/{id}','FeesController@update');
 //Route::get('fees/{id}','FeesController@destroy');
 
 

@@ -210,9 +210,8 @@ class StudentsController extends Controller
     }
     public function show($id){
 
-
     	$student=Student::find($id);
-
+//        print_r($student);exit();
     	$fee=Fees::where('student_id',$student->id)->get();
 //    	print_r($fee);exit();
         $user_id = Auth::user()->id;

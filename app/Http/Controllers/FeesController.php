@@ -18,8 +18,10 @@ class FeesController extends Controller
 
     public function create($id)
     {
+
         $student=Student::find($id);
        return view('fees.create',compact('student'));
+
     }
 
     public function store(Request $request)
@@ -41,7 +43,6 @@ class FeesController extends Controller
        $fee->semester=$request->get('semester');
        $fee->student_id=$request->get('student_id');
 
-
        $fee->save();
 
        return redirect('fees/'.$fee->id);
@@ -49,16 +50,20 @@ class FeesController extends Controller
 
     public function show($id)
     {
+
         $student=Student::find($id);
         $fee=Fees::find($id);
 
-       return view('fees.show',compact('fee','student'));
+//        print_r($fee);exit();
+        return view('fees.show',compact('fee','student'));
+
     }
     public function edit($id)
     {
         $student=Student::find($id);
         $fee=Fees::find($id);
-       return view('fees.edit',compact('fee','student'));
+        return view('fees.edit',compact('fee','student'));
+
     }
     public function update(Request $request ,$id)
     {
@@ -67,6 +72,7 @@ class FeesController extends Controller
             "type"=>"required",
             "semester"=>"required"
         ]);
+
         if ($validator->fails()){
             return redirect()->back()
                 ->withErrors($validator)

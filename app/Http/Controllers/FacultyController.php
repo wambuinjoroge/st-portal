@@ -57,7 +57,7 @@ class FacultyController extends Controller
         //get the unit_ids from the register units view since they come as an array
         $units=$request->get('unit_id');
 //        print_r($units);exit();
-       if (is_array($units)){
+        if (is_array($units)){
            foreach ($units as $unit){
                $data = [
                    'unit_id' => $unit,
