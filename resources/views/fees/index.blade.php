@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('content')
-<div class="container">
-    <table class="table table-bordered t">
+
+    <table class="table table-bordered ">
         <thead>
         <tr>
             <td>Student ID</td>
@@ -18,7 +18,7 @@
 
             @foreach($fees as $fee)
                 <tr>
-                    <td>{{$fee-> student_id}}</td>
+                    <td>{{$fee -> student_id}}</td>
                     <td>{{$fee -> amount}}</td>
                     <td>{{$fee -> semester}}</td>
                     <td>{{$fee -> type}}</td>
@@ -28,5 +28,5 @@
 
         </tbody>
     </table>
-</div>
+
 @stop

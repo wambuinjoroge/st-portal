@@ -120,8 +120,10 @@ Route::get('faculties/{id}','FacultyController@destroy');
 //FeesController
 Route::get('fees','FeesController@index');
 Route::get('fees/create/{student_id}','FeesController@create');
-Route::post('fees/{student_id}','FeesController@store');
-Route::get('fees/{student_id}','FeesController@show');
+//Route::post('fees/{student_id}','FeesController@store');
+Route::post('fees/store','FeesController@store');
+//Route::get('fees/{student_id}','FeesController@show');
+Route::get('fees/{id}','FeesController@show');
 Route::get('fees/edit/{id}','FeesController@edit');
 Route::post('fees/{id}','FeesController@update');
 //Route::get('fees/{id}','FeesController@destroy');

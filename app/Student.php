@@ -21,7 +21,7 @@ class Student extends Model
     ];
     //one to many
     public function faculty(){
-    return $this->belongsTo('App\Faculty');
+        return $this->belongsTo('App\Faculty');
     }
     //one to many
     public function fees(){
@@ -40,10 +40,4 @@ class Student extends Model
             ->withTimestamps();
 
     }
-//$student=App\Student::find(1);
-//
-//foreach($student->units as $unit){
-//echo $unit->pivot;
-//}
-
 }

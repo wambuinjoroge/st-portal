@@ -114,16 +114,25 @@ class StudentsController extends Controller
        $user = Auth::user();
        $faculties=Faculty::all();
        $student = Student::where('user_id', $user->id)->first();
-       if($user->role_id == 2){
-           if($student == null) {
-               return view('student.create',compact('faculties'));
-           } else {
-               return view('student.edit', compact('student'));
-       }
+//       print_r($student);exit();
+//       if($user->role_id == 2){
+//           if($student == null) {
+//               return view('student.create',compact('faculties'));
+//           } else {
+//               return view('student.edit', compact('student'));
+//       }
+        if($user->role_id == 2){
+       if(!empty($student) ) {
 
-       }else{
+           return view('student.edit', compact('student'));
+           } else {
            return view('student.create',compact('faculties'));
+           }
+
        }
+//else{
+//           return view('student.create',compact('faculties'));
+//       }
 
     }
 
@@ -201,12 +210,13 @@ class StudentsController extends Controller
     }
     public function show($id){
 
+
     	$student=Student::find($id);
 
-    	$fees=Fees::where('student_id',$student->id)->get();
+    	$fee=Fees::where('student_id',$student->id)->get();
         $user_id = Auth::user()->id;
-       // where('hostel_id',$hostel_id)->
-    	return view('student.show',compact('student','fees'))->with('user_id',$user_id);
+
+    	return view('student.show',compact('student','fee'))->with('user_id',$user_id);
 
     }
     public function show2($id){

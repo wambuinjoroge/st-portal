@@ -129,6 +129,7 @@ class FacultyController extends Controller
            "name"=>"required",
            "head"=>"required"
          ]);
+
        if ($validator->fails()) {
            # code...
         return redirect()->back()

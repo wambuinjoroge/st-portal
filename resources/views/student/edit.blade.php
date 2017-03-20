@@ -31,10 +31,10 @@
 		</br>
 
 		<label class="radio-inline">
-			<input type="radio" name="gender" id="female" value="0"> Female
+			<input type="radio" name="gender" id="female" value="1"> Female
 		</label>
 		<label class="radio-inline">
-			<input type="radio"  name="gender" id="male" value="1"> Male
+			<input type="radio"  name="gender" id="male" value="0"> Male
 		</label>
 		</br>
 

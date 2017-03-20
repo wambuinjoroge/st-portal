@@ -1,27 +1,14 @@
 @extends('layouts.app')
 @section('content')
 
-<table class="table table-bordered">
- <thead>
-    <tr>
-        <td>Amount</td>
-        <td>Semester</td>
-        <td>Type</td>
-    </tr>
- </thead>
- <tbody>
+    <ol class="breadcrumb pull-right">
+        <ul>
+            <a href="{{ url('fees/edit/'.$fee->id) }}"><span class="glyphicon glyphicon-pencil">Edit</span></a>
+        </ul>
+    </ol>
 
-        {{--@if($student->fees)--}}
-
-                <tr>
-                    <td>{{$fee -> amount}}</td>
-                    <td>{{$fee -> semester}}</td>
-                    <td>{{$fee -> type}}</td>
-                </tr>
-
-        {{--@endif--}}
-
- </tbody>
-</table>
+<textarea class="form-control"  rows="2">Amount:{{$fee -> amount}}</textarea>
+<textarea class="form-control"  rows="2">Semester/Year:{{$fee -> semester}}</textarea>
+<textarea class="form-control"  rows="2">Type: {{$fee -> type}}</textarea>
 
 @stop

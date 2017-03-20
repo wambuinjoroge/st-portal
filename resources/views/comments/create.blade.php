@@ -19,12 +19,13 @@
 
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-        <input type="text"  name="category" placeholder="Category">
+        {{--<p>Maximum characters allowed is 250.</p>--}}
+        <input type="text" class="form-control" name="category" placeholder="Category">
 
-        <br>
+
         <div class="form-group">
 
-            <textarea class="form-control" name="comment"  rows="7"></textarea>
+            <textarea class="form-control" name="comment"  rows="7" placeholder="Comment"></textarea>
 
             {{--<span  class="input-group-addon btn-primary" id="submitMyForm">Send</span>--}}
 

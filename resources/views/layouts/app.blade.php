@@ -130,7 +130,7 @@
                                             " ><i class="fa fa-fw fa-plus"></i> Personal Info </a>
                                 </li>
                                 <li>
-                                    <a href="{{url('students/create')}}"><i class="fa fa-fw fa-folder"></i> Personal Info Editor</a>
+                                    <a href="{{url('/students/'.\App\Student::where('user_id', Auth::user()->id)->first()->id).'/edit'}}"><i class="fa fa-fw fa-folder"></i> Personal Info Editor</a>
                                 </li>
                                 {{--<li>--}}
                                     {{--<a href="{{ url('faculties/register') }}"><i class="fa fa-fw fa-folder"></i> Units Registration</a>--}}

@@ -3,10 +3,10 @@
 
 
 	<!-- work on how to include fees on this view  -->
+
 	<ol class="breadcrumb">
-		<ul>
-			<h4><a class="active"><span class="glyphicon glyphicon-user">Student's Profile</span></a></h4>
-		</ul>
+		<li><a href="{{ url('fees') }}">Student's Fees</a></li>
+		<li class="active">Student's Profile</li>
 	</ol>
 
 		<textarea class="form-control " rows="2"  disabled>NAME:{{$student->name}} </textarea>

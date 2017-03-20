@@ -10,15 +10,20 @@ use Illuminate\Support\Facades\Validator;
 class FeesController extends Controller
 {
     //
-    public function index(){
+    public function index()
+    {
        $fees=Fees::all();
        return view('fees.index',compact('fees'));
     }
-    public function create($id){
+
+    public function create($id)
+    {
         $student=Student::find($id);
        return view('fees.create',compact('student'));
     }
-    public function store(Request $request){
+
+    public function store(Request $request)
+    {
        $validator=Validator::make($request->all(),[
            "amount"=>"required",
            "type"=>"required",
@@ -39,18 +44,24 @@ class FeesController extends Controller
 
        $fee->save();
 
-       return redirect('fees');
+       return redirect('fees/'.$fee->id);
     }
-    public function show($id){
-       $fee=Fees::find($id);
 
-       return view('fees.show',compact('fee'));
+    public function show($id)
+    {
+        $student=Student::find($id);
+        $fee=Fees::find($id);
+
+       return view('fees.show',compact('fee','student'));
     }
-    public function edit($id){
-       $fee=Fees::find($id);
-       return view('fees.edit',compact('fee'));
+    public function edit($id)
+    {
+        $student=Student::find($id);
+        $fee=Fees::find($id);
+       return view('fees.edit',compact('fee','student'));
     }
-    public function update(Request $request ,$id){
+    public function update(Request $request ,$id)
+    {
         $validator=Validator::make($request->all(),[
             "amount"=>"required",
             "type"=>"required",
@@ -70,7 +81,7 @@ class FeesController extends Controller
 
         $fee->save();
 
-        return redirect('fees');
+        return redirect('fees/'.$fee->id);
     }
 //    public function destroy($id){
 //        $fee=Fees::find($id);

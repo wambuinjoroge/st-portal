@@ -13,7 +13,7 @@
 
     <div class="container">
         <h1>Add Fees</h1>
-        <form method="post" action="{{url('fees/'.$student->id)}}">
+        <form method="post" action="{{url('fees/store')}}">
 
             <div class="form-group">
                 <label class="sr-only" for="ExampleInputAmount">Amount</label>
