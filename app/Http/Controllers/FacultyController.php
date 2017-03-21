@@ -24,6 +24,12 @@ class FacultyController extends Controller
         $faculties=Faculty::all();
        	return view('faculties.index',compact('faculties'));
     }
+//    public function search(){
+//        $users = User::search($query)
+//            ->with('posts')
+//            ->get();
+//        return view('',compact('users'));
+//    }
 
     public function create(){
 
