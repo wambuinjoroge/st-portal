@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Validator;
 
 class QuestionController extends Controller
 {
+
     public function create_evaluation()
     {
 
@@ -105,5 +106,10 @@ class QuestionController extends Controller
 
         $question_answers = LecturerEvaluation::all();
         return view('question.create',compact('question_answers'));
+    }
+
+    public function index(){
+        $lecturers = Lecturer::all();
+        return view('question.index',compact('lecturers'));
     }
 }

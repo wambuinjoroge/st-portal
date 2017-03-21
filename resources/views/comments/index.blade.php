@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <table class="table table-stiped">
+    <table class="table table-bordered">
         <thead>
             <tr>
                 <td>Category</td>

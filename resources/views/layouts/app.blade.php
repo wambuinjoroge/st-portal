@@ -43,12 +43,12 @@
 
                 </ul>
 
-                <form class="navbar-form navbar-left">
-                    <div class="form-group">
-                        <input type="text"  >
-                    </div>
-                    <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search" aria-hidden="true">Search</span></button>
-                </form>
+                {{--<form class="navbar-form navbar-left">--}}
+                    {{--<div class="form-group">--}}
+                        {{--<input type="text"  >--}}
+                    {{--</div>--}}
+                    {{--<button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search" aria-hidden="true">Search</span></button>--}}
+                {{--</form>--}}
 
                 <ul class="nav navbar-nav navbar-right">
 
@@ -103,7 +103,7 @@
                                     <a href="{{url('hostels')}}"><i class="fa fa-fw fa-cog"></i> Hostels</a>
                                 </li>
                                 <li>
-                                    <a href="#"><i class="fa fa-fw fa-user"></i>Lecturers</a>
+                                    <a href="{{ url('lecturers') }}"><i class="fa fa-fw fa-user"></i>Lecturers</a>
                                 </li>
                                 <li>
                                     <a href="{{ url('graduands') }}"><i class="fa fa-fw fa-file"></i>Graduation Applicants</a>

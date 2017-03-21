@@ -54,6 +54,7 @@ Route::get('create','QuestionController@create_evaluation');
 Route::post('evaluation','QuestionController@store');
 //Route::get('evaluations','QuestionController@evaluations');
 Route::get('evaluate','QuestionController@evaluate');
+Route::get('lecturers','QuestionController@index');
 //Route::get('evaluate/{id}','QuestionController@one');
 
 

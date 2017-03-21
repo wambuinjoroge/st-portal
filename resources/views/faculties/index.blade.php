@@ -1,16 +1,13 @@
 @extends('layouts.app')
 @section('content')
 
+<ol class="breadcrumb">
+	<li><a href="{{url('faculties/create')}}">Create a faculty</a></li>
+	<li class="active">Faculties</li>
+</ol>
 
-<div class="container">
 
-	<ol class="breadcrumb">
-		<li><a href="{{url('faculties/create')}}">Create a faculty</a></li>
-		<li class="active">Faculties</li>
-	</ol>
-
- 
-	<table class="table">
+<table class="table table-bordered">
 	 <thead>
 		<tr>
 			<td>Name</td>
@@ -32,13 +29,9 @@
            	 </td>
            	</tr> 
          @endforeach
-		
-      
 	  	
 	  </tbody>	
 		
-	</table>
+</table>
 
-</div>
-	
 @stop
