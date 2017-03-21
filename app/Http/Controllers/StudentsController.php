@@ -30,9 +30,7 @@ class StudentsController extends Controller
       return view('student.index',compact('students'));
 
     }
-
-
-
+    //Graduation applicants
     public function graduands(){
 
         $graduations = Graduation::all();

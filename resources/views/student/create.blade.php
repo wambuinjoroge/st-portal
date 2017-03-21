@@ -63,11 +63,12 @@
            </br>
            <label for="gender">GENDER</label>
            </br>
-           <label class="radio-inline">
-               <input class="field" type="radio"  name="gender" id="female" value="1"> Female
-           </label>
+
            <label class="radio-inline">
                <input class="field" type="radio"  checked="checked" name="gender" id="male" value="0"> Male
+           </label>
+           <label class="radio-inline">
+               <input class="field" type="radio"  name="gender" id="female" value="1"> Female
            </label>
            </br>
 

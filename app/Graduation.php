@@ -3,9 +3,11 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Sofa\Eloquence\Eloquence;
 
 class Graduation extends Model
 {
+    use Eloquence;
     //
     protected $fillable = [
         'surname',

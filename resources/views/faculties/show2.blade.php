@@ -17,6 +17,10 @@
 		<li><a href="{{url('students/create')}}">Create a student</a></li>
 		<li class="active">Students</li>
 	</ol>
+	{{--<ol class="breadcrumb">--}}
+		{{--<li><a href="{{ url('/register') }}">Register a Student</a></li>--}}
+		{{--<li class="active">Students</li>--}}
+	{{--</ol>--}}
 
 	<table class="table table-striped table-bordered bg-faded" >
 		<thead>

@@ -4,11 +4,13 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\App;
+use Sofa\Eloquence\Eloquence;
 
 class Unit extends Model
 {
-    //
-//    protected $table = ['units'];
+
+    use Eloquence;
+
     protected $fillable = ['name'];
 
     public function faculty(){
@@ -22,8 +24,3 @@ class Unit extends Model
     }
 
 }
-//        $student = App\Student::find(1);
-
-//        foreach ($user->roles as $role) {
-//            echo $role->pivot->created_at;
-//        }
