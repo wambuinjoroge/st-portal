@@ -3,12 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Nicolaslopezj\Searchable\SearchableTrait;
-use Sofa\Eloquence\Eloquence;
+//use Nicolaslopezj\Searchable\SearchableTrait;
+//use Sofa\Eloquence\Eloquence;
 
 class Faculty extends Model
 {
-    use Eloquence;
+//    use Eloquence;
 //    use  SearchableTrait;
 //
 //    protected $searchable = [

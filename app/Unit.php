@@ -4,12 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\App;
-use Sofa\Eloquence\Eloquence;
 
 class Unit extends Model
 {
-
-    use Eloquence;
 
     protected $fillable = ['name'];
 

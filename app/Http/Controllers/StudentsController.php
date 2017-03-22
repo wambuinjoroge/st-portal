@@ -108,102 +108,82 @@ class StudentsController extends Controller
 
     }
 
-    public function create(){
-       $user = Auth::user();
+    public function create()
+    {
+
        $faculties=Faculty::all();
-       $student = Student::where('user_id', $user->id)->first();
-//       print_r($student);exit();
-//       if($user->role_id == 2){
-//           if($student == null) {
-//               return view('student.create',compact('faculties'));
-//           } else {
-//               return view('student.edit', compact('student'));
-//       }
-        if($user->role_id == 2){
-       if(!empty($student) ) {
 
-           return view('student.edit', compact('student'));
-           } else {
+//     print_r($student);exit();
+
            return view('student.create',compact('faculties'));
-           }
 
-       }
-//else{
-//           return view('student.create',compact('faculties'));
-//       }
-
+//    } elseif($user->role_id == 2){
+//        if(!empty($student) ) {
+//
+//            return view('student.edit', compact('student'));
+//        } else {
+//            return view('student.create',compact('faculties'));
+//        }
+//
     }
 
-    public function store(Request $request){
-    	$validator=Validator::make($request->all(),[
-    	//validator = Validator::make(Input::all(), $rules);
-    	   "national_id"=>"required",
-           "name"=>"required",
-           "admission_number"=>"required",
-           "email"=>"required",
-           "date_of_birth"=>"required",
 
-       	]);
-    	if ($validator->fails()) {
-    		# code...
-    		return redirect()->back()
-    		->withErrors($validator->errors())
-    		->withInput();
-    	}
+    public function store(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+
+            "national_id" => "required",
+            "name" => "required",
+            "admission_number" => "required",
+            "email" => "required",
+            "date_of_birth" => "required",
+            "gender" => "required"
+
+        ]);
+        if ($validator->fails()) {
+            # code...
+            return redirect()->back()
+                ->withErrors($validator->errors())
+                ->withInput();
+        }
 
         if (Auth::user()->role_id == 1)
         {
             // create student in users table
             $user=new User();
+
             $user->name=$request->get('name');
             $user->email=$request->get('email');
-            $user->password=bcrypt($request->get('national_id'));
+            $user->password=bcrypt($request->get('admission_number'));
             $user->role_id=2;
+
             $user->save();
 
-            //create an object for eloquent Detail
-            $student=new Student();
-            $student->name=$request->get('name');
-            $student->admission_number=$request->get('admission_number');
-            $student->email=$request->get('email');
-            $student->date_of_birth=$request->get('date_of_birth');
-            $student->national_id=$request->get('national_id');
+        //create an object for eloquent Detail
 
-            $student->faculty_id=$request->get('faculty_id');
-            $student->hostel_id=$request->get('hostel_id');
+        $student = new Student();
 
-//            $id = Auth::user()->id;
-            $student->user_id=$user->id;
-            //trying to get the gender of the specified student
-            $student->gender(0,1);
-            if ($student->gender=0){
-                $student->gender=$request->get('female');
+        $student->name = $request->get('name');
+        $student->admission_number = $request->get('admission_number');
+        $student->email = $user->email;
+        $student->date_of_birth = $request->get('date_of_birth');
+        $student->national_id = $request->get('national_id');
+        $student->faculty_id = $request->get('faculty_id');
+        $student->hostel_id = $request->get('hostel_id');
+        $student->user_id = Auth::user()->id;
+
+        //trying to get the gender of the specified student
+        $student->gender;
+            if ($student->gender = 0) {
+                $student->gender = $request->get('female');
+            } elseif ($student->gender = 1) {
+                $student->gender = $request->get('male');
             }
-            elseif($student->gender=1)  {
-                $student->gender=$request->get('male');
-            }
+
             $student->save();
 
-            return redirect('/students');
-//                ->with('user_id',$id);
-        } else {
+        return redirect('students/'.$student->faculty_id.'/faculty');
 
-            //create an object for eloquent Detail
-            $student=new Student();
-            $student->name=$request->get('name');
-            $student->admission_number=$request->get('admission_number');
-            $student->email=$request->get('email');
-            $student->date_of_birth=$request->get('date_of_birth');
-            $student->national_id=$request->get('national_id');
-
-            $student->faculty_id=$request->get('faculty_id');
-            $student->hostel_id=$request->get('hostel_id');
-            $student->gender=$request->get('gender');
-            $student->user_id=Auth::user()->id;
-//            $id = Auth::user()->id;
-            $student->save();
-
-            return redirect('student/'.$student->id);
         }
     }
     public function show($id){
