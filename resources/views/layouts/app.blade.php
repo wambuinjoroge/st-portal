@@ -132,10 +132,7 @@
                                 <li>
                                     <a href="{{url('/students/'.\App\Student::where('user_id', Auth::user()->id)->first()->id).'/edit'}}"><i class="fa fa-fw fa-folder"></i> Personal Info Editor</a>
                                 </li>
-                                {{--<li>--}}
-                                    {{--<a href="{{ url('faculties/register') }}"><i class="fa fa-fw fa-folder"></i> Units Registration</a>--}}
-                                {{--</li>--}}
-                              {{--FACULTY AND UNITS--}}
+
                                 <li>
                                     <a href="
                                         @if (!empty(\App\Student::where('user_id', Auth::user()->id)->first()->faculty_id))

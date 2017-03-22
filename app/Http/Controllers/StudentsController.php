@@ -130,6 +130,7 @@ class StudentsController extends Controller
 
     public function store(Request $request)
     {
+//        print_r($request->all());exit();
         $validator = Validator::make($request->all(), [
 
             "national_id" => "required",
@@ -158,6 +159,7 @@ class StudentsController extends Controller
             $user->role_id=2;
 
             $user->save();
+//            print_r($user);exit();
 
         //create an object for eloquent Detail
 
@@ -173,14 +175,9 @@ class StudentsController extends Controller
         $student->user_id = Auth::user()->id;
 
         //trying to get the gender of the specified student
-        $student->gender;
-            if ($student->gender = 0) {
-                $student->gender = $request->get('female');
-            } elseif ($student->gender = 1) {
-                $student->gender = $request->get('male');
-            }
+        $student->gender=$request->get('gender');
 
-            $student->save();
+        $student->save();
 
         return redirect('students/'.$student->faculty_id.'/faculty');
 

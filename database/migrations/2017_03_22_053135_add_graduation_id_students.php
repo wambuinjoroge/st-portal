@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddGraduationIdColumnStudents extends Migration
+class AddGraduationIdStudents extends Migration
 {
     /**
      * Run the migrations.
@@ -27,7 +27,7 @@ class AddGraduationIdColumnStudents extends Migration
     {
         //
         Schema::table('students',function (Blueprint $table){
-           $table->dropColumn('graduation_id');
+            $table->dropColumn('graduation_id');
         });
     }
 }
