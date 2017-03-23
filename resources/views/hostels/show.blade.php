@@ -29,7 +29,8 @@
                 </label>
             @endforeach
 
-        <br></br><button class="btn btn-primary">Submit</button>
+        <br><br>
+        <button class="btn btn-primary">Submit</button>
 
     </form>
 

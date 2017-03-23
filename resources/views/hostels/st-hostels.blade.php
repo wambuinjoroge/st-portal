@@ -5,10 +5,7 @@
 <form class="form-group"  method="post" action="{{url('myHostel')}}" >
     <input type="hidden" name="_token" value="{{ csrf_token() }}">
     {{--<div class="checkbox">--}}
-
-<h3><u>Select your hostel of choice</u></h3>
-
-    <label for="hostel">HOSTELS</label>
+<h5><label>Select your preferred hostel and click on "Submit"</label></h5>
 
             <select name="hostel_id" id="hostel" class="form-control">
                 @foreach($hostels as $hostel)
@@ -16,6 +13,7 @@
                 @endforeach
             </select>
       </br>
+
 
         <button class="btn btn-primary">Submit</button>
     {{--</div>--}}

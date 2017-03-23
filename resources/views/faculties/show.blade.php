@@ -8,13 +8,14 @@
         <li class="active">{{$faculty->name}}</li>
     </ol>
 
+<button class="btn" href="#">HEAD:{{$faculty->head}}</button>
     @if(Auth::user()->role_id==1)
         <a href="{{url('units/create')}}" class="btn btn-primary pull-right">Add Unit</a>
     @else
         <h3><u>Units to register</u></h3>
     @endif
 
-    <button class="btn" href="#">HEAD:{{$faculty->head}}</button>
+
 
 
      <form class="form-group"  method="post" action="{{url('myUnits')}}" >

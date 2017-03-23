@@ -13,7 +13,7 @@
     </div>
 @endif
 
-<h4><u>REGISTRATION FOR GRADUATION</u></h4>
+<h4><u>APPLICATION FOR GRADUATION</u></h4>
 
 <form method="post" action="{{ url('st-graduation') }}">
     <input type="hidden" name="_token" value="{{ csrf_token() }}">

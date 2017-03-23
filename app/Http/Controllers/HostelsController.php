@@ -19,13 +19,20 @@ class HostelsController extends Controller
     public function index()
     {
         $hostels = Hostel::all();
+//      print_r($hostels);exit();
+
         return view('hostels.index', compact('hostels'));
     }
 
     public function hostels()
     {
-        $hostels = Hostel::all();
-//      print_r($hostels);exit();
+
+        $user = Auth::user();
+
+        $student = Student::where('user_id',$user->id)->first();
+//        print_r($student->gender);exit();
+
+        $hostels = Hostel::where('gender',$student->gender)->get();
         return view('hostels.st-hostels', compact('hostels'));
     }
 
@@ -62,9 +69,9 @@ class HostelsController extends Controller
 
         $student->save();
 
-        $hostel_id = $request->get('hostel_id');
+//        $hostel_id = $request->get('hostel_id');
 
-        $hostel=Hostel::find($hostel_id);
+//        $hostel=Hostel::find($hostel_id);
 
 
         return redirect('myHostels');

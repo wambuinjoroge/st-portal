@@ -34,6 +34,13 @@ class HostelsTableSeeder extends Seeder
                'gender' => false,
                'created_at' => Carbon::now()->format('Y-m-d H:i:s')
            ],
+           [
+                'hostel_name' => 'Tsunami',
+                'hostel_head' => 'Eric Villa',
+                'rooms_number' => '150',
+                'gender' => true,
+                'created_at' => Carbon::now()->format('Y-m-d H:i:s')
+           ]
         ]);
     }
 }

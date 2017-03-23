@@ -179,7 +179,7 @@ class StudentsController extends Controller
 
         $student->save();
 
-        return redirect('students/'.$student->faculty_id.'/faculty');
+        return redirect('faculty/'.$student->faculty_id.'/students');
 
         }
     }

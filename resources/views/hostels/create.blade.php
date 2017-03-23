@@ -53,7 +53,7 @@
 
 
         <input type="hidden" name="_token" value="{{ csrf_token()  }}">
-        <br>
+        <br><br>
         <button class="btn btn-default">Submit</button>
     </form>
 
