@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Validator;
 
 class FacultyController extends Controller
 {
+
     //
     public function index(){
 
@@ -105,17 +106,19 @@ class FacultyController extends Controller
     public function show($id)
     {
         $user=Auth::user();
+//        print_r($user);exit();
         $student=Student::where('user_id',$user->id)->first();
-        $student_unit=StudentUnit::where('student_id',$student->id)->first();
+//        print_r($student);exit();
+//        $student_unit=StudentUnit::where('student_id',$student->id)->first();
 //        print_r($student_unit);exit();
-        if ($student_unit == []){
+//        if ($student_unit == []){
             $faculty=Faculty::find($id);
             $units=Unit::where('faculty_id',$faculty->id)->get();
-            //print_r($faculty);exit();
+            //print_r($units);exit();
             return view('faculties.show',compact('faculty','units','student'));
-        }else{
-            return redirect('student-units');
-        }
+//        }else{
+//            return redirect('student-units');
+//        }
    }
 
 

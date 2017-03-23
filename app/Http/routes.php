@@ -111,7 +111,7 @@ Route::post('/faculties','FacultyController@store');
 
 Route::get('student-units','FacultyController@stUnits');
 Route::post('myUnits','FacultyController@myUnits');
-Route::get('students/{id}/faculty','FacultyController@show2');
+Route::get('faculty/{id}/students','FacultyController@show2');
 Route::get('faculty/{id}','FacultyController@show');
 Route::get('/faculties/{id}/edit','FacultyController@edit');
 Route::post('/faculties/{id}','FacultyController@update');

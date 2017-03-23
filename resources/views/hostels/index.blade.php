@@ -1,14 +1,15 @@
 @extends('layouts.app')
 @section('content')
 
-<div class="container">
+
     <ol class="breadcrumb">
-        @if(\Illuminate\Support\Facades\Auth::user()->role_id==1)
-        <li><a href="{{url('hostels/create')}}">Create a hostel</a></li>
-        @endif
+
         <li class="active">Hostels</li>
     </ol>
 
+    @if(\Illuminate\Support\Facades\Auth::user()->role_id==1)
+        <a href="{{url('hostels/create')}}" class="btn btn-primary pull-right">Create a hostel</a>
+    @endif
     <table class="table table-bordered table-stripped">
             <thead>
                <tr>
@@ -35,8 +36,8 @@
             </tbody>
         </table>
 
-    </div>
-    </div>
+
+
 
 
 

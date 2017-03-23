@@ -172,7 +172,7 @@ class StudentsController extends Controller
         $student->national_id = $request->get('national_id');
         $student->faculty_id = $request->get('faculty_id');
         $student->hostel_id = $request->get('hostel_id');
-        $student->user_id = Auth::user()->id;
+        $student->user_id = $user->id;
 
         //trying to get the gender of the specified student
         $student->gender=$request->get('gender');

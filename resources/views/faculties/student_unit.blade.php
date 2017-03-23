@@ -2,7 +2,7 @@
 @section('content')
 
     <ol class="breadcrumb">
-        <li> <a><span class="glyphicon glyphicon-home" aria-hidden="true"></span>{{$faculty->name}}</a></li></br>
+        <li> <span class="glyphicon glyphicon-home" aria-hidden="true"></span>{{$faculty->name}}</li></br>
     </ol>
 
 <h3><u>Units</u></h3>

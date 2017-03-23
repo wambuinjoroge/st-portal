@@ -4,8 +4,9 @@
 
 	<!-- work on how to include units on this view  -->
 	<ol class="breadcrumb">
-		<li><a href="#">HEAD:{{$faculty->head}}</a></li>
+		<li><a href="{{ url('faculties') }}">FACULTIES</a></li>
 		<li class="active">{{$faculty->name}}</li>
+
 	</ol>
 
 	{{--@if(Auth::user()->role_id==1)--}}
@@ -13,14 +14,16 @@
 	{{--@endif--}}
 
 
-	<ol class="breadcrumb">
-		<li><a href="{{url('students/create')}}">Create a student</a></li>
-		<li class="active">Students</li>
-	</ol>
+
+		<a href="{{url('students/create')}}" class="btn btn-primary pull-right">Create a student</a>
+
+
+
 	{{--<ol class="breadcrumb">--}}
 		{{--<li><a href="{{ url('/register') }}">Register a Student</a></li>--}}
 		{{--<li class="active">Students</li>--}}
 	{{--</ol>--}}
+	<a href="#" class="btn">HEAD:{{$faculty->head}}</a>
 
 	<table class="table table-striped table-bordered bg-faded" >
 		<thead>

@@ -9,7 +9,7 @@
     </ol>
 
     @if(Auth::user()->role_id==1)
-        <div class="pull-right"><a href="{{url('units/create')}}"><h4><span class=" label label-primary">Add Unit</span></h4></a></div>
+        <a href="{{url('units/create')}}" class="btn btn-primary">Add Unit</a>
     @else
         <h3><u>Units to register</u></h3>
     @endif
@@ -21,7 +21,7 @@
               @foreach($units as $unit)
 
                   <div class="checkbox">
-                      <label>
+                      <label >
                           <input type="checkbox" name="unit_id[]" value="{{ $unit->id }}">
                           </br>{{ $unit->name }}
                       </label>
