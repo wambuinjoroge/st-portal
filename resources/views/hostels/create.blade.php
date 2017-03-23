@@ -37,7 +37,23 @@
             <input class="form-control" type="text" name="rooms_number" placeholder="rooms_number" >
         </div>
 
+
+        <label for="gender">Gender</label>
+        </br>
+
+            <label>
+                <input class="field" type="radio" name="gender" value=1>Female
+            </label>
+
+            <label>
+                <input class="field" type="radio" name="gender" value=0>Male
+            </label>
+
+
+
+
         <input type="hidden" name="_token" value="{{ csrf_token()  }}">
+        <br>
         <button class="btn btn-default">Submit</button>
     </form>
 

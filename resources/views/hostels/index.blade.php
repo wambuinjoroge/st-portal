@@ -3,7 +3,6 @@
 
 
     <ol class="breadcrumb">
-
         <li class="active">Hostels</li>
     </ol>
 
@@ -15,7 +14,7 @@
                <tr>
                    <td>Hostel Name</td>
                    <td>Hostel Head</td>
-                   <td> Number of Rooms </td>
+                   <td>Number of Rooms</td>
                    <td>Actions</td>
                </tr>
             </thead>

@@ -119,6 +119,7 @@ class HostelsController extends Controller
             'hostel_name'=>'required',
             'hostel_head'=>'required',
             'rooms_number'=>'required',
+            'gender' => 'required',
         ]);
         if ($validator->fails()){
             return redirect()-back()
@@ -131,6 +132,7 @@ class HostelsController extends Controller
         $hostel->hostel_name=$request->get('hostel_name');
         $hostel->hostel_head=$request->get('hostel_head');
         $hostel->rooms_number=$request->get('rooms_number');
+        $hostel->gender=$request->get('gender');
 
         $hostel->save();
 
@@ -169,6 +171,7 @@ class HostelsController extends Controller
             'hostel_name'=>'required',
             'hostel_head'=>'required',
             'rooms_number'=>'required',
+            'gender' => 'required',
         ]);
         if ($validator->fails()){
             return redirect()-back()
@@ -181,6 +184,7 @@ class HostelsController extends Controller
         $hostel->hostel_name=$request->get('hostel_name');
         $hostel->hostel_head=$request->get('hostel_head');
         $hostel->rooms_number=$request->get('rooms_number');
+        $hostel->gender=$request->get('gender');
 
         $hostel->save();
 

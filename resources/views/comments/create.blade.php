@@ -14,13 +14,20 @@
        3.Your comments will be highly appreciated and will be kept confidential (Anonymous)
        4.Please, enter your comments on the space provided below, and then click the button labeled "Submit Information"
     </textarea>
-
+<br>
     <form method="post" action="{{ url('comment') }}">
 
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
         {{--<p>Maximum characters allowed is 250.</p>--}}
-        <input type="text" class="form-control" name="category" placeholder="Category">
+
+        <label>Category</label>
+        <select class="form-control" name="category" >
+            <option>Education System</option>
+            <option>School Staff</option>
+            <option>Social Amenities</option>
+        </select>
+        {{--<input type="text" class="form-control" name="category" placeholder="Category">--}}
 
 
         <div class="form-group">
