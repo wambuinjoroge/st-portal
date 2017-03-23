@@ -253,6 +253,6 @@ class StudentsController extends Controller
 
         $student=Student::find($id);
         $student->delete();
-        return redirect('students')->with(['message'=>('Successfully deleted student')]);
+        return redirect('faculty/'.$student->faculty_id.'/students')->with(['message'=>('Successfully deleted student')]);
     }
 }

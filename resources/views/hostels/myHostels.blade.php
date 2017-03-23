@@ -7,8 +7,12 @@
 </ol>
 
     {{--create a radio button for rooms in this particular hostel--}}
+@if(Auth::user()->role_id==1)
+    <h4>Rooms</h4>
+   @else
+    <h3><u>Select the room of choice</u></h3></br>
+    @endif
 
-<h3><u>Select the room of choice</u></h3></br>
 
       <form method="post" action="{{url('myRoom')}}">
           <input type="hidden" name="_token" value="{{ csrf_token() }}">

@@ -4,15 +4,17 @@
 
 <!-- work on how to include units on this view  -->
     <ol class="breadcrumb">
-        <li><a href="#">HEAD:{{$faculty->head}}</a></li>
+
         <li class="active">{{$faculty->name}}</li>
     </ol>
 
     @if(Auth::user()->role_id==1)
-        <a href="{{url('units/create')}}" class="btn btn-primary">Add Unit</a>
+        <a href="{{url('units/create')}}" class="btn btn-primary pull-right">Add Unit</a>
     @else
         <h3><u>Units to register</u></h3>
     @endif
+
+    <button class="btn" href="#">HEAD:{{$faculty->head}}</button>
 
 
      <form class="form-group"  method="post" action="{{url('myUnits')}}" >

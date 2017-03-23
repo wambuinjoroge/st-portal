@@ -3,16 +3,21 @@
 
 
 <ol class="breadcrumb">
-    <li class="active"><h3><b>{{$hostel->hostel_name}}</b></h3></li>
+    <li><a href="{{ url('hostels') }}"><b>Hostels</b></a></li>
+    <li class="active"><b>{{$hostel->hostel_name}}</b></li>
 </ol>
 
-<button type="button" class="btn btn-default btn-lg">
-    <a><span class="glyphicon glyphicon-user" aria-hidden="true"></span>Head:{{$hostel->hostel_head}}</a>
-</button>
+{{--<button type="button" class="btn btn-default btn-lg">--}}
+    {{--<a><span class="glyphicon glyphicon-user" aria-hidden="true"></span>Head:{{$hostel->hostel_head}}</a>--}}
+{{--</button>--}}
+<button class="btn">Head:{{$hostel->hostel_head}}</button>
 
 {{--create a radio button for rooms in this particular hostel--}}
-
-<h3><u>Select the room of choice</u></h3></br>
+@if(Auth::user()->role_id==1)
+    <h3><u>Rooms</u></h3>
+@else
+    <h3><u>Select the room of choice</u></h3></br>
+@endif
 
     <form method="post" action="{{url('room')}}">
 
