@@ -31,6 +31,7 @@ class StudentsController extends Controller
 
     }
     //Graduation applicants
+    //Getting all the graduands
     public function graduands(){
 
         $graduations = Graduation::all();
@@ -39,14 +40,15 @@ class StudentsController extends Controller
     }
 
     public function stGraduation(){
-
+        //getting the logged in user
         $user = Auth::user();
-
+        //querying the students table to get the required details
         $student = DB::table('students')->select(['students.id','students.admission_number','students.faculty_id','students.national_id'])
             ->where('user_id',$user->id)
             ->first();
 
-//        print_r($student);exit();
+//      print_r($student);exit();
+        //querying the faculties table to get the name and id
         $faculty = DB::table('faculties')->select(['faculties.id','faculties.name'])
             ->where('faculties.id',$student->faculty_id)
             ->first();
@@ -102,6 +104,7 @@ class StudentsController extends Controller
 
     public function showGrad($id){
 
+        //getting to show one graduand and their already filled in form
         $graduation = Graduation::find($id);
 
         return view('student.showGrad',compact('graduation'));
@@ -112,19 +115,8 @@ class StudentsController extends Controller
     {
 
        $faculties=Faculty::all();
+       return view('student.create',compact('faculties'));
 
-//     print_r($student);exit();
-
-           return view('student.create',compact('faculties'));
-
-//    } elseif($user->role_id == 2){
-//        if(!empty($student) ) {
-//
-//            return view('student.edit', compact('student'));
-//        } else {
-//            return view('student.create',compact('faculties'));
-//        }
-//
     }
 
 
@@ -186,7 +178,7 @@ class StudentsController extends Controller
     public function show($id){
 
     	$student=Student::find($id);
-//        print_r($student);exit();
+//      print_r($student);exit();
     	$fee=Fees::where('student_id',$student->id)->get();
 //    	print_r($fee);exit();
         $user_id = Auth::user()->id;
@@ -197,8 +189,7 @@ class StudentsController extends Controller
     public function show2($id){
 
         $student=Student::find($id);
-
-        //join from child to parent
+        //join from child to parent,use of many to many relationships ie a student with many units while a unit is being done by many students
         $student_unit = DB::table('student_units')->join('units','student_units.unit_id','=','units.id')
             ->join('students','student_units.student_id','=','students.id')
             ->select(['units.id','units.name'])
