@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Laravel</title>
+    <title>Zurich University</title>
 
     <!-- Fonts -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css" integrity="sha384-XdYbMnZ/QjLh6iI4ogqCTaIjrFk87ip+ekIjefZch0Y+PvJ8CDYtEs1ipDmPorQ+" crossorigin="anonymous">
@@ -14,9 +14,6 @@
     <!-- Styles -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link href="/css/style.css" rel="stylesheet">
-
-
-
 
 </head>
 <body id="app-layout">
@@ -43,6 +40,7 @@
 
                 </ul>
 
+                {{--Work on creating your own search button--}}
                 {{--<form class="navbar-form navbar-left">--}}
                     {{--<div class="form-group">--}}
                         {{--<input type="text"  >--}}
@@ -56,7 +54,6 @@
                         <li><a href="{{ url('/login') }}">Login</a></li>
                         {{--<li><a href="{{ url('/register') }}">Register</a></li>--}}
                     @else
-
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-expanded="false">
                                 <i class="fa fa-user fa-fw"></i>{{ Auth::user()->name }} <span class="caret "></span>
@@ -89,18 +86,18 @@
                                     </a>
                                 </li>
                                 <li>
-                                    <a href="{{url('home')}}"><i class="fa fa-fw fa-home"></i> Home</a>
+                                    <a href="{{url('home')}}"><i class="fa fa-fw fa-home"></i>Home</a>
                                 </li>
                                 {{--<li>--}}
                                     {{--<a href="{{url('students')}}"><i class="fa fa-fw fa-folder"></i> Students</a>--}}
                                 {{--</li>--}}
                                 <li>
-                                    <a href="{{url('faculties')}}" ><i class="fa fa-fw fa-book"></i>  Faculties </a>
+                                    <a href="{{url('faculties')}}" ><i class="fa fa-fw fa-book"></i>Faculties </a>
                                 </li>
 
 
                                 <li>
-                                    <a href="{{url('hostels')}}"><i class="fa fa-fw fa-cog"></i> Hostels</a>
+                                    <a href="{{url('hostels')}}"><i class="fa fa-fw fa-cog"></i>Hostels</a>
                                 </li>
                                 <li>
                                     <a href="{{ url('lecturers') }}"><i class="fa fa-fw fa-user"></i>Lecturers</a>
