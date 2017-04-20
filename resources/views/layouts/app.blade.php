@@ -136,11 +136,12 @@
                                 <li>
                                     <a href="
                                         @if (!empty(\App\Student::where('user_id', Auth::user()->id)->first()->faculty_id))
-                                            {{ url('faculty/'.\App\Student::where('user_id', Auth::user()->id)->first()->faculty_id) }}
+                                            {{--{{ url('faculty/'.\App\Student::where('user_id', Auth::user()->id)->first()->faculty_id) }}--}}
+                                            {{url('student-units/'.\App\Student::where('user_id',Auth::user()->id)->first()->id)}}
                                         @else
                                            {{ url('#') }}
                                         @endif
-                                    " ><i class="fa fa-fw fa-plus"></i> Units Registration </a>
+                                    " ><i class="fa fa-fw fa-plus"></i> Units</a>
                                 </li>
 
 
@@ -152,7 +153,7 @@
                                         @else
                                             {{url('student-hostels')}}
                                         @endif
-                                            "><i class="fa fa-fw fa-cog"></i>Hostel Booking</a>
+                                            "><i class="fa fa-fw fa-cog"></i>Student's Accommodation</a>
                                 </li>
                                 <li>
 

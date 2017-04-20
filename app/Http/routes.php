@@ -109,7 +109,7 @@ Route::get('/faculties','FacultyController@index');
 Route::get('faculties/create','FacultyController@create');
 Route::post('/faculties','FacultyController@store');
 
-Route::get('student-units','FacultyController@stUnits');
+Route::get('student-units/{id}','FacultyController@stUnits');
 Route::post('myUnits','FacultyController@myUnits');
 Route::get('faculty/{id}/students','FacultyController@show2');
 Route::get('faculty/{id}','FacultyController@show');

@@ -76,19 +76,7 @@ class FacultyController extends Controller
                DB::table('student_units')->insert($data);
            }
         }
-        if(is_array($units)){
-            foreach ($units as $unit){
-                $collect = [
-                  'unit_id' => $unit,
-                  'student_id' => $student->id,
-                  'created_at' => Carbon::now(),
-                  'updated_at' => Carbon::now()
-                ];
-                DB::table('student_units')->insert($collect);
-            }
-        }
-
-        return redirect('student-units');
+        return redirect('student-units/'.$student->id);
     }
 
     public function store(Request $request){
