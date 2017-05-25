@@ -12,7 +12,7 @@
                 </div>
               @if(Auth::user()->role_id==2)
                     <div>
-                        <a href="{{url('students/create')}}"><p>Edit your personal information here</p></a>
+                        <a href="{{url('/students/'.\App\Student::where("user_id",Auth::user()->id)->first()->id.'/edit')}}"><p>Edit your personal information here</p></a>
                     </div>
                 @endif
 

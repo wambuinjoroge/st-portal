@@ -22,7 +22,16 @@
 //devfest
 //Route::get('/dev', 'HomeController@display');
 
-
+//API
+Route::get('names','RoomController@index');
+Route::get('names/{id}',function ($id){
+   $names = array(
+    1 => "John",
+    2 => "Mary",
+    3 => "Steven"
+   );
+   return array($id => $names[$id]);
+});
 Route::get('/','HomeController@checkUser');
 
 

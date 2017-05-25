@@ -202,8 +202,11 @@ class StudentsController extends Controller
     }
 
     public function edit($id){
+
     	$student=Student::find($id);
+
     	return view('student.edit',compact('student'));
+
     }
 
     public function update( Request $request ,$id){
@@ -234,8 +237,6 @@ class StudentsController extends Controller
         $student->user_id=Auth::user()->id;
 //        $id = Auth::user()->id;
         $student->save();
-
-
 
         return redirect('student/'.$student->id);
 
