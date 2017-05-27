@@ -117,8 +117,17 @@ class StudentsController extends Controller
         $filename = $file->getClientOriginalName();//get the filename.
 
         if ($request->hasFile('photo')){
+
             $request->file('photo')->move($destinationPath);
             $request->file('photo')->move($destinationPath, $filename);//move file to destination.
+
+            $user = User::findOrFail(Auth::user()->id);
+            $input = $request->all();
+            $input['photo']->pathname = $destinationPath.$file->getClientOriginalName();
+
+            $data['image'] = $file->getClientOriginalName();
+            $user->update($data);
+
         }
 
 
