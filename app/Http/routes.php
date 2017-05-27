@@ -74,7 +74,7 @@ Route::get('students/create','StudentsController@create');
 Route::post('/students/create','StudentsController@store');
 Route::get('student/{id}','StudentsController@show');
 Route::post('image','StudentsController@save');
-Route::get('photo','StudentsController@upload');
+Route::get('upload','StudentsController@upload');
 Route::get('student/{id}/units','StudentsController@show2');
 
 Route::get('graduation','StudentsController@stGraduation');
