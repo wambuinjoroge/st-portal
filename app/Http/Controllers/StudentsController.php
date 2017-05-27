@@ -110,6 +110,22 @@ class StudentsController extends Controller
         return view('student.showGrad',compact('graduation'));
 
     }
+    public function save(Request $request){
+
+        $file = $request->file('photo');
+        $destinationPath = 'image';//path where the photo is to be stored.
+        $filename = $file->getClientOriginalName();//get the filename.
+
+        if ($request->hasFile('photo')){
+            $request->file('photo')->move($destinationPath);
+            $request->file('photo')->move($destinationPath, $filename);//move file to destination.
+        }
+
+
+    }
+    public function upload(){
+        return view('student.photo');
+    }
 
     public function create()
     {
