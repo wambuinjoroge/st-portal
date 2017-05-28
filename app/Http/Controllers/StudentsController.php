@@ -112,7 +112,7 @@ class StudentsController extends Controller
     }
     public function save(Request $request){
 
-        $file = $request->file('photo');
+        $file = $request->file('photo');//giving the file its name.
         $destinationPath = 'image';//path where the photo is to be stored.
         $filename = $file->getClientOriginalName();//get the filename.
 
@@ -129,8 +129,6 @@ class StudentsController extends Controller
             $user->update($data);
 
         }
-
-
     }
     public function upload(){
         return view('student.photo');
