@@ -23,12 +23,12 @@
 //Route::get('/dev', 'HomeController@display');
 
 //API
-Route::get('names','RoomController@index');
-Route::get('names/{id}',function ($id){
+Route::get('rooms','RoomController@index');
+Route::get('rooms/{id}',function ($id){
    $names = array(
-    1 => "John",
-    2 => "Mary",
-    3 => "Steven"
+    1 => "A001",
+    2 => "B001",
+    3 => "C001"
    );
    return array($id => $names[$id]);
 });
