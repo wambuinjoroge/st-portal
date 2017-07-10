@@ -119,14 +119,14 @@ class StudentsController extends Controller
 
         if ($request->hasFile('photo')){
 
-            $request->file('photo')->move($destinationPath);
-            $request->file('photo')->move(public_path().$destinationPath, $filename);//move file to permanent destination.
+//            $request->file('photo')->move($destinationPath);
+//            dd($request->file('photo'));
+            $request->file('photo')->move($destinationPath, $filename);//move file to permanent destination.
 
-//            dd(public_path().$destinationPath);
 //            $user = Auth::user()->id;
 
-            $input = $request->all();
-            $input['photo']->pathname = $destinationPath.$file->getClientOriginalName();
+//            $input = $request->all();
+//            $input['photo']->pathname = $destinationPath.$file->getClientOriginalName();
 
 //            $data['photo'] = $file->getClientOriginalName();
 ////            print_r($data);exit();
