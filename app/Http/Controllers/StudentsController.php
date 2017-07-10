@@ -123,20 +123,21 @@ class StudentsController extends Controller
 //            dd($request->file('photo'));
             $request->file('photo')->move($destinationPath, $filename);//move file to permanent destination.
 
-//            $user = Auth::user()->id;
+            $id = Auth::user()->id;//getting the id of the logged in user
+            $user=User::find($id);
+//            print_r($user);exit();
+            $input = $request->all();
+//            dd($input = $request->all());
+            $input['photo']->pathname = $destinationPath.$file->getClientOriginalName();
 
-//            $input = $request->all();
-//            $input['photo']->pathname = $destinationPath.$file->getClientOriginalName();
-
-//            $data['photo'] = $file->getClientOriginalName();
-////            print_r($data);exit();
-//            $user->update($data);
+            $data['photo'] = $file->getClientOriginalName();
+//            print_r($data);exit();
+            $user->update($data);
 
             //I was having the same issue because I was not giving the complete path to the destination folder
         }
-
-
         return redirect('students/create');
+
     }
     public function upload(){
 
