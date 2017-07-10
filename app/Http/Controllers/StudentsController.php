@@ -113,39 +113,28 @@ class StudentsController extends Controller
     public function save(Request $request){
 
         $file = $request->file('photo');//giving the file its name.
-        $destinationPath = 'image';//path where the photo is to be stored temporarily.
+        $destinationPath = public_path('/public/picture/photos');//path where the photo is to be stored temporarily.
         $filename = $file->getClientOriginalName();//get the filename.
+
 
         if ($request->hasFile('photo')){
 
             $request->file('photo')->move($destinationPath);
             $request->file('photo')->move(public_path().$destinationPath, $filename);//move file to permanent destination.
 
-            dd(public_path().$destinationPath);
-            $user = Auth::user()->id;
+//            dd(public_path().$destinationPath);
+//            $user = Auth::user()->id;
 
             $input = $request->all();
             $input['photo']->pathname = $destinationPath.$file->getClientOriginalName();
 
-            $data['image'] = $file->getClientOriginalName();
-//            print_r($data);exit();
-            $user->update($data);
+//            $data['photo'] = $file->getClientOriginalName();
+////            print_r($data);exit();
+//            $user->update($data);
 
             //I was having the same issue because I was not giving the complete path to the destination folder
         }
 
-//        if ($request->hasFile('input_img')) {
-//            if($request->file('input_img')->isValid()) {
-//                try {
-//                    $file = $request->file('input_img');
-//                    $name = rand(11111, 99999) . '.' . $file->getClientOriginalExtension();
-//
-//                    $request->file('input_img')->move("fotoupload", $name);
-//                } catch (Illuminate\Filesystem\FileNotFoundException $e) {
-//
-//                }
-//            }
-//        }
 
         return redirect('students/create');
     }

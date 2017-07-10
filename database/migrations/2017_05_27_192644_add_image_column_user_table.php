@@ -14,7 +14,7 @@ class AddImageColumnUserTable extends Migration
     {
         //
         Schema::table('users', function (Blueprint $table) {
-            $table->binary('image');
+            $table->binary('picture');
         });
     }
 
@@ -27,7 +27,7 @@ class AddImageColumnUserTable extends Migration
     {
         //
         Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('image');
+            $table->dropColumn('picture');
         });
     }
 }
