@@ -17,7 +17,7 @@
       </br>
 
 
-        <button class="btn btn-primary">Submit</button>
+        <button class="btn btn-primary open-modal" value="{{$hostel->id}}">Submit</button>
     {{--</div>--}}
 </form>
     {{--@else--}}
