@@ -27,11 +27,9 @@ class HostelsController extends Controller
     public function hostels()
     {
 
-        $user = Auth::user();
-
+        $user = Auth::user();//logged in  user in authorized
         $student = Student::where('user_id',$user->id)->first();
 //        print_r($student->gender);exit();
-
         $hostels = Hostel::where('gender',$student->gender)->get();
         return view('hostels.st-hostels', compact('hostels'));
     }
@@ -39,21 +37,15 @@ class HostelsController extends Controller
     public function stHostels(){
 
         $user = Auth::user();
-
         $student = Student::where('user_id',$user->id)->first();
-
-
         $hostel=DB::table('hostels')->select(['hostels.id','hostels.hostel_name','hostels.hostel_head'])
             ->where('hostels.id',$student->hostel_id)
             ->first();
-
 //       print_r($hostel);exit();
-
         //$rooms = Room::where('hostel_id',$hostel->id);
         $rooms = DB::table('rooms')->select(['rooms.id','rooms.random_no'])
             ->where('rooms.hostel_id',$hostel->id)
             ->get();
-
        return view('hostels.show',compact('hostel','student','rooms'));
 
     }
@@ -61,18 +53,12 @@ class HostelsController extends Controller
     public function myHostels(Request $request)
     {
         $user = Auth::user();
-
         $student = Student::where('user_id', $user->id)->first();
-
 //        print_r($request->input('hostel_id'));exit;
         $student->hostel_id = $request->get('hostel_id');
-
         $student->save();
-
 //        $hostel_id = $request->get('hostel_id');
-
 //        $hostel=Hostel::find($hostel_id);
-
 
         return redirect('myHostels');
     }
