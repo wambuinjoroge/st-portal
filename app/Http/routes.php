@@ -160,32 +160,43 @@ Route::get('evaluation', function () {
     return view('student.evaluation');
 });
 
+
+
 //tests
 Route::get('/tasks/{task_id?}',function($task_id){
-    $task = Task::find($task_id);
+    $task = \App\Task::find($task_id);
 
-    return Response::json($task);
+    return \Illuminate\Support\Facades\Response::json($task);
 });
 
-Route::post('/tasks',function(Request $request){
-    $task = Task::create($request->all());
+Route::post('/tasks',function(\Illuminate\Http\Request $request){
+    $task = \App\Task::create($request->all());
 
-    return Response::json($task);
+    return \Illuminate\Support\Facades\Response::json($task);
 });
 
-Route::put('/tasks/{task_id?}',function(Request $request,$task_id){
-    $task = Task::find($task_id);
+Route::put('/tasks/{task_id?}',function(\Illuminate\Http\Request $request,$task_id){
+    $task = \App\Task::find($task_id);
 
-    $task->task = $request->task;
+    $task->task= $request->task;
     $task->description = $request->description;
 
     $task->save();
 
-    return Response::json($task);
+    return \Illuminate\Support\Facades\Response::json($task);
 });
 
 Route::delete('/tasks/{task_id?}',function($task_id){
-    $task = Task::destroy($task_id);
+    $task = \App\Task::destroy($task_id);
 
-    return Response::json($task);
+    return \Illuminate\Support\Facades\Response::json($task);
 });
+
+Route::get('/', function () {
+    $tasks = \App\Task::all();
+
+    return view('tasks.todo')->with('tasks',$tasks);
+});
+
+
+//Route::get('todo','StudentsController@task');

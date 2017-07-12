@@ -9,6 +9,7 @@ use App\Graduation;
 use App\Hostel;
 use App\Lecturer;
 use App\StudentUnit;
+use App\Task;
 use App\User;
 use Illuminate\Http\Request;
 use App\Student;
@@ -23,6 +24,14 @@ use Illuminate\Support\Facades\Validator;
 
 class StudentsController extends Controller
 {
+    //tests
+    public function task(){
+
+        $tasks=Task::all();
+        return view('tasks.todo',compact('tasks'));
+
+    }
+
     //index
     public function index(){
      
