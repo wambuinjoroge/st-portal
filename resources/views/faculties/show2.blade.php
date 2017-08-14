@@ -2,6 +2,37 @@
 @section('content')
 
 
+	<nav class="navbar navbar-btn ">
+
+		{{--search button--}}
+
+		<div class="row">
+			{{--<form method="post" class="navbar-form navbar-left  has-feedback" >--}}
+			{{--<div class="col-md-4">--}}
+
+			{{--</div>--}}
+			{{--<div class="form-group">--}}
+			{{--<input type="text"  class="form-control ">--}}
+			{{--<span class="glyphicon glyphicon-search form-control-feedback" ></span>--}}
+			{{--</div>--}}
+
+			{{--<button type="submit">Search</button>--}}
+
+			{{--</form>--}}
+			<form class="form-inline" role="form" action="{{ url('/search') }}" method="get">
+				<div class="form-group  has-feedback">
+					<label class="control-label" for="inputSuccess4"></label>
+					<input type="text" class="form-control" id="inputSuccess4" name="query">
+					{{--<span class="glyphicon glyphicon-search form-control-feedback"></span>--}}
+				</div>
+				<button type="submit">Search</button>
+			</form>
+		</div>
+
+		<div class="col-md-1"></div>
+
+	</nav>
+
 	<!-- work on how to include units on this view  -->
 	<ol class="breadcrumb">
 		<li><a href="{{ url('faculties') }}">FACULTIES</a></li>
@@ -25,8 +56,9 @@
 	{{--</ol>--}}
 	<a href="#" class="btn">HEAD:{{$faculty->head}}</a>
 
-	<table class="table table-striped table-bordered bg-faded" >
-		<thead>
+	{{--<table class="table table-striped table-bordered bg-faded" >--}}
+	<table class="table picker__day--highlighted">
+	<thead>
 		<tr>
 			<td>Name</td>
 			<td>Admission Number</td>

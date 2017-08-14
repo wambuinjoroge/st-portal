@@ -8,7 +8,8 @@
 	</ol>
 
 	<table class="table table-striped table-bordered bg-faded" >
-	  <thead>
+	{{--<table class="highlight">  --}}
+	<thead>
 		<tr>
 			<td>Name</td>
 			<td>Admission Number</td>

@@ -23,7 +23,9 @@
 //Route::get('/dev', 'HomeController@display');
 
 //API
+
 Route::get('rooms','RoomController@index');
+Route::get('numbers','SearchController@prime');
 Route::get('rooms/{id}',function ($id){
    $names = array(
     1 => "A001",
@@ -73,8 +75,10 @@ Route::get('graduands','StudentsController@graduands');
 Route::get('students/create','StudentsController@create');
 Route::post('/students/create','StudentsController@store');
 Route::get('student/{id}','StudentsController@show');
-Route::post('image','StudentsController@save');
-Route::get('upload','StudentsController@upload');
+//Route::post('image','StudentsController@save');
+//Route::get('upload','StudentsController@upload');
+Route::get('upload', 'StudentsController@viewer');
+Route::post('/save', 'StudentsController@save');
 Route::get('student/{id}/units','StudentsController@show2');
 
 Route::get('graduation','StudentsController@stGraduation');
@@ -126,6 +130,7 @@ Route::get('faculty/{id}/students','FacultyController@show2');
 Route::get('faculty/{id}','FacultyController@show');
 Route::get('/faculties/{id}/edit','FacultyController@edit');
 Route::post('/faculties/{id}','FacultyController@update');
+Route::get('/{student}',['uses' => 'HomeController@student','as' => 'student.show']);
 
 Route::get('faculties/delete/{id}','FacultyController@destroy');
 
@@ -192,11 +197,11 @@ Route::delete('/tasks/{task_id?}',function($task_id){
     return \Illuminate\Support\Facades\Response::json($task);
 });
 
-Route::get('/', function () {
-    $tasks = \App\Task::all();
-
-    return view('tasks.todo')->with('tasks',$tasks);
-});
+//Route::get('/', function () {
+//    $tasks = \App\Task::all();
+//
+//    return view('tasks.todo')->with('tasks',$tasks);
+//});
 
 
 //Route::get('todo','StudentsController@task');

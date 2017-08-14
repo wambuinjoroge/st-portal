@@ -124,7 +124,18 @@ class FacultyController extends Controller
     public function show2($id){
         $faculty=Faculty::find($id);
         $students=Student::where('faculty_id',$faculty->id)->get();
+//        print_r($students);exit();
         return view('faculties.show2',compact('faculty','students'));
+    }
+
+    //logic for the search button,query per say
+    function search(){
+        $keyword = Input::get('query');
+
+        $student_search = Student::find($keyword);
+
+
+        return Redirect::route('student.show', array('student' => $student_search));
     }
 
     public function edit($id){

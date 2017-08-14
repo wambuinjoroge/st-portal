@@ -16,9 +16,11 @@
                     </div>
                 @endif
 
-                <script type="text/javascript">
 
-                </script>                  
+                <a class="btn btn-floating pulse"><i class="material-icons">menu</i></a>
+                <a class="btn btn-floating btn-large pulse"><i class="material-icons">cloud</i></a>
+                <a class="btn btn-floating btn-large cyan pulse"><i class="material-icons">edit</i></a>
+
             </div>
         </div>
     </div>

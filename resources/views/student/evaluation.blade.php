@@ -13,7 +13,6 @@
 
     <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-
     <label for="lecturer">Lecturer's Name</label>
     <select name="lecturer_name" id="lecturer" class="form-control">
         @foreach($lecturers as $lecturer => $value)
@@ -47,7 +46,7 @@
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
        <input type="radio" name="opinion"  value="2" >
        Fair
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
        <input type="radio" name="opinion"  value="3" >
        Good

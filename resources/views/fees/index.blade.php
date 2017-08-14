@@ -16,6 +16,7 @@
         </thead>
         <tbody>
 
+
             @foreach($fees as $fee)
                 <tr>
                     <td>{{$fee -> student_id}}</td>

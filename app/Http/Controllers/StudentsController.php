@@ -20,11 +20,13 @@ use Illuminate\Routing\Controller;
 // use App\Http\Controllers\Session;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Validator;
 
 class StudentsController extends Controller
 {
     //tests
+
     public function task(){
 
         $tasks=Task::all();
@@ -32,6 +34,28 @@ class StudentsController extends Controller
 
     }
 
+    //uploading images
+    public function save(Request $request){
+
+        $file = $request->file('image');//giving the file its name.
+        $destinationPath = public_path('images');//path where the photo is to be stored permanently.
+        $filename = $file->getClientOriginalName();//get the filename.
+
+        if ($request->hasFile('image')){
+
+            $request->file('image')->move($destinationPath, $filename);//move file to temporary destination.
+
+            $input = $request->all();
+//          dd($input = $request->all());
+
+            $input['image']->pathname = $destinationPath.$file->getClientOriginalName();
+        }
+        return back();
+    }
+
+    public function viewer(){
+        return view ('tokens.token');
+    }
     //index
     public function index(){
      
@@ -119,40 +143,40 @@ class StudentsController extends Controller
         return view('student.showGrad',compact('graduation'));
 
     }
-    public function save(Request $request){
-
-        $file = $request->file('photo');//giving the file its name.
-        $destinationPath = public_path('/public/picture/photos');//path where the photo is to be stored temporarily.
-        $filename = $file->getClientOriginalName();//get the filename.
-
-
-        if ($request->hasFile('photo')){
-
-//            $request->file('photo')->move($destinationPath);
-//            dd($request->file('photo'));
-            $request->file('photo')->move($destinationPath, $filename);//move file to permanent destination.
-
-            $id = Auth::user()->id;//getting the id of the logged in user
-            $user=User::find($id);
-//            print_r($user);exit();
-            $input = $request->all();
-//            dd($input = $request->all());
-            $input['photo']->pathname = $destinationPath.$file->getClientOriginalName();
-
-            $data['photo'] = $file->getClientOriginalName();
-//            print_r($data);exit();
-            $user->update($data);
-
-            //I was having the same issue because I was not giving the complete path to the destination folder
-        }
-        return redirect('students/create');
-
-    }
-    public function upload(){
-
-        return view('student.photo');
-
-    }
+//    public function save(Request $request){
+//
+//        $file = $request->file('photo');//giving the file its name.
+//        $destinationPath = public_path('/public/picture/photos');//path where the photo is to be stored temporarily.
+//        $filename = $file->getClientOriginalName();//get the filename.
+//
+//
+//        if ($request->hasFile('photo')){
+//
+////            $request->file('photo')->move($destinationPath);
+////            dd($request->file('photo'));
+//            $request->file('photo')->move($destinationPath, $filename);//move file to permanent destination.
+//
+//            $id = Auth::user()->id;//getting the id of the logged in user
+//            $user=User::find($id);
+////            print_r($user);exit();
+//            $input = $request->all();
+////            dd($input = $request->all());
+//            $input['photo']->pathname = $destinationPath.$file->getClientOriginalName();
+//
+//            $data['photo'] = $file->getClientOriginalName();
+////            print_r($data);exit();
+//            $user->update($data);
+//
+//            //I was having the same issue because I was not giving the complete path to the destination folder
+//        }
+//        return redirect('students/create');
+//
+//    }
+//    public function upload(){
+//
+//        return view('student.photo');
+//
+//    }
 
     public function create()
     {
