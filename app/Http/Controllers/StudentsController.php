@@ -50,7 +50,7 @@ class StudentsController extends Controller
 
             $input['image']->pathname = $destinationPath.$file->getClientOriginalName();
         }
-        return back();
+        return back()->with('input');
     }
 
     public function viewer(){
